@@ -1,0 +1,197 @@
+{
+  "activateSkinCapeForUserVersion": false,
+  "skipHashsumValidation": false,
+  "additionalFiles": [
+    {
+      "sha1": "db5c59932751d66c2f57c1c2de41b48712620975",
+      "size": 12372293,
+      "path": "libraries/net/minecraft/client/1.21.1-20240808.144430/client-1.21.1-20240808.144430-extra.jar",
+      "url": "http://res.tlauncher.org/unb/libraries/cache/net/minecraft/client/1.21.1-20240808.144430/client-1.21.1-20240808.144430-extra.jar"
+    },
+    {
+      "sha1": "a4827225b3c07662ca68b03ea20d11433a0c0488",
+      "size": 18725656,
+      "path": "libraries/net/minecraft/client/1.21.1-20240808.144430/client-1.21.1-20240808.144430-srg.jar",
+      "url": "http://res.tlauncher.org/unb/libraries/cache/net/minecraft/client/1.21.1-20240808.144430/client-1.21.1-20240808.144430-srg.jar"
+    },
+    {
+      "sha1": "2244b6f072256667bcd9a73df124d6c58de77992",
+      "size": 9598610,
+      "path": "libraries/net/minecraft/client/1.21.1-20240808.144430/client-1.21.1-20240808.144430-mappings.txt",
+      "url": "http://res.tlauncher.org/unb/libraries/cache/net/minecraft/client/1.21.1-20240808.144430/client-1.21.1-20240808.144430-mappings.txt"
+    },
+    {
+      "sha1": "b4fb33003ee0975bc4511ff09d5d4a268b33fc2b",
+      "size": 14464635,
+      "path": "libraries/net/minecraft/client/1.21.1-20240808.144430/client-1.21.1-20240808.144430-slim.jar",
+      "url": "http://res.tlauncher.org/unb/libraries/cache/net/minecraft/client/1.21.1-20240808.144430/client-1.21.1-20240808.144430-slim.jar"
+    },
+    {
+      "sha1": "78f59f89defcd032ed788b151ca6a0d40ace796a",
+      "size": 31807,
+      "path": "libraries/net/neoforged/JarJarFileSystems/0.4.1/JarJarFileSystems-0.4.1.jar",
+      "url": "http://res.tlauncher.org/unb/libraries/cache/net/neoforged/JarJarFileSystems/0.4.1/JarJarFileSystems-0.4.1.jar"
+    },
+    {
+      "sha1": "5b2d33285ab5d1554e9798ad98c40d6ea3868bd5",
+      "size": 30340,
+      "path": "libraries/net/neoforged/bus/8.0.5/bus-8.0.5.jar",
+      "url": "http://res.tlauncher.org/unb/libraries/cache/net/neoforged/bus/8.0.5/bus-8.0.5.jar"
+    },
+    {
+      "sha1": "f8da03683dc81694556dc3e177c5e3bb77ae6fcb",
+      "size": 15648,
+      "path": "libraries/net/neoforged/JarJarMetadata/0.4.1/JarJarMetadata-0.4.1.jar",
+      "url": "http://res.tlauncher.org/unb/libraries/cache/net/neoforged/JarJarMetadata/0.4.1/JarJarMetadata-0.4.1.jar"
+    },
+    {
+      "sha1": "e5a3115eb9e299117472675946be8a72e4990ad6",
+      "size": 9379,
+      "path": "libraries/net/neoforged/installertools/cli-utils/2.1.2/cli-utils-2.1.2.jar",
+      "url": "http://res.tlauncher.org/unb/libraries/cache/net/neoforged/installertools/cli-utils/2.1.2/cli-utils-2.1.2.jar"
+    },
+    {
+      "sha1": "759b63ef393ed80418ec1ea4d233cd6152d02637",
+      "size": 624217,
+      "path": "libraries/net/neoforged/installertools/binarypatcher/2.1.2/binarypatcher-2.1.2-fatjar.jar",
+      "url": "http://res.tlauncher.org/unb/libraries/cache/net/neoforged/installertools/binarypatcher/2.1.2/binarypatcher-2.1.2-fatjar.jar"
+    },
+    {
+      "sha1": "72524c0362f812d8aa4cdb4c03e9b45e2b71ae3b",
+      "size": 83543,
+      "path": "libraries/net/neoforged/installertools/installertools/2.1.2/installertools-2.1.2.jar",
+      "url": "http://res.tlauncher.org/unb/libraries/cache/net/neoforged/installertools/installertools/2.1.2/installertools-2.1.2.jar"
+    },
+    {
+      "sha1": "8a7916be0a0e589897beab7c839072631067e48e",
+      "size": 7790,
+      "path": "libraries/net/neoforged/installertools/jarsplitter/2.1.2/jarsplitter-2.1.2.jar",
+      "url": "http://res.tlauncher.org/unb/libraries/cache/net/neoforged/installertools/jarsplitter/2.1.2/jarsplitter-2.1.2.jar"
+    },
+    {
+      "sha1": "fb10b7bf2f568a9676ad8b426b19c23badbbd98a",
+      "size": 505633,
+      "path": "libraries/net/neoforged/fancymodloader/loader/4.0.43/loader-4.0.43.jar",
+      "url": "http://res.tlauncher.org/unb/libraries/cache/net/neoforged/fancymodloader/loader/4.0.43/loader-4.0.43.jar"
+    },
+    {
+      "sha1": "3a941fcf258b5a7dde0445377a7206a55d11630d",
+      "size": 261719,
+      "path": "libraries/net/neoforged/fancymodloader/earlydisplay/4.0.43/earlydisplay-4.0.43.jar",
+      "url": "http://res.tlauncher.org/unb/libraries/cache/net/neoforged/fancymodloader/earlydisplay/4.0.43/earlydisplay-4.0.43.jar"
+    },
+    {
+      "sha1": "fb3cc7a58af22ad2880adb98af6d518128c47dae",
+      "size": 17168,
+      "path": "libraries/net/neoforged/JarJarSelector/0.4.1/JarJarSelector-0.4.1.jar",
+      "url": "http://res.tlauncher.org/unb/libraries/cache/net/neoforged/JarJarSelector/0.4.1/JarJarSelector-0.4.1.jar"
+    },
+    {
+      "sha1": "09147e6f638b4272b3bd5fc8f92ad37802512c6c",
+      "size": 22659,
+      "path": "libraries/net/neoforged/coremods/7.0.3/coremods-7.0.3.jar",
+      "url": "http://res.tlauncher.org/unb/libraries/cache/net/neoforged/coremods/7.0.3/coremods-7.0.3.jar"
+    },
+    {
+      "sha1": "b9fe6cdab494983217cbc14cc6f92c8e6c616526",
+      "size": 71421,
+      "path": "libraries/net/neoforged/srgutils/1.0.0/srgutils-1.0.0.jar",
+      "url": "http://res.tlauncher.org/unb/libraries/cache/net/neoforged/srgutils/1.0.0/srgutils-1.0.0.jar"
+    },
+    {
+      "sha1": "52fe1949be64e3303aabaaa21e315f551db9c9f4",
+      "size": 2550,
+      "path": "libraries/net/neoforged/mergetool/2.0.0/mergetool-2.0.0-api.jar",
+      "url": "http://res.tlauncher.org/unb/libraries/cache/net/neoforged/mergetool/2.0.0/mergetool-2.0.0-api.jar"
+    },
+    {
+      "sha1": "811e2bd86fa2cda2812e5e8e51d718ea8bd6d3f4",
+      "size": 1683830,
+      "path": "libraries/net/neoforged/neoform/1.21.1-20240808.144430/neoform-1.21.1-20240808.144430.zip",
+      "url": "http://res.tlauncher.org/unb/libraries/cache/net/neoforged/neoform/1.21.1-20240808.144430/neoform-1.21.1-20240808.144430.zip"
+    },
+    {
+      "sha1": "8184d8b290627ae54ab0eb980801bfe011f70175",
+      "size": 5636727,
+      "path": "libraries/net/neoforged/neoform/1.21.1-20240808.144430/neoform-1.21.1-20240808.144430-mappings-merged.txt",
+      "url": "http://res.tlauncher.org/unb/libraries/cache/net/neoforged/neoform/1.21.1-20240808.144430/neoform-1.21.1-20240808.144430-mappings-merged.txt"
+    },
+    {
+      "sha1": "c9fe69b8e39fc9ae8a56e6666204505866006cce",
+      "size": 5601343,
+      "path": "libraries/net/neoforged/neoform/1.21.1-20240808.144430/neoform-1.21.1-20240808.144430-mappings.txt",
+      "url": "http://res.tlauncher.org/unb/libraries/cache/net/neoforged/neoform/1.21.1-20240808.144430/neoform-1.21.1-20240808.144430-mappings.txt"
+    },
+    {
+      "sha1": "d9890c71b4366f886c2b1006782043a6a6816eb6",
+      "size": 746919,
+      "path": "libraries/net/neoforged/AutoRenamingTool/2.0.3/AutoRenamingTool-2.0.3-all.jar",
+      "url": "http://res.tlauncher.org/unb/libraries/cache/net/neoforged/AutoRenamingTool/2.0.3/AutoRenamingTool-2.0.3-all.jar"
+    },
+    {
+      "sha1": "8ce08acd2bfdfa59c0c33149f970f8e22f586a5d",
+      "size": 3542495,
+      "path": "libraries/net/neoforged/neoforge/21.1.236/neoforge-21.1.236-universal.jar",
+      "url": "http://res.tlauncher.org/unb/libraries/cache/net/neoforged/neoforge/21.1.236/neoforge-21.1.236-universal.jar"
+    },
+    {
+      "sha1": "e0f4fc5d1ba94c4de11a296f835010e8e7b1a9b9",
+      "size": 5673824,
+      "path": "libraries/net/neoforged/neoforge/21.1.236/neoforge-21.1.236-client.jar",
+      "url": "http://res.tlauncher.org/unb/libraries/cache/net/neoforged/neoforge/21.1.236/neoforge-21.1.236-client.jar"
+    },
+    {
+      "sha1": "fd83b5725f76eae9115e9355fa1c456a6a441400",
+      "size": 67234,
+      "path": "libraries/net/neoforged/accesstransformers/10.0.1/accesstransformers-10.0.1.jar",
+      "url": "http://res.tlauncher.org/unb/libraries/cache/net/neoforged/accesstransformers/10.0.1/accesstransformers-10.0.1.jar"
+    },
+    {
+      "sha1": "5aba50202aceead086bc09fbc2751c9f05cb4890",
+      "size": 2347,
+      "path": "libraries/net/neoforged/accesstransformers/at-modlauncher/10.0.1/at-modlauncher-10.0.1.jar",
+      "url": "http://res.tlauncher.org/unb/libraries/cache/net/neoforged/accesstransformers/at-modlauncher/10.0.1/at-modlauncher-10.0.1.jar"
+    }
+  ],
+  "tlauncherVersion": 0,
+  "modpack": {
+    "modpackMemory": false,
+    "memory": 0,
+    "id": -31640638505100,
+    "name": "NewHistory-v3",
+    "favorite": false,
+    "version": {
+      "mods": [],
+      "resourcePacks": [],
+      "maps": [],
+      "shaderpacks": [],
+      "gameVersionDTO": {
+        "id": 53,
+        "name": "1.21.1"
+      },
+      "minecraftVersionName": {
+        "id": 1865,
+        "name": "21.1.236"
+      },
+      "id": -31640638516101,
+      "name": "1.0",
+      "available": false,
+      "remove": false,
+      "minecraftVersionTypes": [
+        {
+          "id": 5,
+          "name": "neoForge"
+        }
+      ]
+    },
+    "userInstall": false,
+    "populateStatus": false,
+    "available": false,
+    "parser": false,
+    "notExists": false,
+    "totalComments": 0
+  },
+  "source": "local_version_repo",
+  "jar": "1.21.1",
+  "skinVersion": false
+}

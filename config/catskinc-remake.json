@@ -1,0 +1,7 @@
+{
+  "catskinCloudIp": "storage-api.catskin.space",
+  "showConnectionToast": true,
+  "showUploadToast": true,
+  "showInfoToast": true,
+  "showErrorToast": true
+}

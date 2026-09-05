@@ -1,0 +1,86 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "kubejs:resine_sheet"
+  },
+  "loops": 2,
+  "results": [
+    {
+      "id": "kubejs:armour_resine"
+    },
+    {
+      "id": "kubejs:resine_sheet",
+      "chance": 0.12
+    },
+    {
+      "id": "minecraft:string",
+      "chance": 0.08
+    }
+  ],
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:armour_resine"
+        },
+        {
+          "tag": "c:plates/iron"
+        }
+      ],
+      "results": [
+        {
+          "id": "kubejs:armour_resine"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:armour_resine"
+        },
+        {
+          "item": "minecraft:string"
+        }
+      ],
+      "results": [
+        {
+          "id": "kubejs:armour_resine"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:armour_resine"
+        },
+        {
+          "item": "kubejs:alloy_zink_brass"
+        }
+      ],
+      "results": [
+        {
+          "id": "kubejs:armour_resine"
+        }
+      ]
+    },
+    {
+      "type": "create:pressing",
+      "ingredients": [
+        {
+          "item": "kubejs:armour_resine"
+        }
+      ],
+      "results": [
+        {
+          "id": "kubejs:armour_resine"
+        }
+      ]
+    }
+  ],
+  "transitional_item": {
+    "id": "kubejs:armour_resine"
+  }
+}

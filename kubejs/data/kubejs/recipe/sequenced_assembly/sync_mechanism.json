@@ -1,0 +1,102 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "kubejs:brass_frame"
+  },
+  "loops": 3,
+  "results": [
+    {
+      "id": "kubejs:sync_mechanism"
+    },
+    {
+      "id": "kubejs:brass_frame",
+      "chance": 0.08
+    },
+    {
+      "id": "minecraft:redstone",
+      "chance": 0.16
+    }
+  ],
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:sync_mechanism"
+        },
+        {
+          "item": "create:electron_tube"
+        }
+      ],
+      "results": [
+        {
+          "id": "kubejs:sync_mechanism"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:sync_mechanism"
+        },
+        {
+          "item": "kubejs:metal_alloy"
+        }
+      ],
+      "results": [
+        {
+          "id": "kubejs:sync_mechanism"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:sync_mechanism"
+        },
+        {
+          "item": "kubejs:copper_spool"
+        }
+      ],
+      "results": [
+        {
+          "id": "kubejs:sync_mechanism"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:sync_mechanism"
+        },
+        {
+          "tag": "c:dusts/redstone"
+        }
+      ],
+      "results": [
+        {
+          "id": "kubejs:sync_mechanism"
+        }
+      ]
+    },
+    {
+      "type": "create:pressing",
+      "ingredients": [
+        {
+          "item": "kubejs:sync_mechanism"
+        }
+      ],
+      "results": [
+        {
+          "id": "kubejs:sync_mechanism"
+        }
+      ]
+    }
+  ],
+  "transitional_item": {
+    "id": "kubejs:sync_mechanism"
+  }
+}

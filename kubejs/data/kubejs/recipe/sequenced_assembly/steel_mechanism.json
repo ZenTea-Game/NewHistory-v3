@@ -1,0 +1,102 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "kubejs:gear"
+  },
+  "loops": 4,
+  "results": [
+    {
+      "id": "kubejs:steel_mechanism"
+    },
+    {
+      "id": "kubejs:gear",
+      "chance": 0.1
+    },
+    {
+      "id": "createnuclear:steel_nugget",
+      "chance": 0.18
+    }
+  ],
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:steel_mechanism"
+        },
+        {
+          "item": "createnuclear:steel_ingot"
+        }
+      ],
+      "results": [
+        {
+          "id": "kubejs:steel_mechanism"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:steel_mechanism"
+        },
+        {
+          "item": "kubejs:metal_alloy"
+        }
+      ],
+      "results": [
+        {
+          "id": "kubejs:steel_mechanism"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:steel_mechanism"
+        },
+        {
+          "item": "kubejs:copper_spool"
+        }
+      ],
+      "results": [
+        {
+          "id": "kubejs:steel_mechanism"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:steel_mechanism"
+        },
+        {
+          "item": "create:large_cogwheel"
+        }
+      ],
+      "results": [
+        {
+          "id": "kubejs:steel_mechanism"
+        }
+      ]
+    },
+    {
+      "type": "create:pressing",
+      "ingredients": [
+        {
+          "item": "kubejs:steel_mechanism"
+        }
+      ],
+      "results": [
+        {
+          "id": "kubejs:steel_mechanism"
+        }
+      ]
+    }
+  ],
+  "transitional_item": {
+    "id": "kubejs:steel_mechanism"
+  }
+}
