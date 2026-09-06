@@ -26,11 +26,11 @@ function Write-Center([string]$Text, [ConsoleColor]$Color = 'Gray') {
     Write-Host (" " * $spaces + $Text) -ForegroundColor $Color
 }
 
-# НОВАЯ ФУНКЦИЯ ДЛЯ ОБНОВЛЕНИЯ ОДНОЙ СТРОКИ ПО ЦЕНТРУ (Надежная)
+# Функция обновления одной строки
 function Write-ProgressLine([string]$Text, [ConsoleColor]$Color = 'Cyan') {
-    [Console]::SetCursorPosition(0, [Console]::CursorTop)  # Ставим курсор в начало строки
-    Write-Host (" " * [Console]::WindowWidth) -NoNewline    # Стираем всю строку
-    [Console]::SetCursorPosition(0, [Console]::CursorTop)  # Возвращаем курсор в начало
+    [Console]::SetCursorPosition(0, [Console]::CursorTop)
+    Write-Host (" " * [Console]::WindowWidth) -NoNewline
+    [Console]::SetCursorPosition(0, [Console]::CursorTop)
     $spaces = [math]::Max(0, [math]::Floor(([Console]::WindowWidth - $Text.Length) / 2))
     Write-Host (" " * $spaces + $Text) -NoNewline -ForegroundColor $Color
 }
@@ -69,7 +69,7 @@ function Get-RemoteVersion {
     return $null
 }
 
-# Скачиватель (обновляется в ОДНУ строку)
+# Скачиватель
 function Invoke-Download($u, $out) {
     $request = [System.Net.HttpWebRequest]::Create($u)
     $request.UserAgent = 'NH3-Updater'
@@ -109,10 +109,7 @@ function Invoke-Download($u, $out) {
             $totalMB = [math]::Round($totalBytes / 1MB, 1)
             
             $msg = "$spin $bar $percent% [$downloadedMB MB / $totalMB MB]"
-            
-            # Обновляем строку по центру
             Write-ProgressLine $msg 'Cyan'
-            
             $spinIndex++
         }
     }
@@ -121,7 +118,7 @@ function Invoke-Download($u, $out) {
     $responseStream.Close()
     $response.Close()
     
-    Write-Host "" # Переходим на новую строку
+    Write-Host ""
     $size = [math]::Round((Get-Item $out).Length / 1MB, 1)
     Write-Center ("Скачано: {0:N0} МБ" -f $size) 'Green'
 }
@@ -178,7 +175,6 @@ Write-Host ""
 Write-Center "[1] Обновиться    [2] Выйти" 'White'
 Write-Host ""
 
-# Исправление двойного двоеточия (Выбор: : 1)
 $prompt = 'Выбор: '
 $w = [Console]::WindowWidth
 Write-Host (" " * [math]::Max(0, [math]::Floor(($w - $prompt.Length) / 2))) -NoNewline
@@ -190,7 +186,6 @@ if ($ch -eq '1') {
     try {
         Invoke-Download $url $zip
         
-        # ТИХАЯ РАСПАКОВКА БЕЗ СИНЕГО ОКНА
         Write-Center 'Распаковываю архив...' 'Yellow'
         if (Test-Path -LiteralPath $tmp) { Remove-Item -LiteralPath $tmp -Recurse -Force }
         
@@ -199,8 +194,22 @@ if ($ch -eq '1') {
         
         $src = (Get-ChildItem -Path $tmp -Directory | Select-Object -First 1).FullName
 
+        # ==========================================================
+        # УДАЛЯЕМ ПАПКИ, КОТОРЫЕ ДОЛЖНЫ ПОЛНОСТЬЮ ОБНОВЛЯТЬСЯ
+        # (включая mods, tacz, kubejs, но НЕ трогаем config)
+        # ==========================================================
+        Write-Center 'Очищаю старые файлы (mods, tacz, kubejs, data, emotes)...' 'Yellow'
+        foreach ($folder in @('mods', 'tacz', 'kubejs', 'data', 'emotes')) {
+            $folderPath = Join-Path $dir $folder
+            if (Test-Path -LiteralPath $folderPath) {
+                Remove-Item -LiteralPath $folderPath -Recurse -Force -ErrorAction SilentlyContinue
+            }
+        }
+        # ==========================================================
+
         Write-Center 'Применяю полное обновление (заменяю все файлы сборки)...' 'Yellow'
-        robocopy $src $dir /MIR /R:1 /W:1 /NFL /NDL /NJH /NJS /XF token.txt options.txt servers.dat usercache.json usernamecache.json command_history.txt nh3_update.zip /XD .git logs screenshots downloads nh3_extract | Out-Null
+        # /XD config - не копируем и не удаляем настройки. /XD .git и прочее - защита личных папок.
+        robocopy $src $dir /MIR /R:1 /W:1 /NFL /NDL /NJH /NJS /XD config .git logs screenshots downloads nh3_extract /XF token.txt options.txt servers.dat usercache.json usernamecache.json command_history.txt nh3_update.zip | Out-Null
 
         $lines = @()
         if (Test-Path -LiteralPath $vFile) { $lines = @(Get-Content -LiteralPath $vFile -Encoding UTF8) }
@@ -220,7 +229,7 @@ if ($ch -eq '1') {
     try { if (Test-Path -LiteralPath $tmp) { Remove-Item -LiteralPath $tmp -Recurse -Force } } catch {}
 }
 
-# Тяжёлые моды с Google Drive
+# Тяжёлые моды с Google Drive (скачаются, если их нет)
 if (-not (Test-Path -LiteralPath $modsDir)) { New-Item -ItemType Directory -Path $modsDir -Force | Out-Null }
 foreach ($m in $driveMods) {
     $dest = Join-Path $modsDir $m.Name
