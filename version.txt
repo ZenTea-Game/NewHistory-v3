@@ -1,6 +1,7 @@
-version=10.2
+version=10.3
 
 ════ Что изменилось ════
+v10.3 (06.09) — Alex mobs
 v10.0 (06.09) — Большой сентябрьский апдейт: +20 модов — Create: Missiles, Create: Stuff Additions, Create: Hypertube, Create: Wizardry, Create: Alcoholic Beverages, Create: Ender Transmission, Escalated, CarbonConfig, Droneworks, Aquamirae, Creeper Overhaul, Ben's Sharks, Camerapture, Easy Villagers, CC: Tweaked, SecurityCraft, Polymorph, Better Third Person, More Overlays, Respawnable Pets, Visible Traders; GeckoLib 4.9.2, Plasmo Voice 2.1.16, Supplementaries 3.9.7 + Moonlight
 v9.1  (28.08) — Красивый апдейтер: спиннер, цветные баннеры, таймер; быстрый Check.bat
 v9.0  (27.08) — Чистая репа: убран кэш, вейпоинты, логи и личные файлы; новый .gitignore
