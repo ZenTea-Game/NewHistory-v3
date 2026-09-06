@@ -52,6 +52,9 @@
     "painting": true,
     "chiseled_bookshelf": true
   },
+  "camerapture": {
+    "picture_frame": true
+  },
   "apothic_spawners": {
     "spawner": true
   },
@@ -62,8 +65,16 @@
     "entity": true,
     "entity_variant": true
   },
+  "easy_villagers": {
+    "villager": true,
+    "converter": true,
+    "breeder": true
+  },
   "immersiveengineering": {
     "multiblock_icon": true
+  },
+  "supplementaries": {
+    "hat_stand": true
   },
   "jade": {
     "coordinates.rel": false,
@@ -84,5 +95,12 @@
   },
   "apothic_enchanting": {
     "ench": true
+  },
+  "securitycraft": {
+    "showowner": true,
+    "showmodules": true,
+    "entity_info": true,
+    "block_info": true,
+    "showcustomname": true
   }
 }

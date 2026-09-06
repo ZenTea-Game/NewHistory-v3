@@ -3,6 +3,10 @@
   "apothic_enchanting:ench": null,
   "apothic_enchanting:raven_stats": null,
   "apothic_spawners:spawner": null,
+  "camerapture:picture_frame": null,
+  "easy_villagers:breeder": null,
+  "easy_villagers:converter": null,
+  "easy_villagers:villager": null,
   "gravestone:grave": null,
   "immersiveengineering:multiblock_icon": null,
   "immersiveengineering:multiblock_inventory": null,
@@ -66,5 +70,10 @@
   "minecraft:total_enchantment_power": null,
   "minecraft:villager_profession": null,
   "minecraft:waxed": null,
-  "minecraft:zombie_villager": null
+  "minecraft:zombie_villager": null,
+  "securitycraft:block_info": null,
+  "securitycraft:entity_info": null,
+  "supplementaries:hat_stand": null,
+  "supplementaries:present": null,
+  "supplementaries:safe": null
 }

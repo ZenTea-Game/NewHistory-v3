@@ -1,0 +1,21 @@
+#Drone Controls input dead zones (redstone signal strength, 0-15).
+[controls]
+	#Pitch (front/back) faces: signals below this are ignored.
+	# Default: 4
+	# Range: 0 ~ 15
+	pitchDeadzone = 4
+	#Roll (left/right) faces: signals below this are ignored.
+	# Default: 4
+	# Range: 0 ~ 15
+	rollDeadzone = 4
+	#Yaw (top/bottom) faces: signals below this are ignored.
+	# Default: 4
+	# Range: 0 ~ 15
+	yawDeadzone = 4
+
+#Drone Remote Control settings.
+[remote]
+	#Maximum distance (blocks) between the operator and the drone before the remote view disconnects. The FPV feed's analog interference ramps up as the drone nears this limit. 0 = no restriction (and no interference ramp).
+	# Default: 1500.0
+	# Range: 0.0 ~ 1.0E7
+	range = 1500.0

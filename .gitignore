@@ -63,6 +63,9 @@ config/sodium-extra-options.json
 config/**/*client*.toml
 config/**/*client*.json
 
+dynamic-resource-pack-cache/
+dynamic-data-pack-cache/
+
 # ===== Личные папки и вейпоинты =====
 saves/
 screenshots/

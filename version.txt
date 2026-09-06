@@ -1,6 +1,11 @@
-version=9.0
+version=10.0
 
 ════ Что изменилось ════
+v10.0 (06.09) — большое контентное обновление:
+  • Аддоны Create: Missiles, Stuff Additions, Hypertube, Wizardry, Alcoholic Beverages, Endentransmission, Escalated, Droneworks, Carbon Config
+  • Новые моды: Aquamirae, Fragmentum, Creeper Overhaul, Easy Villagers, SecurityCraft, CC: Tweaked, Polymorph, Better Third Person, Camerapture, Ben's Sharks, Particle Core, Visible Traders, Respawnable Pets, More Overlays
+  • Supplementaries (откат на 3.8.9 ради совместимости)
+  • Обновления: Plasmo Voice 2.1.16, GeckoLib 4.9.2
 v9.0  (06.09) — Чистая сборка: TFMG → 1.2.4b-community (фикс краша с Power Grid), новое: Create: Power Grid 0.6.1, Pipe Organs, Tough As Nails, Tracks+, GlitchCore; из репы убран кэш и мусор; добавлены Updater.bat / Check.bat
 v8.0  (30.08) — Create: Nuclear + Create: Propulsion; баланс правки Create Big Cannons
 v7.1  (28.08) — Sinytra Connector + Cardinal Components + Fabric Language Kotlin: подключил Fabric-моды (BOMD)
