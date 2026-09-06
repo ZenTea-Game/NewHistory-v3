@@ -63,6 +63,7 @@ config/sodium-extra-options.json
 config/**/*client*.toml
 config/**/*client*.json
 
+config/
 dynamic-resource-pack-cache/
 dynamic-data-pack-cache/
 
