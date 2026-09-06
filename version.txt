@@ -1,4 +1,4 @@
-version=10.4
+version=10.5
 
 ════ Что изменилось ════
 v10.4 (06.09) - 2 yjds[ vjlf yf bpvthtybz
