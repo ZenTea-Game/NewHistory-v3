@@ -1,9 +1,15 @@
-version=10.5
+version=10.6
 
 ════ Что изменилось ════
+v10.6 (06.09.26)
+Добавлены моды: Установлены новые моды, включая Valkyrien Skies (все моды из списка: SecurityCraft, Create, Eureka, Goggles, Droneworks, Escalated и др.) для версии Minecraft 1.21.1 (NeoForge).
+Локализация: Выполнен перевод (локализация) добавленных и существующих модов.
+Исправления: Починен визуальный интерфейс (UI) утилиты Updater.ps1.
+
 v10.4 (06.09) - 2 yjds[ vjlf yf bpvthtybz
 v10.3 (06.09) — Alex mobs
 v10.0 (06.09) — Большой сентябрьский апдейт: +20 модов — Create: Missiles, Create: Stuff Additions, Create: Hypertube, Create: Wizardry, Create: Alcoholic Beverages, Create: Ender Transmission, Escalated, CarbonConfig, Droneworks, Aquamirae, Creeper Overhaul, Ben's Sharks, Camerapture, Easy Villagers, CC: Tweaked, SecurityCraft, Polymorph, Better Third Person, More Overlays, Respawnable Pets, Visible Traders; GeckoLib 4.9.2, Plasmo Voice 2.1.16, Supplementaries 3.9.7 + Moonlight
+
 v9.1  (28.08) — Красивый апдейтер: спиннер, цветные баннеры, таймер; быстрый Check.bat
 v9.0  (27.08) — Чистая репа: убран кэш, вейпоинты, логи и личные файлы; новый .gitignore
 v8.1  (26.08) — Эмоции: добавлен пак эмоций SPE в папку emotes
