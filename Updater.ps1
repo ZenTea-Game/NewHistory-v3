@@ -4,6 +4,7 @@ param([switch]$Quiet)
 $ErrorActionPreference = 'Stop'
 try { [Console]::OutputEncoding = [System.Text.Encoding]::UTF8 } catch {}
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+$ProgressPreference = 'SilentlyContinue'
 
 $repo    = 'ZenTea-Game/NewHistory-v3'
 $branch  = 'main'
@@ -14,12 +15,25 @@ $zip     = Join-Path $dir 'nh3_update.zip'
 $tmp     = Join-Path $dir 'nh3_extract'
 $url     = "https://github.com/$repo/archive/refs/heads/$branch.zip"
 
-# Тяжёлые моды, которых нет на GitHub
 $driveMods = @(
     @{ Name = 'AoA3-1.21.1-3.7.16.1.jar'; Url = 'https://drive.usercontent.google.com/download?id=1UixrKDtRj1VlEdMVgN2zu9vMiM64QtMN&export=download&confirm=t' }
 )
 
-function W($t, $c = 'Gray') { Write-Host ("   " + $t) -ForegroundColor $c }
+# Функция центрирования для статичного текста
+function Write-Center([string]$Text, [ConsoleColor]$Color = 'Gray') {
+    $width = [Console]::WindowWidth
+    $spaces = [math]::Max(0, [math]::Floor(($width - $Text.Length) / 2))
+    Write-Host (" " * $spaces + $Text) -ForegroundColor $Color
+}
+
+# НОВАЯ ФУНКЦИЯ ДЛЯ ОБНОВЛЕНИЯ ОДНОЙ СТРОКИ ПО ЦЕНТРУ (Надежная)
+function Write-ProgressLine([string]$Text, [ConsoleColor]$Color = 'Cyan') {
+    [Console]::SetCursorPosition(0, [Console]::CursorTop)  # Ставим курсор в начало строки
+    Write-Host (" " * [Console]::WindowWidth) -NoNewline    # Стираем всю строку
+    [Console]::SetCursorPosition(0, [Console]::CursorTop)  # Возвращаем курсор в начало
+    $spaces = [math]::Max(0, [math]::Floor(([Console]::WindowWidth - $Text.Length) / 2))
+    Write-Host (" " * $spaces + $Text) -NoNewline -ForegroundColor $Color
+}
 
 function Get-ModBase($fileName) {
     $n = [System.IO.Path]::GetFileNameWithoutExtension($fileName)
@@ -55,26 +69,61 @@ function Get-RemoteVersion {
     return $null
 }
 
-function Show-Size($u) {
-    try {
-        $req = [System.Net.HttpWebRequest]::Create($u)
-        $req.Method = 'HEAD'
-        $req.AllowAutoRedirect = $true
-        $req.UserAgent = 'NH3-Updater'
-        $resp = $req.GetResponse()
-        $len = $resp.ContentLength
-        $resp.Close()
-        if ($len -gt 0) { W ("Архив весит: {0:N0} МБ" -f ($len / 1MB)) Cyan }
-    } catch {}
-}
-
-function Download-WithProgress($u, $out) {
-    Show-Size $u
-    W 'Качаю, полоса ниже показывает прогресс:' Yellow
-    & curl.exe -L --fail --progress-bar -o $out $u
-    if ($LASTEXITCODE -ne 0) { throw "curl вернул код $LASTEXITCODE" }
-    if (-not (Test-Path -LiteralPath $out)) { throw 'Файл не скачался' }
-    W ("Скачано: {0:N0} МБ" -f ((Get-Item -LiteralPath $out).Length / 1MB)) Green
+# Скачиватель (обновляется в ОДНУ строку)
+function Invoke-Download($u, $out) {
+    $request = [System.Net.HttpWebRequest]::Create($u)
+    $request.UserAgent = 'NH3-Updater'
+    $request.AllowAutoRedirect = $true
+    
+    $response = $request.GetResponse()
+    $totalBytes = $response.ContentLength
+    
+    if ($totalBytes -gt 0) {
+        Write-Center ("Архив весит: {0:N0} МБ" -f ($totalBytes / 1MB)) 'Cyan'
+    }
+    Write-Center 'Качаю, полоса ниже показывает прогресс:' 'Yellow'
+    
+    $responseStream = $response.GetResponseStream()
+    $fileStream = [System.IO.File]::Create($out)
+    
+    $buffer = New-Object byte[] 10240
+    $read = 0
+    $downloaded = [long]0
+    $lastPercent = -1
+    $spinChars = @('|', '/', '-', '\')
+    $spinIndex = 0
+    
+    while (($read = $responseStream.Read($buffer, 0, $buffer.Length)) -gt 0) {
+        $fileStream.Write($buffer, 0, $read)
+        $downloaded += $read
+        
+        if ($totalBytes -gt 0) { $percent = [math]::Floor(($downloaded / $totalBytes) * 100) } else { $percent = 0 }
+        
+        if ($percent -ne $lastPercent -or $spinIndex -eq 0) {
+            $lastPercent = $percent
+            $barLength = 30
+            $filled = [math]::Floor($barLength * $percent / 100)
+            $bar = '[' + ('=' * $filled) + (' ' * ($barLength - $filled)) + ']'
+            $spin = $spinChars[$spinIndex % $spinChars.Length]
+            $downloadedMB = [math]::Round($downloaded / 1MB, 1)
+            $totalMB = [math]::Round($totalBytes / 1MB, 1)
+            
+            $msg = "$spin $bar $percent% [$downloadedMB MB / $totalMB MB]"
+            
+            # Обновляем строку по центру
+            Write-ProgressLine $msg 'Cyan'
+            
+            $spinIndex++
+        }
+    }
+    
+    $fileStream.Close()
+    $responseStream.Close()
+    $response.Close()
+    
+    Write-Host "" # Переходим на новую строку
+    $size = [math]::Round((Get-Item $out).Length / 1MB, 1)
+    Write-Center ("Скачано: {0:N0} МБ" -f $size) 'Green'
 }
 
 # ================= ОСНОВНАЯ ЧАСТЬ =================
@@ -82,76 +131,77 @@ $remoteVer = Get-RemoteVersion
 $localVer  = Get-LocalVersion
 
 if ($null -eq $remoteVer) {
-    if ($Quiet) { W 'Не удалось узнать версию с GitHub (сеть/403/WARP).' Red; exit 1 }
-    W 'Не удалось узнать версию с GitHub.' Red
-    W 'Проверь интернет или отключи WARP/VPN.' Yellow
+    if ($Quiet) { Write-Center 'Не удалось узнать версию с GitHub (сеть/403/WARP).' 'Red'; exit 1 }
+    Write-Center 'Не удалось узнать версию с GitHub.' 'Red'
+    Write-Center 'Проверь интернет или отключи WARP/VPN.' 'Yellow'
     Read-Host '   Enter'; exit 1
 }
 
 if ($Quiet) {
-    Write-Host ("   Локально: v{0}   GitHub: v{1}  ->  " -f $localVer, $remoteVer) -NoNewline -ForegroundColor Cyan
-    if ([version]$remoteVer -gt [version]$localVer) { W 'ДОСТУПНО ОБНОВЛЕНИЕ, запусти Updater.bat' Yellow }
-    elseif ([version]$remoteVer -eq [version]$localVer) { W 'актуально =)' Green }
-    else { W 'локальная новее (o_0)' Red }
+    $w = [Console]::WindowWidth
+    Write-Host (" " * [math]::Max(0, [math]::Floor(($w - 30) / 2))) -NoNewline
+    Write-Host ("Локально: v{0}   GitHub: v{1}  ->  " -f $localVer, $remoteVer) -NoNewline -ForegroundColor Cyan
+    if ([version]$remoteVer -gt [version]$localVer) { Write-Host 'ДОСТУПНО ОБНОВЛЕНИЕ, запусти Updater.bat' -ForegroundColor Yellow }
+    elseif ([version]$remoteVer -eq [version]$localVer) { Write-Host 'актуально =)' -ForegroundColor Green }
+    else { Write-Host 'локальная новее (o_0)' -ForegroundColor Red }
     exit 0
 }
 
-# Сравнение версий (только цветной ТЕКСТ, фон обычный)
 $lv = [version]$localVer
 $rv = [version]$remoteVer
 
 if ($rv -gt $lv) {
     $statusColor = 'Green'
-    $header = '╔══════════════════════════════════════════════╗'
-    $title  = '║      NewHistory-v3  ·  АПДЕЙТЕР СБОРКИ       ║'
-    $bot    = '╚══════════════════════════════════════════════╝'
     $status = "ДОСТУПНО ОБНОВЛЕНИЕ: v$localVer -> v$remoteVer"
     $desc   = "Обновляйся, там приколы!"
 }
 elseif ($rv -eq $lv) {
     $statusColor = 'Yellow'
-    $header = '╔══════════════════════════════════════════════╗'
-    $title  = '║      NewHistory-v3  ·  АПДЕЙТЕР СБОРКИ       ║'
-    $bot    = '╚══════════════════════════════════════════════╝'
     $status = "У тебя v$localVer и на GitHub v$remoteVer"
     $desc   = "прикол (а зачем такая же версия)"
 }
 else {
     $statusColor = 'Red'
-    $header = '╔══════════════════════════════════════════════╗'
-    $title  = '║      NewHistory-v3  ·  АПДЕЙТЕР СБОРКИ       ║'
-    $bot    = '╚══════════════════════════════════════════════╝'
     $status = "У тебя v$localVer, а на GitHub v$remoteVer!"
     $desc   = "Откуда у тебя сборка выше версии (o_0)"
 }
 
-W $header Cyan
-W $title Cyan
-W $bot Cyan
-W $status $statusColor
-W $desc $statusColor
-Write-Host ''
+Clear-Host
+Write-Host ""
+Write-Center "╔══════════════════════════════════════════════╗" 'Cyan'
+Write-Center "║      NewHistory-v3  ·  АПДЕЙТЕР СБОРКИ       ║" 'Cyan'
+Write-Center "╚══════════════════════════════════════════════╝" 'Cyan'
+Write-Host ""
+Write-Center $status $statusColor
+Write-Center $desc $statusColor
+Write-Host ""
+Write-Center "[1] Обновиться    [2] Выйти" 'White'
+Write-Host ""
 
-# Всегда показываем меню, можно скачать даже если версии совпадают
-W '[1] Обновиться    [2] Выйти' White
-$ch = (Read-Host '   Выбор').Trim()
+# Исправление двойного двоеточия (Выбор: : 1)
+$prompt = 'Выбор: '
+$w = [Console]::WindowWidth
+Write-Host (" " * [math]::Max(0, [math]::Floor(($w - $prompt.Length) / 2))) -NoNewline
+Write-Host $prompt -NoNewline
+$ch = Read-Host
+$ch = $ch.Trim()
+
 if ($ch -eq '1') {
     try {
-        # 1) качаем архив
-        Download-WithProgress $url $zip
-
-        # 2) распаковка
-        W 'Распаковываю архив...' Yellow
+        Invoke-Download $url $zip
+        
+        # ТИХАЯ РАСПАКОВКА БЕЗ СИНЕГО ОКНА
+        Write-Center 'Распаковываю архив...' 'Yellow'
         if (Test-Path -LiteralPath $tmp) { Remove-Item -LiteralPath $tmp -Recurse -Force }
-        Expand-Archive -LiteralPath $zip -DestinationPath $tmp -Force
+        
+        Add-Type -AssemblyName System.IO.Compression.FileSystem
+        [System.IO.Compression.ZipFile]::ExtractToDirectory($zip, $tmp)
+        
         $src = (Get-ChildItem -Path $tmp -Directory | Select-Object -First 1).FullName
 
-        # 3) Полное зеркалирование (удаляет старые моды, обновляет KubeJS, конфиги, апдейтеры)
-        # Личные файлы защищены:
-        W 'Применяю полное обновление (заменяю все файлы сборки)...' Yellow
+        Write-Center 'Применяю полное обновление (заменяю все файлы сборки)...' 'Yellow'
         robocopy $src $dir /MIR /R:1 /W:1 /NFL /NDL /NJH /NJS /XF token.txt options.txt servers.dat usercache.json usernamecache.json command_history.txt nh3_update.zip /XD .git logs screenshots downloads nh3_extract | Out-Null
 
-        # 4) Обновляем версию
         $lines = @()
         if (Test-Path -LiteralPath $vFile) { $lines = @(Get-Content -LiteralPath $vFile -Encoding UTF8) }
         $done = $false
@@ -161,33 +211,33 @@ if ($ch -eq '1') {
         if (-not $done) { $lines = @("version=$remoteVer") + $lines }
         Set-Content -LiteralPath $vFile -Value $lines -Encoding UTF8
 
-        W ("Готово! Сборка обновлена до v{0}" -f $remoteVer) Green
+        Write-Center ("Готово! Сборка обновлена до v{0}" -f $remoteVer) 'Green'
     }
     catch {
-        W ('Ошибка: ' + $_.Exception.Message) Red
+        Write-Center ('Ошибка: ' + $_.Exception.Message) 'Red'
     }
     try { if (Test-Path -LiteralPath $zip) { Remove-Item -LiteralPath $zip -Force } } catch {}
     try { if (Test-Path -LiteralPath $tmp) { Remove-Item -LiteralPath $tmp -Recurse -Force } } catch {}
 }
 
-# Тяжёлые моды с Google Drive, если отсутствуют локально
+# Тяжёлые моды с Google Drive
 if (-not (Test-Path -LiteralPath $modsDir)) { New-Item -ItemType Directory -Path $modsDir -Force | Out-Null }
 foreach ($m in $driveMods) {
     $dest = Join-Path $modsDir $m.Name
     if (-not (Test-Path -LiteralPath $dest)) {
-        Write-Host ''
-        W ("Мод {0} не найден — качаю с Google Drive..." -f $m.Name) Yellow
+        Write-Host ""
+        Write-Center ("Мод {0} не найден — качаю с Google Drive..." -f $m.Name) 'Yellow'
         try {
-            Download-WithProgress $m.Url $dest
+            Invoke-Download $m.Url $dest
             $len = (Get-Item -LiteralPath $dest).Length
             if ($len -lt 102400) {
                 Remove-Item -LiteralPath $dest -Force -ErrorAction SilentlyContinue
-                W 'Google Drive отдал страницу ошибки, попробуй позже.' Red
+                Write-Center 'Google Drive отдал страницу ошибки, попробуй позже.' 'Red'
             }
         }
-        catch { W ('Не удалось скачать ' + $m.Name + ': ' + $_.Exception.Message) Red }
+        catch { Write-Center ('Не удалось скачать ' + $m.Name + ': ' + $_.Exception.Message) 'Red' }
     }
 }
 
-Write-Host ''
+Write-Host ""
 Read-Host '   Enter для выхода'
