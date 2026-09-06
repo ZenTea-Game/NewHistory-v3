@@ -51,7 +51,8 @@ try {
 $msg  = $latest.commit.message.Split([char]10)[0]
 $sha  = $latest.sha.Substring(0, 7)
 $date = [DateTime]::Parse($latest.commit.committer.date).ToLocalTime().ToString('dd.MM.yyyy HH:mm')
-$mv   = [regex]::Match($msg, '(\d+(?:\.\d+)+)')
+$mv = [regex]::Match($msg, 'v(\d+(?:\.\d+)*)')
+if (-not $mv.Success) { $mv = [regex]::Match($msg, '(\d+(?:\.\d+)+)') }
 $remoteVer = if ($mv.Success) { $mv.Groups[1].Value } else { $sha }
 $localVer  = Get-LocalVersion
 
