@@ -1,65 +1,57 @@
 [general]
-# Сколько тиков действует согрев/охлаждение от еды/напитков (20 тиков = 1 сек).
-# БЫЛО 1200 (1 мин) → 2400 (2 мин): еда дольше держит комфорт.
-consumable_effect_duration = 2400
-
-# Задержка смены температуры от среды. ВЫШЕ = медленнее греешься/мёрзнешь.
-# БЫЛО 500 → 800: не «сразу греется», а плавно.
-temperature_change_delay = 800
-
-# Задержка от состояния игрока (мокрый и т.п.). БЫЛО 125 → 200.
-player_temperature_change_delay = 200
-
-# Порядок модификаторов — НЕ ТРОГАТЬ.
-temperature_modifier_order = [ "player_modifiers", "item_modifier", "armor_modifier", "internal_modifier" ]
-
-# Сколько тиков в ЭКСТРИМУ (жара/мороз) до начала урона.
-# БЫЛО 500 (25 сек) → 1200 (60 сек). ЭТО ГЛАВНОЕ ДЛЯ АДА:
-# целая минута в жаре без урона — успеваешь убежать/остыть без брони.
-extremity_damage_delay = 1200
-
-# Задержка после согрева/охлаждения едой. НЕ ТРОГАТЬ.
-internal_temperature_change_delay = 20
-
-# Задержка смены температуры в броне. ВЫШЕ = броня защищает мягче. БЫЛО 50 → 100.
-armor_temperature_change_delay = 100
-
-# Задержка с предметом в руке (факел/лёд). ВЫШЕ = факел греет дольше. БЫЛО 375 → 500.
-handheld_temperature_change_delay = 500
-
-# Отсрочка после респауна (иммунитет к климату). БЫЛО false → true.
-climate_clemency_respawning = true
-
-# Длительность отсрочки. БЫЛО 6000 (5 мин) → 9000 (7.5 мин).
-climate_clemency_duration = 9000
-
-# Задержка «отката» после экстрима. БЫЛО 250 → 400.
-extremity_rebound_temperature_change_delay = 400
+	#Duration of heating or cooling effects given by consuming items.
+	consumable_effect_duration = 2400
+	#Number of ticks to delay changing the player's temperature after their temperature changes.
+	temperature_change_delay = 800
+	#Number of ticks to delay changing the player's temperature after their temperature changes when affected by a player-based temperature modifier.
+	player_temperature_change_delay = 200
+	#The order in which to apply built-in temperature modifiers
+	temperature_modifier_order = ["player_modifiers", "item_modifier", "armor_modifier", "internal_modifier"]
+	#Number of ticks to delay taking damage when icy or hot.
+	extremity_damage_delay = 1200
+	#Number of ticks to delay changing the player's temperature after their temperature changes from consuming a heating or cooling item.
+	internal_temperature_change_delay = 20
+	#Number of ticks to delay changing the player's temperature after their temperature changes when wearing armor.
+	armor_temperature_change_delay = 100
+	#Number of ticks to delay changing the player's temperature after their temperature changes when holding an item.
+	handheld_temperature_change_delay = 500
+	#Whether or not Climate Clemency should be granted when respawning.
+	climate_clemency_respawning = true
+	#Number of ticks for the duration of Climate Clemency.
+	climate_clemency_duration = 9000
+	#Number of ticks to delay changing the player's temperature after their temperature changes when rebounding from an extreme temperature.
+	extremity_rebound_temperature_change_delay = 400
 
 [altitude]
-# Высота, с которой холодает. БЫЛО 160 → 200.
-temperature_drop_altitude = 200
-# Глубина, с которой жарче. БЫЛО -32 → -48.
-temperature_rise_altitude = -48
-# Высота внешних модификаторов. НЕ ТРОГАТЬ.
-environmental_modifier_altitude = 50
+	#Y level to drop the temperature at when above
+	temperature_drop_altitude = 200
+	#Y level to rise the temperature at when below
+	temperature_rise_altitude = -48
+	#Y level above which environmental modifiers are applied
+	environmental_modifier_altitude = 50
 
 [immersion]
-# Сколько тиков остаёшься МОКРЫМ после воды/дождя. БЫЛО 40 → 20 (влажность легче).
-wet_ticks = 20
-# Охлаждение в порошковом снеге. БЫЛО -2 → -1 (льдины легче).
-powdered_snow_temperature_change = -1
-# Охлаждение в снегопад. Оставил -1: интересно, но не жесть.
-snow_temperature_change = -1
-# Охлаждение, когда мокрый. БЫЛО -1 → 0 (мокрый больше не морозит).
-wet_temperature_change = 0
-# Нагрев, когда горишь. БЫЛО 2 → 1 (не греет так резко).
-on_fire_temperature_change = 1
+	#Number of ticks a player stays wet for after touching water, rain or snow.
+	wet_ticks = 20
+	#Amount to change the temperature by when in powdered snow.
+	powdered_snow_temperature_change = -1
+	#Amount to change the temperature by when snowing.
+	snow_temperature_change = -1
+	#Amount to change the temperature by when wet.
+	wet_temperature_change = 0
+	#Amount to change the temperature by when on fire.
+	on_fire_temperature_change = 1
 
 [blocks]
-# Радиус действия печек/льда. БЫЛО 8 → 6 (меньше резких скачков у блоков).
-near_heat_cool_proximity = 6
+	#The proximity which constitutes near a heat or cool source
+	near_heat_cool_proximity = 6
 
 [toggles]
-# Включить температуру.
-enable_temperature = true
+	#Enable or disable temperature.
+	enable_temperature = true
+
+[time]
+	#Amount to change the temperature at night when the original temperature is hot.
+	night_hot_temperature_change = -2
+	#Amount to change the temperature at night when the original temperature is not hot.
+	night_temperature_change = -1

@@ -1,23 +1,21 @@
 [general]
-# Порог, при котором жажда начинает падать. ВЫШЕ = медленнее сохнет.
-# БЫЛО 8.0, я давал 12.0 (перебор). Ставлю СЕРЕДИНУ: 10.0.
-exhaustion_threshold = 10.0
+	#The threshold at which exhaustion causes a reduction in hydration and the thirst bar.
+	exhaustion_threshold = 10.0
 
 [drink_options]
-# Гидратация от питья рукой.
-hand_drinking_hydration = 0.1
-# Жажды восстанавливает питьё рукой.
-hand_drinking_thirst = 1
+	#Hydration restored from drinking with hands.
+	hand_drinking_hydration = 0.1
+	#Thirst restored from drinking with hands.
+	hand_drinking_thirst = 1
 
 [toggles]
-# Запрет спринта при жажде. false = спринт всегда можно (не слишком жёстко).
-thirst_prevent_sprint = false
-# Запрет регена здоровья при жажде. ВЕРНУЛ true — это и есть «интерес»:
-# держишь жажду в норме → здоровье регенит; пересох → регена нет.
-thirst_prevent_health_regen = true
-# Включить жажду.
-enable_thirst = true
-# Удалять воду при наполнении фляги.
-remove_source_blocks = false
-# Пить рукой (ПКМ по воде). Удобно, оставил. БЫЛО false → true.
-enable_hand_drinking = true
+	#Prevent sprinting when thirsty.
+	thirst_prevent_sprint = false
+	#Prevent health regeneration when thirsty.
+	thirst_prevent_health_regen = true
+	#Enable or disable thirst.
+	enable_thirst = true
+	#Remove source blocks when filling the canteen.
+	remove_source_blocks = false
+	#Enable or disable hand drinking.
+	enable_hand_drinking = true
