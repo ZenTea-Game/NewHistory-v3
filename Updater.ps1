@@ -6,6 +6,9 @@ try { [Console]::OutputEncoding = [System.Text.Encoding]::UTF8 } catch {}
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 $ProgressPreference = 'SilentlyContinue'
 
+# Подключаем библиотеку для надёжного скачивания
+Add-Type -AssemblyName System.Net.Http
+
 $repo    = 'ZenTea-Game/NewHistory-v3'
 $branch  = 'main'
 $dir     = if ($PSScriptRoot) { $PSScriptRoot } else { (Get-Location).Path }
@@ -19,6 +22,15 @@ $url     = "https://github.com/$repo/archive/refs/heads/$branch.zip"
 $driveMods = @(
     @{ Name = 'AoA3-1.21.1-3.7.16.1.jar'; Url = 'https://drive.usercontent.google.com/download?id=1UixrKDtRj1VlEdMVgN2zu9vMiM64QtMN&export=download&confirm=t' }
 )
+
+# ===== ВЕРСИИ САМИХ ФАЙЛОВ АПДЕЙТЕРА =====
+$updaterVersion = 'v2.4'
+$batVersion     = 'v1.2'
+$checkVersion   = 'v1.2'
+# =========================================
+
+# Палитра радуги
+$RainbowColors = @('Red', 'Yellow', 'Green', 'Cyan', 'Blue', 'Magenta')
 
 function Write-Center([string]$Text, [ConsoleColor]$Color = 'Gray') {
     $width = [Console]::WindowWidth
@@ -34,19 +46,34 @@ function Write-ProgressLine([string]$Text, [ConsoleColor]$Color = 'Cyan') {
     Write-Host (" " * $spaces + $Text) -NoNewline -ForegroundColor $Color
 }
 
-# ===== ВЕРСИИ САМИХ ФАЙЛОВ АПДЕЙТЕРА =====
-$updaterVersion = 'v1.3'
-$batVersion     = 'v1.2'
-$checkVersion   = 'v1.2'
-# =========================================
-
-# Версия файла по имени (если файл не найден, возвращает '0.0')
-function Get-FileVersionFromName($name) {
-    if (Test-Path -LiteralPath (Join-Path $dir $name)) {
-        $content = Get-Content -LiteralPath (Join-Path $dir $name) -Raw -Encoding UTF8
-        if ($content -match "# VER: (.+)") { return $Matches[1].Trim() }
+# ===== ПЛОТНЫЙ РАДУЖНЫЙ БЛОК (3 СТРОКИ, БЕЗ ДЫРОК) =====
+function Write-RainbowTitleBlock {
+    $Width = 48
+    $Inner = $Width - 2
+    $Text = " NewHistory-v3  ·  АПДЕЙТЕР СБОРКИ "
+    $TextLen = $Text.Length
+    $Pad = $Inner - $TextLen
+    $LeftPad = [math]::Floor($Pad / 2)
+    $RightPad = $Pad - $LeftPad
+    
+    Write-Center ('╔' + ('═' * ($Width - 2)) + '╗') 'Cyan'
+    
+    $w = [Console]::WindowWidth
+    $spaces = [math]::Max(0, [math]::Floor(($w - $Width) / 2))
+    Write-Host (" " * $spaces) -NoNewline
+    Write-Host "║" -NoNewline -ForegroundColor 'Cyan'
+    Write-Host (" " * $LeftPad) -NoNewline
+    
+    $i = 0
+    foreach ($ch in $Text.ToCharArray()) {
+        $color = $RainbowColors[$i % $RainbowColors.Length]
+        Write-Host $ch -NoNewline -ForegroundColor $color
+        $i++
     }
-    return '0.0'
+    
+    Write-Host (" " * $RightPad) -NoNewline
+    Write-Host "║" -ForegroundColor 'Cyan'
+    Write-Center ('╚' + ('═' * ($Width - 2)) + '╝') 'Cyan'
 }
 
 function Get-LocalVersion {
@@ -74,68 +101,99 @@ function Get-RemoteVersion {
     return $null
 }
 
-# Скачиватель
+# ===== НАДЕЖНЫЙ СКАЧИВАТЕЛЬ (HttpClient) =====
 function Invoke-Download($u, $out) {
-    $request = [System.Net.HttpWebRequest]::Create($u)
-    $request.UserAgent = 'NH3-Updater'
-    $request.AllowAutoRedirect = $true
+    $client = [System.Net.Http.HttpClient]::new()
+    $client.DefaultRequestHeaders.UserAgent.ParseAdd('NH3-Updater')
     
-    $response = $request.GetResponse()
-    $totalBytes = $response.ContentLength
+    # Получаем заголовки (размер файла)
+    $response = $client.GetAsync($u, [System.Net.Http.HttpCompletionOption]::ResponseHeadersRead).GetAwaiter().GetResult()
+    $totalBytes = $response.Content.Headers.ContentLength
     
-    if ($totalBytes -gt 0) {
+    if ($null -ne $totalBytes -and $totalBytes -gt 0) {
         Write-Center ("Архив весит: {0:N0} МБ" -f ($totalBytes / 1MB)) 'Cyan'
     } else {
         Write-Center 'Размер файла неизвестен, качаю...' 'Cyan'
+        $totalBytes = 0
     }
     Write-Center 'Качаю, полоса ниже показывает прогресс:' 'Yellow'
     
-    $responseStream = $response.GetResponseStream()
+    $contentStream = $response.Content.ReadAsStreamAsync().GetAwaiter().GetResult()
     $fileStream = [System.IO.File]::Create($out)
     
     $buffer = New-Object byte[] 10240
     $read = 0
     $downloaded = [long]0
     $lastPercent = -1
+    $lastMB = -1
     $spinChars = @('|', '/', '-', '\')
     $spinIndex = 0
+    $barLength = 30
     
-    while (($read = $responseStream.Read($buffer, 0, $buffer.Length)) -gt 0) {
-        $fileStream.Write($buffer, 0, $read)
-        $downloaded += $read
-        
-        if ($totalBytes -gt 0) { 
-            $percent = [math]::Floor(($downloaded / $totalBytes) * 100) 
-        } else { 
-            $percent = 0 
-        }
-        
-        if ($percent -ne $lastPercent -or $spinIndex -eq 0) {
-            $lastPercent = $percent
-            $barLength = 30
-            $filled = [math]::Floor($barLength * $percent / 100)
-            $bar = '[' + ('=' * $filled) + (' ' * ($barLength - $filled)) + ']'
-            $spin = $spinChars[$spinIndex % $spinChars.Length]
-            $downloadedMB = [math]::Round($downloaded / 1MB, 1)
+    try {
+        while (($read = $contentStream.Read($buffer, 0, $buffer.Length)) -gt 0) {
+            $fileStream.Write($buffer, 0, $read)
+            $downloaded += $read
             
-            if ($totalBytes -gt 0) {
-                $totalMB = [math]::Round($totalBytes / 1MB, 1)
-                $msg = "$spin $bar $percent% [$downloadedMB MB / $totalMB MB]"
-            } else {
-                $msg = "$spin $bar [$downloadedMB MB]"
+            $percent = if ($totalBytes -gt 0) { [math]::Floor(($downloaded / $totalBytes) * 100) } else { -1 }
+            $currentMB = [math]::Floor($downloaded / 1MB)
+            
+            if ($percent -ne $lastPercent -or $currentMB -ne $lastMB -or $spinIndex -eq 0) {
+                $lastPercent = $percent
+                $lastMB = $currentMB
+                
+                $spin = $spinChars[$spinIndex % $spinChars.Length]
+                $downloadedMB = [math]::Round($downloaded / 1MB, 1)
+                
+                # БАР: # = скачано, пробелы = пустота, * = бегает туда-сюда
+                $barArray = @()
+                for ($i = 0; $i -lt $barLength; $i++) { $barArray += ' ' }
+                
+                if ($totalBytes -gt 0) {
+                    $totalMB = [math]::Round($totalBytes / 1MB, 1)
+                    $filledCount = [math]::Floor($barLength * $percent / 100)
+                    
+                    # Заполняем решетками
+                    for ($i = 0; $i -lt $filledCount; $i++) { $barArray[$i] = '#' }
+                    
+                    # Логика бегающей звездочки в пустом пространстве
+                    $emptyCount = $barLength - $filledCount
+                    if ($emptyCount -gt 0) {
+                        $range = $emptyCount * 2
+                        $offset = $spinIndex % $range
+                        if ($offset -ge $emptyCount) { $offset = $range - 1 - $offset }
+                        $starPos = $filledCount + $offset
+                        if ($starPos -ge $barLength) { $starPos = $barLength - 1 }
+                        $barArray[$starPos] = '*'
+                    }
+                    
+                    $bar = '[' + ($barArray -join '') + ']'
+                    $msg = "$spin $bar $percent% [$downloadedMB MB / $totalMB MB]"
+                } else {
+                    # Если размер неизвестен, звездочка просто бегает по всей длине
+                    $range = $barLength * 2
+                    $offset = $spinIndex % $range
+                    if ($offset -ge $barLength) { $offset = $range - 1 - $offset }
+                    $barArray[$offset] = '*'
+                    
+                    $bar = '[' + ($barArray -join '') + ']'
+                    $msg = "$spin $bar [$downloadedMB MB]"
+                }
+                
+                Write-ProgressLine $msg 'Cyan'
+                $spinIndex++
             }
-            
-            Write-ProgressLine $msg 'Cyan'
-            $spinIndex++
         }
     }
-    
-    $fileStream.Close()
-    $responseStream.Close()
-    $response.Close()
+    finally {
+        $fileStream.Flush()
+        $fileStream.Close()
+        $contentStream.Close()
+        $client.Dispose()
+    }
     
     Write-Host ""
-    $size = [math]::Round((Get-Item $out).Length / 1MB, 1)
+    $size = [math]::Round((Get-Item -LiteralPath $out).Length / 1MB, 1)
     Write-Center ("Скачано: {0:N0} МБ" -f $size) 'Green'
 }
 
@@ -181,15 +239,14 @@ else {
 
 Clear-Host
 Write-Host ""
-Write-Center "╔══════════════════════════════════════════════╗" 'Cyan'
-Write-Center "║      NewHistory-v3  ·  АПДЕЙТЕР СБОРКИ       ║" 'Cyan'
-Write-Center "╚══════════════════════════════════════════════╝" 'Cyan'
+
+Write-RainbowTitleBlock
 Write-Host ""
+
 Write-Center $status $statusColor
 Write-Center $desc $statusColor
 Write-Host ""
 
-# ===== ВЕРСИИ ФАЙЛОВ АПДЕЙТЕРА =====
 Write-Center "═══════════════════════════════════" 'DarkGray'
 Write-Center "Версия Updater.ps1: $updaterVersion" 'White'
 Write-Center "Версия Updater.bat: $batVersion" 'White'
@@ -219,7 +276,6 @@ if ($ch -eq '1') {
         
         $src = (Get-ChildItem -Path $tmp -Directory | Select-Object -First 1).FullName
 
-        # УДАЛЯЕМ ТОЛЬКО mods, tacz, kubejs
         Write-Center 'Очищаю старые файлы (mods, tacz, kubejs)...' 'Yellow'
         foreach ($folder in @('mods', 'tacz', 'kubejs')) {
             $folderPath = Join-Path $dir $folder
@@ -229,8 +285,6 @@ if ($ch -eq '1') {
         }
 
         Write-Center 'Применяю полное обновление (заменяю все файлы сборки)...' 'Yellow'
-        # /XD config data emotes - НЕ ТРОГАЕМ эти папки!
-        # ВСЕ остальные файлы, включая сами .bat и .ps1, ЗАМЕНЯЮТСЯ НА НОВЫЕ!
         robocopy $src $dir /MIR /R:1 /W:1 /NFL /NDL /NJH /NJS /XD config data emotes .git logs screenshots downloads nh3_extract /XF token.txt options.txt servers.dat usercache.json usernamecache.json command_history.txt nh3_update.zip | Out-Null
 
         $lines = @()
