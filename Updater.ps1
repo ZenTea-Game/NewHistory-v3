@@ -34,13 +34,19 @@ function Write-ProgressLine([string]$Text, [ConsoleColor]$Color = 'Cyan') {
     Write-Host (" " * $spaces + $Text) -NoNewline -ForegroundColor $Color
 }
 
-function Get-ModBase($fileName) {
-    $n = [System.IO.Path]::GetFileNameWithoutExtension($fileName)
-    $n = $n -replace '^\[[^\]]*\]\s*', ''
-    $n = $n -replace '\s*v?\d+(\.\d+)+.*$', ''
-    $n = $n -replace '[-_\s]+$]', ''
-    $n = $n -replace '[-_\s]+$', ''
-    return $n.ToLower()
+# ===== ВЕРСИИ САМИХ ФАЙЛОВ АПДЕЙТЕРА =====
+$updaterVersion = 'v1.3'
+$batVersion     = 'v1.2'
+$checkVersion   = 'v1.2'
+# =========================================
+
+# Версия файла по имени (если файл не найден, возвращает '0.0')
+function Get-FileVersionFromName($name) {
+    if (Test-Path -LiteralPath (Join-Path $dir $name)) {
+        $content = Get-Content -LiteralPath (Join-Path $dir $name) -Raw -Encoding UTF8
+        if ($content -match "# VER: (.+)") { return $Matches[1].Trim() }
+    }
+    return '0.0'
 }
 
 function Get-LocalVersion {
@@ -75,7 +81,6 @@ function Invoke-Download($u, $out) {
     $request.AllowAutoRedirect = $true
     
     $response = $request.GetResponse()
-    # ВАЖНО: Иногда сервер не сообщает длину (Content-Length = 0 или -1)
     $totalBytes = $response.ContentLength
     
     if ($totalBytes -gt 0) {
@@ -113,7 +118,6 @@ function Invoke-Download($u, $out) {
             $spin = $spinChars[$spinIndex % $spinChars.Length]
             $downloadedMB = [math]::Round($downloaded / 1MB, 1)
             
-            # ИСПРАВЛЕНИЕ 0/0 MB: если размер неизвестен, не показываем дробь 0/0
             if ($totalBytes -gt 0) {
                 $totalMB = [math]::Round($totalBytes / 1MB, 1)
                 $msg = "$spin $bar $percent% [$downloadedMB MB / $totalMB MB]"
@@ -184,6 +188,15 @@ Write-Host ""
 Write-Center $status $statusColor
 Write-Center $desc $statusColor
 Write-Host ""
+
+# ===== ВЕРСИИ ФАЙЛОВ АПДЕЙТЕРА =====
+Write-Center "═══════════════════════════════════" 'DarkGray'
+Write-Center "Версия Updater.ps1: $updaterVersion" 'White'
+Write-Center "Версия Updater.bat: $batVersion" 'White'
+Write-Center "Версия Check.bat:   $checkVersion" 'White'
+Write-Center "═══════════════════════════════════" 'DarkGray'
+Write-Host ""
+
 Write-Center "[1] Обновиться    [2] Выйти" 'White'
 Write-Host ""
 
@@ -206,7 +219,7 @@ if ($ch -eq '1') {
         
         $src = (Get-ChildItem -Path $tmp -Directory | Select-Object -First 1).FullName
 
-        # УДАЛЯЕМ ТОЛЬКО mods, tacz, kubejs (data и emotes больше НЕ трогаем!)
+        # УДАЛЯЕМ ТОЛЬКО mods, tacz, kubejs
         Write-Center 'Очищаю старые файлы (mods, tacz, kubejs)...' 'Yellow'
         foreach ($folder in @('mods', 'tacz', 'kubejs')) {
             $folderPath = Join-Path $dir $folder
@@ -216,7 +229,8 @@ if ($ch -eq '1') {
         }
 
         Write-Center 'Применяю полное обновление (заменяю все файлы сборки)...' 'Yellow'
-        # /XD config data emotes - НЕ ТРОГАЕМ эти папки! 
+        # /XD config data emotes - НЕ ТРОГАЕМ эти папки!
+        # ВСЕ остальные файлы, включая сами .bat и .ps1, ЗАМЕНЯЮТСЯ НА НОВЫЕ!
         robocopy $src $dir /MIR /R:1 /W:1 /NFL /NDL /NJH /NJS /XD config data emotes .git logs screenshots downloads nh3_extract /XF token.txt options.txt servers.dat usercache.json usernamecache.json command_history.txt nh3_update.zip | Out-Null
 
         $lines = @()
