@@ -15,18 +15,17 @@ $zip     = Join-Path $dir 'nh3_update.zip'
 $tmp     = Join-Path $dir 'nh3_extract'
 $url     = "https://github.com/$repo/archive/refs/heads/$branch.zip"
 
+# Тяжёлые моды, которых нет на GitHub
 $driveMods = @(
     @{ Name = 'AoA3-1.21.1-3.7.16.1.jar'; Url = 'https://drive.usercontent.google.com/download?id=1UixrKDtRj1VlEdMVgN2zu9vMiM64QtMN&export=download&confirm=t' }
 )
 
-# Функция центрирования для статичного текста
 function Write-Center([string]$Text, [ConsoleColor]$Color = 'Gray') {
     $width = [Console]::WindowWidth
     $spaces = [math]::Max(0, [math]::Floor(($width - $Text.Length) / 2))
     Write-Host (" " * $spaces + $Text) -ForegroundColor $Color
 }
 
-# Функция обновления одной строки
 function Write-ProgressLine([string]$Text, [ConsoleColor]$Color = 'Cyan') {
     [Console]::SetCursorPosition(0, [Console]::CursorTop)
     Write-Host (" " * [Console]::WindowWidth) -NoNewline
@@ -76,10 +75,13 @@ function Invoke-Download($u, $out) {
     $request.AllowAutoRedirect = $true
     
     $response = $request.GetResponse()
+    # ВАЖНО: Иногда сервер не сообщает длину (Content-Length = 0 или -1)
     $totalBytes = $response.ContentLength
     
     if ($totalBytes -gt 0) {
         Write-Center ("Архив весит: {0:N0} МБ" -f ($totalBytes / 1MB)) 'Cyan'
+    } else {
+        Write-Center 'Размер файла неизвестен, качаю...' 'Cyan'
     }
     Write-Center 'Качаю, полоса ниже показывает прогресс:' 'Yellow'
     
@@ -97,7 +99,11 @@ function Invoke-Download($u, $out) {
         $fileStream.Write($buffer, 0, $read)
         $downloaded += $read
         
-        if ($totalBytes -gt 0) { $percent = [math]::Floor(($downloaded / $totalBytes) * 100) } else { $percent = 0 }
+        if ($totalBytes -gt 0) { 
+            $percent = [math]::Floor(($downloaded / $totalBytes) * 100) 
+        } else { 
+            $percent = 0 
+        }
         
         if ($percent -ne $lastPercent -or $spinIndex -eq 0) {
             $lastPercent = $percent
@@ -106,9 +112,15 @@ function Invoke-Download($u, $out) {
             $bar = '[' + ('=' * $filled) + (' ' * ($barLength - $filled)) + ']'
             $spin = $spinChars[$spinIndex % $spinChars.Length]
             $downloadedMB = [math]::Round($downloaded / 1MB, 1)
-            $totalMB = [math]::Round($totalBytes / 1MB, 1)
             
-            $msg = "$spin $bar $percent% [$downloadedMB MB / $totalMB MB]"
+            # ИСПРАВЛЕНИЕ 0/0 MB: если размер неизвестен, не показываем дробь 0/0
+            if ($totalBytes -gt 0) {
+                $totalMB = [math]::Round($totalBytes / 1MB, 1)
+                $msg = "$spin $bar $percent% [$downloadedMB MB / $totalMB MB]"
+            } else {
+                $msg = "$spin $bar [$downloadedMB MB]"
+            }
+            
             Write-ProgressLine $msg 'Cyan'
             $spinIndex++
         }
@@ -194,22 +206,18 @@ if ($ch -eq '1') {
         
         $src = (Get-ChildItem -Path $tmp -Directory | Select-Object -First 1).FullName
 
-        # ==========================================================
-        # УДАЛЯЕМ ПАПКИ, КОТОРЫЕ ДОЛЖНЫ ПОЛНОСТЬЮ ОБНОВЛЯТЬСЯ
-        # (включая mods, tacz, kubejs, но НЕ трогаем config)
-        # ==========================================================
-        Write-Center 'Очищаю старые файлы (mods, tacz, kubejs, data, emotes)...' 'Yellow'
-        foreach ($folder in @('mods', 'tacz', 'kubejs', 'data', 'emotes')) {
+        # УДАЛЯЕМ ТОЛЬКО mods, tacz, kubejs (data и emotes больше НЕ трогаем!)
+        Write-Center 'Очищаю старые файлы (mods, tacz, kubejs)...' 'Yellow'
+        foreach ($folder in @('mods', 'tacz', 'kubejs')) {
             $folderPath = Join-Path $dir $folder
             if (Test-Path -LiteralPath $folderPath) {
                 Remove-Item -LiteralPath $folderPath -Recurse -Force -ErrorAction SilentlyContinue
             }
         }
-        # ==========================================================
 
         Write-Center 'Применяю полное обновление (заменяю все файлы сборки)...' 'Yellow'
-        # /XD config - не копируем и не удаляем настройки. /XD .git и прочее - защита личных папок.
-        robocopy $src $dir /MIR /R:1 /W:1 /NFL /NDL /NJH /NJS /XD config .git logs screenshots downloads nh3_extract /XF token.txt options.txt servers.dat usercache.json usernamecache.json command_history.txt nh3_update.zip | Out-Null
+        # /XD config data emotes - НЕ ТРОГАЕМ эти папки! 
+        robocopy $src $dir /MIR /R:1 /W:1 /NFL /NDL /NJH /NJS /XD config data emotes .git logs screenshots downloads nh3_extract /XF token.txt options.txt servers.dat usercache.json usernamecache.json command_history.txt nh3_update.zip | Out-Null
 
         $lines = @()
         if (Test-Path -LiteralPath $vFile) { $lines = @(Get-Content -LiteralPath $vFile -Encoding UTF8) }
@@ -229,7 +237,7 @@ if ($ch -eq '1') {
     try { if (Test-Path -LiteralPath $tmp) { Remove-Item -LiteralPath $tmp -Recurse -Force } } catch {}
 }
 
-# Тяжёлые моды с Google Drive (скачаются, если их нет)
+# Тяжёлые моды с Google Drive
 if (-not (Test-Path -LiteralPath $modsDir)) { New-Item -ItemType Directory -Path $modsDir -Force | Out-Null }
 foreach ($m in $driveMods) {
     $dest = Join-Path $modsDir $m.Name
