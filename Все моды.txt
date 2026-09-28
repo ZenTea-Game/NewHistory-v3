@@ -1,131 +1,1252 @@
+КАТАЛОГ МОДОВ — NEWHISTORY V3
+Обновлено: 28.09.2026
+Профиль: Minecraft 1.21.1 | NeoForge 21.1.236
+Сверено с файлами в папке mods профиля: 153 активных JAR. Этот документ описывает фактически установленный набор, а не список последних релизов.
+Важно: версии JAR не менялись и не объявляются «последними». Совместимость каждой версии зависит от NeoForge 21.1.236 и других модов; перед обновлением нужны отдельная копия мира и тест.
 
-все моды почти названия
+Как читать: «Назначение» — краткое русское резюме по метаданным JAR и карточке проекта; оригинальное описание оставлено для проверки. Зависимости ниже — только то, что объявлено внутри JAR; наличие страницы/ссылки не подтверждает совместимость всей сборки.
+Типы: контент — игровой контент; библиотека/API — техническая основа; интеграция — совместимость двух модов; клиентское — интерфейс/графика/удобство.
 
-aces_spell_utils-1.2.7.1-1.21.1.jar
-Apothesis-1.21.1-8.5.4.jar
-ApathicAttributes-1.21.1-2.9.1.jar
-ApathicEnchanting-1.21.1-1.6.0.jar
-ApathicSpawners-1.21.1-1.4.0.jar
-appleskin-neoforge-mc1.21-3.0.9.jar
-architecture-13.0.8-neoforge.jar
-azurelibarmor-neo-1.21.1-3.1.3.jar
-azurelib-neo-1.21.1-3.1.11.jar
-BadOptimizations-2.4.1-1.21.1.jar
-badpackets-neo-0.8.2.jar
-baguettelib-1.21.1-NeoForge-2.0.3.jar
-bountifulfares-neoforge-1.21.1-3.0.11.jar
-BuildingWands-neoforge-MC1.21.1-3.0.5.jar
-bundle-api-neoforge-1.1.0.jar
-cataclysm_spellbooks-1.1.11-1.21.jar
-cbc_compact_mount-1.2.2.jar
-cloth-config-15.0.140-neoforge.jar
-Clumps-neoforge-1.21.1-19.0.0.1.jar
-Controlling-neoforge-1.21.1-19.0.5.jar
-copycats-3.0.4+mc1.21.1-neoforge.jar
-Corgilib-NeoForge-1.21.1-5.0.0.9.jar
-coroutil-neoforge-1.21.0-1.3.8.jar
-cr_aero_structures.jar
-crawlondemand-1.21.1-1.21.5-1.2.0+neoforge.jar
-create_connected-1.3.2-mc1.21.1.jar
-create_radar-0.4.9.4-1.21.1.jar
-create_sophback_compat-1.0.jar
-create_things_and_misc-4.1.1-neoforge-1.21.1.jar
-create-1.21.1-6.0.10.jar
-createaddition-1.6.0.jar
-create-aeronautics-bundled-1.21.1-1.3.0.jar
-createbetterfps-1.21.1-1.1.4.jar
-createbigcannons-5.11.7+mc1.21.1.jar
-create-extended-wrenches-1.21.1-2.0.2.jar
-createogggles-1.21.1-6.1.1-[NEOFORGE].jar
-createimmersivearmorerintegration-1.1.1-1.21.1-neof...
-createimmersivetacz-1.6-neoforge.jar
-createnuclear-1.3.2-beta.3-neoforge.jar
-createpropulsion-1.1.5.jar
-curios-neoforge-9.5.1+1.21.1.jar
-DistantHorizons-3.2.0-b-1.21.1-fabric-neoforge.jar
-edf-remastered-5.0.2.jar
-emi_create_schematics-1.1.0.jar
-emi_loot-0.7.9+1.21+neoforge.jar
-emi-1.1.24+1.21.1+neoforge.jar
-EMIPProfessions-neoforge-1.21.1-1.0.3.jar
-emotecraft-for-MC1.21.1-2.4.12-neoforge.jar
-endermanoverhaul-neoforge-1.21.1-2.0.3.jar
-endrem-neoforge-1.21.X-6.0.2.jar
-entityculling-neoforge-1.10.5-mc1.21.1.jar
-ferritecore-7.0.3-neoforge.jar
-flywheel-neoforge-1.21.1-1.0.6.jar
-forgifed-fabric-api-0.116.14+2.3.0+1.21.1.jar
-fzzy_config-0.7.6+1.21+neoforge.jar
-geckolib-neoforge-1.21.1-4.8.4.jar
-gravestone-neoforge-1.21.1-1.0.37.jar
-ImmediatelyFast-NeoForge-1.6.11+1.21.1.jar
-ImmersiveEngineering-1.21.1-12.4.2-194.jar
-InventoryProfilesNext-neoforge-1.21.1-2.2.5.jar
-irons_lib-1.21.1-2.1.0.jar
-irons_spellbooks-1.21.1-3.16.2.jar
-jackpot-1.0.8.jar
-Jade-1.21.1-NeoForge-15.10.5.jar
-jei-1.21.1-neoforge-19.39.0.372.jar
-kotlinforforge-5.11.0-all.jar
-kubejs-neoforge-2101.7.2-build.368.jar
-L_Ender's Cataclysm-1.21.1-3.32.jar
-libIPN-neoforge-1.21.1-6.6.3.jar
-lionfishapi-3.1.jar
-lithium-neoforge-0.15.4+mc1.21.1.jar
-maflib-0.4.3+mc1.21.1.jar
-modernfix-neoforge-5.27.15+mc1.21.1.jar
-nexuslib-neoforge-1.21.1-1.1.5.jar
-Oh-The-Biomes-Weve-Gone-NeoForge-2.6.0.jar
-Oh-The-Trees-Yoill-Grow-neoforge-1.21.1-5.3.2.jar
-open-parties-and-claims-neoforge-1.21.1-0.29.3.jar
-Patchouli-1.21.1-93-NEOFORGE.jar
-Placebo-1.21.1-9.9.1.jar
-plasmovoice-neoforge-1.21.1-2.1.13.jar
-player-animation-lib-forge-2.0.4+1.21.1.jar
-ponderjs-neoforge-1.21.1-2.4.0.jar
-puffish_skills-0.18.1-1.21-neoforge.jar
-ranged_weapon_api-neoforge-2.3.3+1.21.1.jar
-resourcefulconfig-neoforge-1.21.3-0.11.jar
-resourcefulllib-neoforge-1.21.3-0.12.jar
-rhino-2101.2.8-build.91.jar
-richtiesprojectilelib-2.1.2+mc.1.21.1-neoforge.jar
-rocknroller-0.4.0+mc.1.21.1.jar
-runes-neoforge-1.2.2+1.21.1.jar
-sable-neoforge-1.21.1-2.0.3.jar
-samurai_dynasty-0.1.6-1.21.1.jar
-Searchables-neoforge-1.21.1-1.0.2.jar
-sodiumdynamiclights-neoforge-1.0.10-1.21.1.jar
-sodium-extra-neoforge-0.9.1+mc.1.21.1.jar
-sodium-neoforge-0.8.12+mc.1.21.1.jar
-sophisticatedbackpacks-1.21.1-3.25.71.1997.jar
-sophisticatedcore-1.21.1-1.4.75.2161.jar
-structure_layout_optimizer-neoforge-1.0.12.jar
-structure_pool_api-neoforge-1.2.1+1.21.1.jar
-tacz_aero_compat-1.7.0.jar
-tacz-neoforge-1.21.1-1.1.8-hotfix-r3.jar
-tacz-pack-upgrader-2.1.1.jar
-TerraBlender-neoforge-1.21.1-4.1.0.8.jar
-(Create: The Factory Must Grow) tftmg-1.2.0.jar
-valarian_conquest-4.2.1-1.1-neoforge-1.21.1.jar
-watut-neoforge-1.21.0-1.2.7.jar
-webcam-neoforge-4.4.0-1.21.1.jar
-WI-Zoom-1.6-MC1.21.1-NeoForge.jar
-xaeronimmap-neoforge-1.21.1-26.4.2.jar
-xaeroworldmap-neoforge-1.21.1-1.44.2.jar
-YungsApi-1.21.1-NeoForge-5.1.6.jar
-YungsBetterDungeons-1.21.1-NeoForge-5.1.4.jar
-YungsBetterJungleTemples-1.21.1-NeoForge-3.1.2.jar
-YungsBetterMineshafts-1.21.1-NeoForge-5.1.1.jar
-YungsBridges-1.21.1-NeoForge-5.1.1.jar
-YungsCaveBiomes-1.21.1-NeoForge-3.1.1.jar
-YungsExtras-1.21.1-NeoForge-5.1.1.jar
+001. Ace's Spell Utils
+    Тип: Игровой контент | mod ID: aces_spell_utils | установленная версия: 1.2.7.1-1.21.1
+    Файл: aces_spell_utils-1.2.7.1-1.21.1.jar
+    Назначение: Вспомогательная библиотека для дополнений к Iron’s Spells ’n Spellbooks: инструменты для своих предметов, существ и боссов.
+    Описание из JAR: A util API mod for making Iron's Spells and Spellbooks addons. Has useful methods for making custom entities, bosses, items, and other features.
+    Объявленные зависимости: В JAR не указаны обязательные зависимости (это не гарантирует независимость: см. страницу проекта).
+    Карточка/поиск проекта: https://modrinth.com/mod/aces-spell-utils
 
-NeoForge 1.21.1 | 21.1.236
+002. Anything
+    Тип: Игровой контент | mod ID: anything | установленная версия: 1.2.1+mc1.21.1
+    Файл: anything-neoforge-1.2.1+mc1.21.1.jar
+    Назначение: Позволяет создавать инструменты и броню из блоков Minecraft; резко увеличивает число вариантов экипировки.
+    Описание из JAR: Create tools and armor out of any block! This mod adds 3800+ tools and armor pieces to the game, for each of the blocks in the game.
+    Объявленные зависимости: architectury (required, [13.0.2,))
+    Карточка/поиск проекта: https://modrinth.com/mod/anything
 
-там пиздец
+003. Apothic Spawners
+    Тип: Игровой контент | mod ID: apothic_spawners | установленная версия: 1.4.0
+    Файл: ApothicSpawners-1.21.1-1.4.0.jar
+    Назначение: Модуль Apotheosis для переноса и настройки спавнеров.
+    Описание из JAR: The Spawner Module of Apotheosis, allowing for silk-touching and modification.
+    Объявленные зависимости: placebo (required, [9.9.0,))
+    Карточка/поиск проекта: https://modrinth.com/mod/apothic-spawners
 
+004. AppleSkin
+    Тип: Интерфейс / удобство / клиент | mod ID: appleskin | установленная версия: 3.0.9+mc1.21
+    Файл: appleskin-neoforge-mc1.21-3.0.9.jar
+    Назначение: Показывает дополнительную информацию о голоде и насыщении.
+    Описание из JAR: Adds various food-related HUD improvements
+    Объявленные зависимости: В JAR не указаны обязательные зависимости (это не гарантирует независимость: см. страницу проекта).
+    Карточка/поиск проекта: https://modrinth.com/mod/appleskin
 
-===========
-Beta v2.6.3 | NewHistory v3
+005. Aquamirae
+    Тип: Мир / существа / приключения | mod ID: aquamirae | установленная версия: 7.2.4
+    Файл: aquamirae-neoforge-1.21.1-7.2.4.jar
+    Назначение: Морская хоррор-экспансия: затонувшие места, существа, предметы и исследование океана.
+    Описание из JAR: Ship graveyard with terrible deep-sea creatures!
+    Объявленные зависимости: fragmentum (required, [2.4.4,)); geckolib (required, [4.8.0,))
+    Карточка/поиск проекта: https://modrinth.com/mod/aquamirae
 
-jei спецаильная версии под NeoForge 235
+006. Architectury
+    Тип: Библиотека / API | mod ID: architectury | установленная версия: 13.0.8
+    Файл: architectury-13.0.8-neoforge.jar
+    Назначение: Общая программная прослойка/API для модов, поддерживающих несколько загрузчиков.
+    Описание из JAR: A intermediary api aimed to ease developing multiplatform mods.
+    Объявленные зависимости: В JAR не указаны обязательные зависимости (это не гарантирует независимость: см. страницу проекта).
+    Карточка/поиск проекта: https://modrinth.com/mod/architectury-api
+
+007. AzureLib
+    Тип: Библиотека / API | mod ID: azurelib | установленная версия: 3.1.11
+    Файл: azurelib-neo-1.21.1-3.1.11.jar
+    Назначение: Библиотека анимированных моделей/существ/предметов для модов.
+    Описание из JAR: Java Minecraft mod using Bedrock models to create custom models and animations for items, blocks, entities
+    Объявленные зависимости: В JAR не указаны обязательные зависимости (это не гарантирует независимость: см. страницу проекта).
+    Карточка/поиск проекта: https://modrinth.com/mod/azurelib
+
+008. AzureLib Armor
+    Тип: Библиотека / API | mod ID: azurelibarmor | установленная версия: 3.1.3
+    Файл: azurelibarmor-neo-1.21.1-3.1.3.jar
+    Назначение: Библиотека анимаций и моделей брони, используемая отдельными модами.
+    Описание из JAR: Based off Geckolib but now just for my own needs.
+    Объявленные зависимости: В JAR не указаны обязательные зависимости (это не гарантирует независимость: см. страницу проекта).
+    Карточка/поиск проекта: https://modrinth.com/mod/azurelib-armor
+
+009. BadOptimizations
+    Тип: Оптимизация / графика | mod ID: badoptimizations | установленная версия: 2.4.1
+    Файл: BadOptimizations-2.4.1-1.21.1.jar
+    Назначение: Оптимизации Minecraft, не связанные напрямую с графическим рендерингом.
+    Описание из JAR: Optimization mod that focuses on things other than rendering
+    Объявленные зависимости: В JAR не указаны обязательные зависимости (это не гарантирует независимость: см. страницу проекта).
+    Карточка/поиск проекта: https://modrinth.com/mod/badoptimizations
+
+010. Bad Packets
+    Тип: Библиотека / API | mod ID: badpackets | установленная версия: 0.8.2
+    Файл: badpackets-neo-0.8.2.jar
+    Назначение: Сетевая библиотека обмена пакетами между модами и загрузчиками.
+    Описание из JAR: Allow packet messaging between multiple modding platform.
+    Объявленные зависимости: В JAR не указаны обязательные зависимости (это не гарантирует независимость: см. страницу проекта).
+    Карточка/поиск проекта: https://modrinth.com/mod/badpackets
+
+011. BaguetteLib
+    Тип: Библиотека / API | mod ID: baguettelib | установленная версия: 2.0.3
+    Файл: baguettelib-1.21.1-NeoForge-2.0.3.jar
+    Назначение: Библиотека дополнительных событий и общих функций для зависимых модов.
+    Описание из JAR: A library mod about adding more events into the modding API (and more stuff)
+    Объявленные зависимости: В JAR не указаны обязательные зависимости (это не гарантирует независимость: см. страницу проекта).
+    Карточка/поиск проекта: https://modrinth.com/mod/baguettelib
+
+012. Ben's Sharks
+    Тип: Мир / существа / приключения | mod ID: benssharks | установленная версия: 1.2.5
+    Файл: benssharks-1.2.5-neoforge-1.21.1.jar
+    Назначение: Добавляет акул и морских взаимодействий.
+    Описание из JAR: A simplistic approach towards one of the ocean's most complex creatures.
+    Объявленные зависимости: geckolib (optional, [0,))
+    Карточка/поиск проекта: https://modrinth.com/mod/bens-sharks
+
+013. Better Third Person
+    Тип: Интерфейс / удобство / клиент | mod ID: betterthirdperson | установленная версия: 1.9.0
+    Файл: BetterThirdPerson-neoforge-1.9.0.jar
+    Назначение: Независимое управление поворотом камеры в режиме от третьего лица.
+    Описание из JAR: Adds independent camera rotation for third-person view.
+    Объявленные зависимости: В JAR не указаны обязательные зависимости (это не гарантирует независимость: см. страницу проекта).
+    Карточка/поиск проекта: https://modrinth.com/mod/better-third-person
+
+014. Bosses of Mass Destruction (Beta)
+    Тип: Мир / существа / приключения | mod ID: bosses_of_mass_destruction | установленная версия: 1.10.2-1.21.1
+    Файл: BOMD-1.10.2-1.21.1.jar
+    Назначение: Добавляет опасных боссов и связанные с ними испытания; конкретные структуры и баланс зависят от сборки.
+    Описание из JAR: Adds high threat mobs for players to take on.
+    Объявленные зависимости: fabric (required, *); fabric-language-kotlin (required, *); cardinal-components-base (required, >=6.1.0); cardinal-components-world (required, >=6.1.0); cardinal-components-entity (required, >=6.1.0); geckolib (required, >=4.5); cloth-config (required, >=15.0.0)
+    Карточка/поиск проекта: https://www.curseforge.com/minecraft/search?class=mc-mods&search=Bosses%20of%20Mass%20Destruction%20(Beta)
+
+015. Bountiful Fares
+    Тип: Игровой контент | mod ID: bountifulfares | установленная версия: 3.0.11
+    Файл: bountifulfares-neoforge-1.21.1-3.0.11.jar
+    Назначение: Расширяет фермерство и еду: культуры, ингредиенты и связанные предметы.
+    Описание из JAR: Adds new content to the food and farming side of Minecraft!
+    Объявленные зависимости: nexuslib (required, [1.1.5,))
+    Карточка/поиск проекта: https://modrinth.com/mod/bountiful-fares
+
+016. BundleAPI
+    Тип: Библиотека / API | mod ID: bundleapi | установленная версия: 1.1.0
+    Файл: bundle-api-neoforge-1.1.0.jar
+    Назначение: Библиотека для модов, добавляющих мешки/сумки с настраиваемой вместимостью и фильтрами.
+    Описание из JAR: An API for mods that allows easy addition of bundles with custom sizes and filtered content.
+    Объявленные зависимости: В JAR не указаны обязательные зависимости (это не гарантирует независимость: см. страницу проекта).
+    Карточка/поиск проекта: https://www.curseforge.com/minecraft/search?class=mc-mods&search=BundleAPI
+
+017. Camerapture
+    Тип: Игровой контент | mod ID: camerapture | установленная версия: 1.10.12
+    Файл: Camerapture-1.10.12+mc1.21.1-neoforge.jar
+    Назначение: Позволяет делать внутриигровые снимки и размещать изображения.
+    Описание из JAR: Take photos and display pictures in Minecraft.
+    Объявленные зависимости: В JAR не указаны обязательные зависимости (это не гарантирует независимость: см. страницу проекта).
+    Карточка/поиск проекта: https://modrinth.com/mod/camerapture
+
+018. Carbon Config Library
+    Тип: Библиотека / API | mod ID: carbonconfig | установленная версия: CarbonConfig-Neoforge-1.21.1-2.0.2.1
+    Файл: CarbonConfig-Neoforge-1.21.1-2.0.2.1.jar
+    Назначение: Библиотека конфигурации для модов; вынесенная в отдельный проект реализация Carbon Config.
+    Описание из JAR: Carbon Config is IC2Classics Config Implementation made open source
+    Объявленные зависимости: В JAR не указаны обязательные зависимости (это не гарантирует независимость: см. страницу проекта).
+    Карточка/поиск проекта: https://www.curseforge.com/minecraft/search?class=mc-mods&search=Carbon%20Config%20Library
+
+019. Cardinal Components API
+    Тип: Библиотека / API | mod ID: cardinal-components | установленная версия: 6.1.3
+    Файл: cardinal-components-api-6.1.3.jar
+    Назначение: API для хранения дополнительных данных у игровых объектов.
+    Описание из JAR: Attaching more data to various game objects
+    Объявленные зависимости: В JAR не указаны обязательные зависимости (это не гарантирует независимость: см. страницу проекта).
+    Карточка/поиск проекта: https://modrinth.com/mod/cardinal-components-api
+
+020. Carry On
+    Тип: Игровой контент | mod ID: carryon | установленная версия: 2.2.6
+    Файл: carryon-neoforge-1.21.1-2.2.6.13.jar
+    Назначение: Позволяет поднимать и переносить некоторые блоки и существ.
+    Описание из JAR: Carry On is a simple mod that improves game interaction by allowing players to pick up, carry, and place single block Tile Entities using only their empty hands.
+    Объявленные зависимости: В JAR не указаны обязательные зависимости (это не гарантирует независимость: см. страницу проекта).
+    Карточка/поиск проекта: https://modrinth.com/mod/carry-on
+
+021. Cataclysm: Spellbooks
+    Тип: Мир / существа / приключения | mod ID: cataclysm_spellbooks | установленная версия: 1.1.11-1.21
+    Файл: cataclysm_spellbooks-1.1.11-1.21.jar
+    Назначение: Интеграция Cataclysm с Iron’s Spells ’n Spellbooks: магический контент и совместимость.
+    Описание из JAR: An integration mod between L_Ender's Cataclysm and Iron's Spells 'n Spellbooks Adds in a new armor set, spellbooks, and unique spells to the game StarOcean for the lovely models, textures, and the whole idea, and Hal for the awesome Cursium flying animations!
+    Объявленные зависимости: azurelib (required, [3.1.0,)); aces_spell_utils (required, [1.1.6,))
+    Карточка/поиск проекта: https://modrinth.com/mod/cataclysm-spellbooks
+
+022. CBC Advanced Technology
+    Тип: Create / техника / аддоны | mod ID: cbc_at | установленная версия: 0.1.4c-1.21.1
+    Файл: cbc_at_Neoforge_1.21.1_0.1.4c.jar
+    Назначение: Добавляет технологии и механики для Create Big Cannons.
+    Описание из JAR: "This Mod adds different technologies and mechanics to Create Big Cannons"
+    Объявленные зависимости: create (required, [6.0.9,)); createbigcannons (required, [5.10,))
+    Карточка/поиск проекта: https://www.curseforge.com/minecraft/search?class=mc-mods&search=CBC%20Advanced%20Technology
+
+023. CBC: Compact Mount
+    Тип: Create / техника / аддоны | mod ID: cbc_compact_mount | установленная версия: 1.2.2
+    Файл: cbc_compact_mount-1.2.2.jar
+    Назначение: Добавляет компактное размещение/предмет-переноску для орудий Create Big Cannons.
+    Описание из JAR: Ports the Compact Mount from Create Big Cannons: Modern Warfare as a single item Forked from YMW, which was made by: Тризубний
+    Объявленные зависимости: create (required, [6.0.10,))
+    Карточка/поиск проекта: https://modrinth.com/mod/cbc-compact-mount
+
+024. Create Big Cannons: Equally Opposite
+    Тип: Create / техника / аддоны | mod ID: cbc_equally_opposite | установленная версия: 0.1.3
+    Файл: cbc_equally_opposite-0.1.3.jar
+    Назначение: Добавляет физическое воздействие отдачи и столкновений для конструкций Sable.
+    Описание из JAR: Introduces recoil and impact forces on Sable creations
+    Объявленные зависимости: create (required, [6.0.7,6.1.0)); ritchiesprojectilelib (required, [2.1.2,)); createbigcannons (required, [5.11.3,)); sable (required, [1.2.2,))
+    Карточка/поиск проекта: https://modrinth.com/mod/create-big-cannons-equally-opposite
+
+025. Create Big Cannons: Going Ballistic
+    Тип: Create / техника / аддоны | mod ID: cbc_going_ballistic | установленная версия: 0.3.1
+    Файл: cbc_going_ballistic-0.3.1.jar
+    Назначение: Меняет расчёт баллистики снарядов Create Big Cannons, позволяя им лететь дальше.
+    Описание из JAR: Lets projectiles travel much further by replacing the ballistics calculation for projectiles in Create: Big Cannons
+    Объявленные зависимости: create (required, [6.0.7,6.1.0)); ritchiesprojectilelib (required, [2.1.2,)); createbigcannons (required, [5.11.7,))
+    Карточка/поиск проекта: https://modrinth.com/mod/create-big-cannons-going-ballistic
+
+026. CC: Tweaked
+    Тип: Игровой контент | mod ID: computercraft | установленная версия: 1.120.2
+    Файл: cc-tweaked-1.21.1-forge-1.120.2.jar
+    Назначение: Добавляет программируемые компьютеры и черепах с управлением скриптами.
+    Описание из JAR: CC: Tweaked is a fork of ComputerCraft, adding programmable computers, turtles and more to Minecraft.
+    Объявленные зависимости: В JAR не указаны обязательные зависимости (это не гарантирует независимость: см. страницу проекта).
+    Карточка/поиск проекта: https://modrinth.com/mod/cc-tweaked
+
+027. Cloth Config v15 API
+    Тип: Библиотека / API | mod ID: cloth_config | установленная версия: 15.0.140
+    Файл: cloth-config-15.0.140-neoforge.jar
+    Назначение: Библиотека экранов настроек для модов.
+    Описание из JAR: An API for config screens.
+    Объявленные зависимости: В JAR не указаны обязательные зависимости (это не гарантирует независимость: см. страницу проекта).
+    Карточка/поиск проекта: https://www.curseforge.com/minecraft/search?class=mc-mods&search=Cloth%20Config%20v15%20API
+
+028. Clumps
+    Тип: Оптимизация / графика | mod ID: clumps | установленная версия: 19.0.0.1
+    Файл: Clumps-neoforge-1.21.1-19.0.0.1.jar
+    Назначение: Объединяет сферы опыта в крупные группы, уменьшая число сущностей.
+    Описание из JAR: Clumps xp orbs together.
+    Объявленные зависимости: В JAR не указаны обязательные зависимости (это не гарантирует независимость: см. страницу проекта).
+    Карточка/поиск проекта: https://modrinth.com/mod/clumps
+
+029. Sinytra Connector
+    Тип: Игровой контент | mod ID: (ID не прочитан из обычного metadata; см. страницу проекта) | установленная версия: 2.0.0-beta.17+1.21.1
+    Файл: connector-2.0.0-beta.17+1.21.1-full.jar
+    Назначение: Контентный мод; точное назначение требует проверки страницы автора, так как встроенные метаданные не дают надёжного описания.
+    Объявленные зависимости: В JAR не указаны обязательные зависимости (это не гарантирует независимость: см. страницу проекта).
+    Карточка/поиск проекта: https://modrinth.com/mod/connector
+
+030. Controlling
+    Тип: Интерфейс / удобство / клиент | mod ID: controlling | установленная версия: 19.0.5
+    Файл: Controlling-neoforge-1.21.1-19.0.5.jar
+    Назначение: Добавляет поиск по назначенным клавишам в настройках управления.
+    Описание из JAR: Adds the ability to search for keybinds using their name in the KeyBinding menu, this allows players to easily find a key binding in the menu.
+    Объявленные зависимости: searchables (required, [1.0.1,))
+    Карточка/поиск проекта: https://modrinth.com/mod/controlling
+
+031. Create: Copycats+
+    Тип: Игровой контент | mod ID: copycats | установленная версия: 3.0.4+mc.1.21.1-neoforge
+    Файл: copycats-3.0.4+mc.1.21.1-neoforge.jar
+    Назначение: Добавляет копирующие блоки для декора и построек в экосистеме Create.
+    Описание из JAR: All the copycats you've ever wanted, combined into a single mod!
+    Объявленные зависимости: create (required, [6.0.8,))
+    Карточка/поиск проекта: https://modrinth.com/mod/copycats
+
+032. CorgiLib
+    Тип: Библиотека / API | mod ID: corgilib | установленная версия: 5.0.0.9
+    Файл: Corgilib-NeoForge-1.21.1-5.0.0.9.jar
+    Назначение: Общая библиотека функций, требуемая некоторым контентным модам.
+    Описание из JAR: Library with handy utilities.
+    Объявленные зависимости: В JAR не указаны обязательные зависимости (это не гарантирует независимость: см. страницу проекта).
+    Карточка/поиск проекта: https://modrinth.com/mod/corgilib
+
+033. CoroUtil
+    Тип: Библиотека / API | mod ID: coroutil | установленная версия: 1.21.0-1.3.8
+    Файл: coroutil-neoforge-1.21.0-1.3.8.jar
+    Назначение: Вспомогательная библиотека/набор утилит для модов автора Corosus.
+    Описание из JAR: It utils
+    Объявленные зависимости: В JAR не указаны обязательные зависимости (это не гарантирует независимость: см. страницу проекта).
+    Карточка/поиск проекта: https://modrinth.com/mod/coroutil
+
+034. Creat Aeronautics Structures
+    Тип: Игровой контент | mod ID: cr_aero_structures | установленная версия: 1.0.0
+    Файл: cr_aero_structures.jar
+    Назначение: Добавляет генерируемые структуры, связанные с Create и Create Aeronautics.
+    Описание из JAR: Добавляет в мир minecraft структуры связаные с create и create: aeronautics. Они органично впишутся в твой мир и не ломают баланс в развитие.
+    Объявленные зависимости: create (required, [6.0.9,6.0.10]); aeronautics (required, [1.1.3,)); sable (required, [1.1.3,))
+    Карточка/поиск проекта: https://modrinth.com/mod/creat-aeronautics-structures
+
+035. Crawl on Demand
+    Тип: Интерфейс / удобство / клиент | mod ID: crawlondemand | установленная версия: 1.2.0
+    Файл: crawlondemand-1.21-1.21.5-1.2.0+neoforge.jar
+    Назначение: Добавляет ползание, назначаемое на клавишу (удержание или переключение).
+    Описание из JAR: Allows the player to bind a key to go prone (crawl). Supports both toggle and hold modes.
+    Объявленные зависимости: В JAR не указаны обязательные зависимости (это не гарантирует независимость: см. страницу проекта).
+    Карточка/поиск проекта: https://modrinth.com/mod/crawl-on-demand
+
+036. Create High Seas
+    Тип: Create / техника / аддоны | mod ID: highseas | установленная версия: 0.2.2
+    Файл: creat_highseas-0.2.2.jar
+    Назначение: Дополнение Create для морских/плавучих конструкций; особенности версии сверяйте с указанным источником.
+    Объявленные зависимости: create (required, [6.0.0,)); sable (required, [1.2.1,)); aeronautics (required, [0.0.0,))
+    Карточка/поиск проекта: https://www.curseforge.com/minecraft/search?class=mc-mods&search=Create%20High%20Seas
+
+037. Create
+    Тип: Create / техника / аддоны | mod ID: create | установленная версия: 6.0.10
+    Файл: create-1.21.1-6.0.10.jar
+    Назначение: Основной технологический мод: механизмы, кинетическая энергия, автоматизация и строительство.
+    Описание из JAR: Technology that empowers the player.
+    Объявленные зависимости: flywheel (required, [1.0.0,2.0)); ponder (required, [1.0.82,)); sodium (optional, [0.6.9,)); lithium (optional, [0.14.7,)); journeymap (optional, [1.21.1-6.0.0-beta.46,)); xaeroworldmap (optional, [1.40.2,)); radium (incompatible, ); palladium (incompatible, )
+    Карточка/поиск проекта: https://modrinth.com/mod/create
+
+038. Create Aeronautics
+    Тип: Create / техника / аддоны | mod ID: aeronautics_bundled | установленная версия: 1.3.0
+    Файл: create-aeronautics-bundled-1.21.1-1.3.0.jar
+    Назначение: Физические подвижные конструкции на базе Create; этот JAR также содержит связанные компоненты Sable/Simulated.
+    Описание из JAR: Expands the Create mod with physics-based contraptions, to build anything from cars to planes. This is a bundled JAR that contains Simulated, Aeronautics, and Offroad.
+    Объявленные зависимости: В JAR не указаны обязательные зависимости (это не гарантирует независимость: см. страницу проекта).
+    Карточка/поиск проекта: https://modrinth.com/mod/create-aeronautics
+
+039. Extended Wrenches
+    Тип: Игровой контент | mod ID: extendedwrenches | установленная версия: 2.0.2
+    Файл: create-extended-wrenches-1.21.1-2.0.2.jar
+    Назначение: Расширяет настройки и возможности гаечных ключей Create.
+    Описание из JAR: extended customization for Create mod wrenches
+    Объявленные зависимости: create (required, [6.0.4,6.1.0)); everycomp (optional, [1.21-2.11.2,))
+    Карточка/поиск проекта: https://modrinth.com/mod/extended-wrenches
+
+040. Create Stuff 'N Additions
+    Тип: Create / техника / аддоны | mod ID: create_sa | установленная версия: 2.1.4.
+    Файл: create-stuff-additions1.21.1_v2.1.4b.jar
+    Назначение: Дополнительные Create-предметы и экипировка, использующие механики и ресурсы Create.
+    Описание из JAR: Create Stuff & Additions is a mod that uses the resources of Create to offer a new set of equipment, tools and gadget! Equipments that increase your physical abilities (Your Strength or Mining Speed) but also give you new ways to move, floating, bouncing and even flying! Depending on your type of equipment (brass, andesite or copper) you will need different fuels such as steam (using water and fuel), thermal energy (using fuel) or hydraulic energy (using water)! This mod also adds a lot of recip
+    Объявленные зависимости: create (optional, [0,))
+    Карточка/поиск проекта: https://modrinth.com/mod/create-stuff-additions
+
+041. Create Aeronautics: Transmission & Linkage
+    Тип: Игровой контент | mod ID: aeronautics_utility_objects | установленная версия: 0.2.8
+    Файл: create_aeronautics_transmission_linkage-0.2.8.jar
+    Назначение: Дополнительные соединители и передаточные элементы для конструкций Create Aeronautics/Sable.
+    Описание из JAR: Adds universal joints, hydraulic links and kinetic converters for connecting and transmitting motion between Aeronautics structures.
+    Объявленные зависимости: create (required, [6.0.10,)); sable (required, [2.0.0,)); simulated (required, [1.3.0,))
+    Карточка/поиск проекта: https://modrinth.com/mod/create-aeronautics-transmission-linkage
+
+042. Create: Alcoholic Beverages
+    Тип: Create / техника / аддоны | mod ID: create_alcoholic_beverages | установленная версия: 1.0.0
+    Файл: create_alcoholic_beverages-1.0.0-neoforge-1.21.1.jar
+    Назначение: Дополнение Create, связанное с производством напитков; детали не удалось независимо подтвердить по доступной странице.
+    Объявленные зависимости: В JAR не указаны обязательные зависимости (это не гарантирует независимость: см. страницу проекта).
+    Карточка/поиск проекта: https://www.curseforge.com/minecraft/search?class=mc-mods&search=Create%3A%20Alcoholic%20Beverages
+
+043. Create: Connected
+    Тип: Create / техника / аддоны | mod ID: create_connected | установленная версия: 1.3.2-mc1.21.1
+    Файл: create_connected-1.3.2-mc1.21.1.jar
+    Назначение: Набор вспомогательных и декоративных блоков для Create.
+    Описание из JAR: Quality-of-life blocks that you wish existed in Create.
+    Объявленные зависимости: create (required, [6.0.10,))
+    Карточка/поиск проекта: https://modrinth.com/mod/create-connected
+
+044. Create Hypertube
+    Тип: Create / техника / аддоны | mod ID: create_hypertube | установленная версия: 0.6.0
+    Файл: create_hypertube-0.6.0-NEOFORGE.jar
+    Назначение: Контентный мод; точное назначение требует проверки страницы автора, так как встроенные метаданные не дают надёжного описания.
+    Описание из JAR: Adding a new way to move in your world
+    Объявленные зависимости: create (required, [6.0.4,6.1.0)); betterthirdperson (optional, ); sable (optional, [1.2.0,))
+    Карточка/поиск проекта: https://modrinth.com/mod/hypertube
+
+045. Create: Radars
+    Тип: Create / техника / аддоны | mod ID: create_radar | установленная версия: 0.4.9.4-1.21.1
+    Файл: create_radar-0.4.9.4-1.21.1.jar
+    Назначение: Добавляет радары, обнаружение и наблюдение в стиле Create.
+    Описание из JAR: Welcome to Create Radars, a mod offering a variety of tools and blocks for Surveillance, Detection, and Controlling Weapons.
+    Объявленные зависимости: create (required, [6.0.10,6.1.0)); createbigcannons (required, [5.11.2,)); valkyrienskies (optional, [2.4.7,)); shupapium (optional, [1.0,2.0)); computercraft (optional, [1.113.0,2.0))
+    Карточка/поиск проекта: https://modrinth.com/mod/create-radars
+
+046. Create Oh The Biomes We ve Gone Compat
+    Тип: Create / техника / аддоны | mod ID: create_sophback_compat | установленная версия: create_sophback_compat-1.0
+    Файл: create_sophback_compat-1.0.jar
+    Назначение: Совместимость Create с Sophisticated Backpacks.
+    Описание из JAR: A Create addon for Oh The Biomes We ve Gone
+    Объявленные зависимости: sophisticatedbackpacks (required, [3.24.1,)); create (required, [0.5.1,))
+    Карточка/поиск проекта: https://www.curseforge.com/minecraft/search?class=mc-mods&search=Create%20Oh%20The%20Biomes%20We%20ve%20Gone%20Compat
+
+047. Create Deep Seas
+    Тип: Create / техника / аддоны | mod ID: create_submarine, create_abyss, create_high_seas | установленная версия: 2.2.4
+    Файл: create_submarine-2.2.4.jar
+    Назначение: Подводная тематика и субмарины в экосистеме Create/High Seas.
+    Описание из JAR: A submarine addon for the Create mod.
+    Объявленные зависимости: lithostitched (optional, [1.4.8,)); create (required, [0.5,)); ponder (required, [1.0,)); sable (required, [1.2,)); aeronautics (required, [1.1.3,)); sodium (incompatible, [mc1.21.1-0.6.13-neoforge]); fusion (optional, [1.2.12,)); create_submarine (required, [2.2.4,)); sable (required, [1.2,)); lithostitched (optional, [1.4.8,)); create_submarine (required, [2.2.4,))
+    Карточка/поиск проекта: https://modrinth.com/mod/create-deep-seas
+
+048. create: things and misc
+    Тип: Create / техника / аддоны | mod ID: create_things_and_misc | установленная версия: 4.1.1
+    Файл: create_things_and_misc-4.1.1-neoforge-1.21.1.jar
+    Назначение: Дополнение с разными блоками и предметами для Create; описание проекта по доступной карточке неполное.
+    Объявленные зависимости: В JAR не указаны обязательные зависимости (это не гарантирует независимость: см. страницу проекта).
+    Карточка/поиск проекта: https://www.curseforge.com/minecraft/search?class=mc-mods&search=create%3A%20things%20and%20misc
+
+049. Create: Wizardry
+    Тип: Create / техника / аддоны | mod ID: create_wizardry | установленная версия: 1.21.1-0.3.5
+    Файл: create_wizardry-0.3.5.jar
+    Назначение: Связывает Create с Iron’s Spells ’n Spellbooks дополнительными рецептами/совместимостью.
+    Описание из JAR: This is an addon mod for Create adding enhanced compatibility with Iron's Spells and Spellbooks. Happy spellcasting!
+    Объявленные зависимости: create (required, [6.0.4,6.1.0)); irons_spellbooks (required, [1.21.1-3.5.0,))
+    Карточка/поиск проекта: https://modrinth.com/mod/create-wizardry
+
+050. Create Crafts & Additions
+    Тип: Create / техника / аддоны | mod ID: createaddition | установленная версия: 1.6.0
+    Файл: createaddition-1.6.0.jar
+    Назначение: Добавляет электрические системы и преобразование электрической и кинетической энергии для Create.
+    Описание из JAR: Create Crafts & Additions extends Create and acts as a bridge between electric and kinetic energy from Create. Join the Discord: https://discord.gg/mRbNnyKTEu Special thanks to: the Create team, the Forge team, and all contributors on the CC&A discord including: AlphaMode, Skippyall, BobDole, legoatoom, gobiidaiah, StockiesLad, THEREDSTONEBRO lawliet__, and Uraxys.
+    Объявленные зависимости: create (required, [6.0.7,6.1.0)); jei (optional, [15.0.0.0,)); computercraft (optional, [0,)); simulated (optional, )
+    Карточка/поиск проекта: https://modrinth.com/mod/createaddition
+
+051. CreateBetterFps
+    Тип: Create / техника / аддоны | mod ID: createbetterfps | установленная версия: 1.1.4
+    Файл: createbetterfps-1.21.1-1.1.4.jar
+    Назначение: Оптимизация или изменение производительности Create; точные эффекты зависят от версии.
+    Объявленные зависимости: sodium (required, [0.6.9,)); iris (optional, [1.8.8,))
+    Карточка/поиск проекта: https://modrinth.com/mod/createbetterfps
+
+052. Create Big Cannons
+    Тип: Create / техника / аддоны | mod ID: createbigcannons | установленная версия: 5.11.7
+    Файл: createbigcannons-5.11.7+mc.1.21.1.jar
+    Назначение: Добавляет создание артиллерийских орудий и боеприпасов на основе механик Create.
+    Описание из JAR: Artillery engineering comes to Create Attributions: Logo by Milkyfur Textures by rbasamoyai, Milkyfur, and LopyLuna
+    Объявленные зависимости: create (required, [6.0.7,6.1.0)); ritchiesprojectilelib (required, [2.1.2,)); copycats (optional, [3.0.0,)); framedblocks (optional, [10.0.0,)); curios (optional, [9.2.0,)); sable (optional, [2.0.0,)); simulated (optional, [1.3.0,)); aeronautics (optional, [1.3.0,)); offroad (optional, [1.3.0,))
+    Карточка/поиск проекта: https://modrinth.com/mod/create-big-cannons
+
+053. Create Ender Transmission
+    Тип: Create / техника / аддоны | mod ID: createendertransmission | установленная версия: 2.1.1-1.21.1
+    Файл: createendertransmission-2.1.1-1.21.1.jar
+    Назначение: Добавляет передачу ресурсов/сигналов между удалёнными точками через механизмы Create.
+    Описание из JAR: "Non-dimensional Machanines Have you ever feel like you have lost your mind at formating networks?Well, this mod is for you!"
+    Объявленные зависимости: create (required, [0.5.0.e,))
+    Карточка/поиск проекта: https://modrinth.com/mod/create-ender-transmission
+
+054. Create Goggles
+    Тип: Create / техника / аддоны | mod ID: creategoggles | установленная версия: 6.1.1
+    Файл: creategoggles-1.21.1-6.1.1-[NEOFORGE].jar
+    Назначение: Добавляет очки/шлемы с функциями отображения информации для Create.
+    Описание из JAR: Adds Goggle helmets and armored backtanks
+    Объявленные зависимости: create (required, [6.0.6,)); architectury (required, [13.0.8,))
+    Карточка/поиск проекта: https://modrinth.com/mod/create-goggles
+
+055. Create Immersive TaCZ
+    Тип: Create / техника / аддоны | mod ID: createimmersivetacz | установленная версия: 1.6-neoforge
+    Файл: createimmersivetacz-1.6-neoforge.jar
+    Назначение: Добавляет рецепты Create для производства/интеграции оружия TaCZ.
+    Описание из JAR: This mod adds immersive Create recipes for TaCZ
+    Объявленные зависимости: create (required, [6.0.0,)); tacz (required, *)
+    Карточка/поиск проекта: https://modrinth.com/mod/create-immersive-tacz-integration
+
+056. Create Missiles
+    Тип: Create / техника / аддоны | mod ID: createmissiles | установленная версия: 1.0.3
+    Файл: createmissiles-1.0.3+neoforge-1.21.1.jar
+    Назначение: Добавляет ракеты и связанные технологические рецепты в экосистеме Create.
+    Описание из JAR: This is a Minecraft mod for Forge and Fabric that adds missiles to the game, built as an addon for the Create mod.
+    Объявленные зависимости: create (required, [6.0.10,6.1.0))
+    Карточка/поиск проекта: https://modrinth.com/mod/create-missiles
+
+057. Create Nuclear
+    Тип: Create / техника / аддоны | mod ID: createnuclear | установленная версия: 1.3.2-beta.3
+    Файл: createnuclear-1.3.2-beta.3-neoforge.jar
+    Назначение: Добавляет ядерную промышленность/реакторную систему, встроенную в Create.
+    Описание из JAR: Create nuclear is a mod that adds a whole nuclear system to the create mod. An optimized reactor produces over two millions SU.
+    Объявленные зависимости: create (required, [6.0.8,))
+    Карточка/поиск проекта: https://modrinth.com/mod/createnuclear
+
+058. Create Propulsion: Simulated
+    Тип: Create / техника / аддоны | mod ID: createpropulsion | установленная версия: 1.1.5
+    Файл: createpropulsion-1.1.5.jar
+    Назначение: Добавляет топливо и тягу для подвижных конструкций Create/Sable.
+    Описание из JAR: A mod that adds propulsion and fuel systems to Create with Sable-focused moving structure support.
+    Объявленные зависимости: create (required, [6.0.6,)); createdieselgenerators (optional, [1.2,)); createbigcannons (optional, *); tfmg (optional, *); immersiveengineering (optional, *); mekanism (optional, *); mekanismgenerators (optional, *); northstar (optional, *); stellaris (optional, *); computercraft (optional, *); jei (optional, *); sable (required, [2.0.3,)); sablecompanion (required, *); rocketnautics (optional, *)
+    Карточка/поиск проекта: https://modrinth.com/mod/create-propulsion-simulated
+
+059. Creeper Overhaul
+    Тип: Мир / существа / приключения | mod ID: creeperoverhaul | установленная версия: 4.0.6
+    Файл: CreeperOverhaul-neoforge-1.21.1-4.0.6.jar
+    Назначение: Добавляет варианты криперов, связанные с разными биомами.
+    Описание из JAR: Creeper overhaul adds a variety of different biome-specific creeper types to your world, some friendlier than others :)
+    Объявленные зависимости: geckolib (required, [4.5.5,)); resourcefulconfig (required, [3.0.0,))
+    Карточка/поиск проекта: https://modrinth.com/mod/creeper-overhaul
+
+060. Curios API
+    Тип: Игровой контент | mod ID: curios | установленная версия: 9.5.1+1.21.1
+    Файл: curios-neoforge-9.5.1+1.21.1.jar
+    Назначение: API дополнительных слотов аксессуаров/экипировки.
+    Описание из JAR: A flexible and expandable accessory/equipment API for users and developers.
+    Объявленные зависимости: В JAR не указаны обязательные зависимости (это не гарантирует независимость: см. страницу проекта).
+    Карточка/поиск проекта: https://modrinth.com/mod/curios
+
+061. Deeper and Darker
+    Тип: Мир / существа / приключения | mod ID: deeperdarker | установленная версия: 1.4.1
+    Файл: deeperdarker-neoforge-1.21.1-1.4.1.jar
+    Назначение: Расширяет Deep Dark новым измерением/зонами, блоками, предметами и существами.
+    Описание из JAR: A Minecraft mod featuring new blocks, items, armor, and hidden mysteries to complement the Deep Dark.
+    Объявленные зависимости: В JAR не указаны обязательные зависимости (это не гарантирует независимость: см. страницу проекта).
+    Карточка/поиск проекта: https://modrinth.com/mod/deeperdarker
+
+062. Distant Horizons
+    Тип: Оптимизация / графика | mod ID: distanthorizons | установленная версия: 3.2.0-b
+    Файл: DistantHorizons-3.2.0-b-1.21.1-fabric-neoforge.jar
+    Назначение: Рисует упрощённый дальний ландшафт за пределами обычной дальности прорисовки.
+    Описание из JAR: This mod generates and renders simplified terrain beyond the normal view distance at a low performance cost. Allowing you to see much farther without turning your game into a slideshow.
+    Объявленные зависимости: В JAR не указаны обязательные зависимости (это не гарантирует независимость: см. страницу проекта).
+    Карточка/поиск проекта: https://modrinth.com/mod/distanthorizons
+
+063. Ender Dragon Fight Remastered
+    Тип: Мир / существа / приключения | mod ID: mr_edf_remastered | установленная версия: 5.0.2
+    Файл: edf-remastered-5.0.2.jar
+    Назначение: Перерабатывает финальную битву с Драконом Края, усложняя её с сохранением близкого к ванильному стиля.
+    Описание из JAR: A difficulty increase of Minecraft's final boss, with a focus on a somewhat Vanilla feel.
+    Объявленные зависимости: В JAR не указаны обязательные зависимости (это не гарантирует независимость: см. страницу проекта).
+    Карточка/поиск проекта: https://modrinth.com/mod/edf-remastered
+
+064. EMI
+    Тип: Интерфейс / удобство / клиент | mod ID: emi | установленная версия: 1.1.24+1.21.1+neoforge
+    Файл: emi-1.1.24+1.21.1+neoforge.jar
+    Назначение: Просмотрщик рецептов, предметов и способов их получения.
+    Описание из JAR: A featureful and accessible item and recipe viewer
+    Объявленные зависимости: В JAR не указаны обязательные зависимости (это не гарантирует независимость: см. страницу проекта).
+    Карточка/поиск проекта: https://modrinth.com/mod/emi
+
+065. Create: EMI Schematics
+    Тип: Create / техника / аддоны | mod ID: emi_create_schematics | установленная версия: 1.1.0
+    Файл: emi_create_schematics-1.1.0.jar
+    Назначение: Связка EMI с чертежами/буферами Create.
+    Описание из JAR: Bored to switch between crafting and §6Create§r's clipboard? Save all items from a clipboard to §bEMI Favourites§r! §7[§e!§7]§c Also shows items amount!§r
+    Объявленные зависимости: create (required, [6.0.9,)); emi (required, [1.1.22+1.21.1,))
+    Карточка/поиск проекта: https://modrinth.com/mod/emi-create-schematics
+
+066. EMI Loot
+    Тип: Интерфейс / удобство / клиент | mod ID: emi_loot | установленная версия: 0.7.9+1.21+neoforge
+    Файл: emi_loot-0.7.9+1.21+neoforge.jar
+    Назначение: Показывает в EMI содержимое сундуков, дроп блоков и существ и другие таблицы добычи.
+    Описание из JAR: Plugin for EMI that shows chest loot, block drops, mob drops, and gameplay loot like fishing.
+    Объявленные зависимости: emi (REQUIRED, [1.0.0,)); fzzy_config (REQUIRED, [0.4.1,))
+    Карточка/поиск проекта: https://modrinth.com/mod/emi-loot
+
+067. EMI Professions (EMIP)
+    Тип: Интерфейс / удобство / клиент | mod ID: emiprofessions | установленная версия: 1.0.3
+    Файл: EMIProfessions-neoforge-1.21.1-1.0.3.jar
+    Назначение: Показывает сведения о профессиях жителей в интерфейсе EMI.
+    Описание из JAR: Adds info about professions to EMI
+    Объявленные зависимости: В JAR не указаны обязательные зависимости (это не гарантирует независимость: см. страницу проекта).
+    Карточка/поиск проекта: https://modrinth.com/mod/emi-professions-(emip)
+
+068. Emotecraft
+    Тип: Интерфейс / удобство / клиент | mod ID: emotecraft | установленная версия: 2.4.12
+    Файл: emotecraft-for-MC1.21.1-2.4.12-neoforge.jar
+    Назначение: Добавляет систему эмоций/жестов персонажа.
+    Описание из JAR: Play emotes in Minecraft Open the menu to setup your fast-choose wheel You can add custom emotes, and you can play these even if nobody else has them Special thanks: Kale Ko for creating emotes and help in the UI design Orsond for inspiring me and providing CollarMC Architectury for the Forge build tools
+    Объявленные зависимости: playeranimator (required, [2.0.0,))
+    Карточка/поиск проекта: https://modrinth.com/mod/emotecraft
+
+069. Enderman Overhaul
+    Тип: Мир / существа / приключения | mod ID: endermanoverhaul | установленная версия: 2.0.3
+    Файл: endermanoverhaul-neoforge-1.21.1-2.0.3.jar
+    Назначение: Добавляет множество вариантов эндерменов с отдельными моделями, звуками и поведением.
+    Описание из JAR: Enderman Overhaul adds over 20 new enderman variants, each with their own sounds, models, and animations!
+    Объявленные зависимости: resourcefullib (required, [3.0.11,)); resourcefulconfig (required, [3.0.7,)); geckolib (required, [4.7,))
+    Карточка/поиск проекта: https://modrinth.com/mod/enderman-overhaul
+
+070. End Remastered
+    Тип: Мир / существа / приключения | mod ID: endrem | установленная версия: 6.0.2
+    Файл: endrem-neoforge-1.21.X-6.0.2.jar
+    Назначение: Перерабатывает поиск глаз Эндера и путь в Край, делая прохождение более исследовательским.
+    Описание из JAR: End Remastered makes your Minecraft experience more challenging by emphasizing the adventurous side of the game. Exploration is the main focus of End Remastered, and to reach the End and beat the Ender Dragon, you will have to find the 16 custom eyes by exploring vanilla structures and fighting vanilla bosses.
+    Объявленные зависимости: В JAR не указаны обязательные зависимости (это не гарантирует независимость: см. страницу проекта).
+    Карточка/поиск проекта: https://modrinth.com/mod/endrem
+
+071. EntityCulling
+    Тип: Оптимизация / графика | mod ID: entityculling | установленная версия: 1.10.5
+    Файл: entityculling-neoforge-1.10.5-mc1.21.1.jar
+    Назначение: Не отрисовывает скрытые от камеры сущности и блок-сущности, уменьшая нагрузку на клиент.
+    Описание из JAR: This mod uses async path-tracing to hide Tiles/Entities that are not visible.
+    Объявленные зависимости: В JAR не указаны обязательные зависимости (это не гарантирует независимость: см. страницу проекта).
+    Карточка/поиск проекта: https://modrinth.com/mod/entityculling
+
+072. Create: Escalated
+    Тип: Create / техника / аддоны | mod ID: escalated | установленная версия: 1.2.0
+    Файл: escalated-1.2.0+create.6.0.8-mc.1.21.1-neoforge.jar
+    Назначение: Дополнение Create для вертикального перемещения и подъёмных систем.
+    Описание из JAR: Bringing you to higher places in your Create mod builds Attributions: Logo by LopyLuna Textures and models by rbasamoyai
+    Объявленные зависимости: create (required, 6.0.8)
+    Карточка/поиск проекта: https://modrinth.com/mod/escalated
+
+073. Fabric Language Kotlin
+    Тип: Игровой контент | mod ID: fabric-language-kotlin | установленная версия: 1.13.13+kotlin.2.4.10
+    Файл: fabric-language-kotlin-1.13.13+kotlin.2.4.10.jar
+    Назначение: Среда Kotlin, нужная модам Fabric-экосистемы; сама по себе не добавляет игровой контент.
+    Описание из JAR: Fabric language module for Kotlin.
+    Объявленные зависимости: В JAR не указаны обязательные зависимости (это не гарантирует независимость: см. страницу проекта).
+    Карточка/поиск проекта: https://modrinth.com/mod/fabric-language-kotlin
+
+074. FDLib
+    Тип: Библиотека / API | mod ID: fdlib | установленная версия: 1.0.8
+    Файл: fdlib-1.0.8-1.21.1.jar
+    Назначение: Библиотека функций для модов, использующих FDLib.
+    Описание из JAR: A library with some cool features. Idk what other things to write here.
+    Объявленные зависимости: В JAR не указаны обязательные зависимости (это не гарантирует независимость: см. страницу проекта).
+    Карточка/поиск проекта: https://modrinth.com/mod/fdlib
+
+075. Ferrite Core
+    Тип: Оптимизация / графика | mod ID: ferritecore | установленная версия: 7.0.3
+    Файл: ferritecore-7.0.3-neoforge.jar
+    Назначение: Снижает расход оперативной памяти за счёт оптимизации хранения данных.
+    Описание из JAR: Reduces memory usage.
+    Объявленные зависимости: В JAR не указаны обязательные зависимости (это не гарантирует независимость: см. страницу проекта).
+    Карточка/поиск проекта: https://modrinth.com/mod/ferrite-core
+
+076. Flywheel
+    Тип: Библиотека / API | mod ID: flywheel | установленная версия: 1.0.6
+    Файл: flywheel-neoforge-1.21.1-1.0.6.jar
+    Назначение: API/движок отрисовки Create для блоков и сущностей.
+    Описание из JAR: An overhauled entity and block entity rendering API.
+    Объявленные зависимости: embeddium (optional, [0.3.25,)); sodium (optional, [0.6.0-beta.2,))
+    Карточка/поиск проекта: https://modrinth.com/mod/flywheel
+
+077. Forgified Fabric API
+    Тип: Игровой контент | mod ID: fabric_api, forgified_fabric_api | установленная версия: 0.116.14+2.3.0+1.21.1
+    Файл: forgified-fabric-api-0.116.14+2.3.0+1.21.1.jar
+    Назначение: Контентный мод; точное назначение требует проверки страницы автора, так как встроенные метаданные не дают надёжного описания.
+    Описание из JAR: Core API module providing key hooks and intercompatibility features.
+    Объявленные зависимости: В JAR не указаны обязательные зависимости (это не гарантирует независимость: см. страницу проекта).
+    Карточка/поиск проекта: https://modrinth.com/mod/forgified-fabric-api
+
+078. Fragmentum
+    Тип: Библиотека / API | mod ID: fragmentum | установленная версия: 2.4.4
+    Файл: fragmentum-neoforge-1.21.1-2.4.4.jar
+    Назначение: Общая библиотека/фреймворк для модов коллекции Obscuria.
+    Описание из JAR: The lightweight framework for the Obscuria Collection cross-platform mods.
+    Объявленные зависимости: В JAR не указаны обязательные зависимости (это не гарантирует независимость: см. страницу проекта).
+    Карточка/поиск проекта: https://modrinth.com/mod/fragmentum
+
+079. Fzzy Config
+    Тип: Библиотека / API | mod ID: fzzy_config | установленная версия: 0.7.6+1.21+neoforge
+    Файл: fzzy_config-0.7.6+1.21+neoforge.jar
+    Назначение: Библиотека конфигураций с проверкой параметров, синхронизацией клиент-сервер и GUI.
+    Описание из JAR: Configuration engine with automatic GUI generation, client-server syncing, powerful validation and error handling, and much more.
+    Объявленные зависимости: kotlinforforge (REQUIRED, [5.3.0,))
+    Карточка/поиск проекта: https://modrinth.com/mod/fzzy-config
+
+080. GeckoLib 4
+    Тип: Библиотека / API | mod ID: geckolib | установленная версия: 4.9.2
+    Файл: geckolib-neoforge-1.21.1-4.9.2.jar
+    Назначение: Движок сложной покадровой анимации для моделей существ, предметов и блоков.
+    Описание из JAR: GeckoLib is an animation engine for Minecraft Mods, with support for complex 3D keyframe-based animations, 30+ easings, concurrent animation support, sound and particle keyframes, event keyframes, and more.
+    Объявленные зависимости: geckoanimfix (incompatible, )
+    Карточка/поиск проекта: https://www.curseforge.com/minecraft/search?class=mc-mods&search=GeckoLib%204
+
+081. GlitchCore
+    Тип: Библиотека / API | mod ID: glitchcore | установленная версия: 2.1.0.2
+    Файл: GlitchCore-neoforge-1.21.1-2.1.0.2.jar
+    Назначение: Общая библиотека для модов, скрывающая различия загрузчиков и предоставляющая служебные функции.
+    Описание из JAR: A library mod aimed at abstracting mod loaders and providing various utilities for our mods.
+    Объявленные зависимости: В JAR не указаны обязательные зависимости (это не гарантирует независимость: см. страницу проекта).
+    Карточка/поиск проекта: https://modrinth.com/mod/glitchcore
+
+082. Gravestone Mod
+    Тип: Игровой контент | mod ID: gravestone | установленная версия: 1.21.1-1.0.37
+    Файл: gravestone-neoforge-1.21.1-1.0.37.jar
+    Назначение: Оставляет надгробие с инвентарём игрока после смерти.
+    Описание из JAR: Places a gravestone with your inventory items inside when you die
+    Объявленные зависимости: jade (optional, *)
+    Карточка/поиск проекта: https://modrinth.com/mod/gravestone-mod
+
+083. HennyFullbright
+    Тип: Интерфейс / удобство / клиент | mod ID: hennyfullbright | установленная версия: 1.0
+    Файл: hennyfullbright-neoforge-1.21.1-1.0.jar
+    Назначение: Клиентское повышение яркости/эффект fullbright; точное поведение сверяйте с настройками самого мода.
+    Объявленные зависимости: В JAR не указаны обязательные зависимости (это не гарантирует независимость: см. страницу проекта).
+    Карточка/поиск проекта: https://www.curseforge.com/minecraft/search?class=mc-mods&search=HennyFullbright
+
+084. Inventory Profiles Next
+    Тип: Интерфейс / удобство / клиент | mod ID: inventoryprofilesnext | установленная версия: 2.2.5
+    Файл: InventoryProfilesNext-neoforge-1.21.1-2.2.5.jar
+    Назначение: Инструменты сортировки и управления инвентарём; требуется отдельная библиотека libIPN.
+    Описание из JAR: "Inventory Profiles Next"
+    Объявленные зависимости: libipn (required, [6.6.3, 6.7))
+    Карточка/поиск проекта: https://modrinth.com/mod/inventory-profiles-next
+
+085. Iron's Lib
+    Тип: Библиотека / API | mod ID: irons_lib | установленная версия: 1.21.1-2.1.0
+    Файл: irons_lib-1.21.1-2.1.0.jar
+    Назначение: Общая библиотека функциональности для модов Iron431.
+    Описание из JAR: Provides common functionality and content for Iron431's mods.
+    Объявленные зависимости: geckolib (required, 4.7.5.1); irons_patreon_lib (incompatible, )
+    Карточка/поиск проекта: https://modrinth.com/mod/irons-lib
+
+086. Iron's Spells 'n Spellbooks
+    Тип: Игровой контент | mod ID: irons_spellbooks | установленная версия: 1.21.1-3.16.2
+    Файл: irons_spellbooks-1.21.1-3.16.2.jar
+    Назначение: Магическая RPG-система с заклинаниями, экипировкой и прогрессией.
+    Описание из JAR: A magic mod for Minecraft returning to the classic RPG spellcasting fantasy.
+    Объявленные зависимости: geckolib (required, [4.7.5.1,)); playeranimator (required, [2.0.1+1.21.1,)); curios (required, [9.0.5+1.21.0,)); irons_lib (required, [1.21.1-2,1.21.1-3))
+    Карточка/поиск проекта: https://modrinth.com/mod/irons-spells-n-spellbooks
+
+087. Jackpot
+    Тип: Игровой контент | mod ID: jackpot | установленная версия: 1.0.8
+    Файл: jackpot-1.0.8.jar
+    Назначение: Добавляет тематические игровые/строительные предметы; описание установленной сборки требует уточнения по странице автора.
+    Описание из JAR: Jackpot is a mod that provides the player with the resources to build a colorful assortment of chance games and building blocks.
+    Объявленные зависимости: В JAR не указаны обязательные зависимости (это не гарантирует независимость: см. страницу проекта).
+    Карточка/поиск проекта: https://modrinth.com/mod/jackpot
+
+088. Jade
+    Тип: Интерфейс / удобство / клиент | mod ID: jade | установленная версия: 15.10.5+neoforge
+    Файл: Jade-1.21.1-NeoForge-15.10.5.jar
+    Назначение: Показывает информацию о блоке или существе, на которое наведён прицел.
+    Описание из JAR: Minecraft mod shows what you are looking at. (Hwyla fork)
+    Объявленные зависимости: В JAR не указаны обязательные зависимости (это не гарантирует независимость: см. страницу проекта).
+    Карточка/поиск проекта: https://modrinth.com/mod/jade
+
+089. Just Enough Items
+    Тип: Интерфейс / удобство / клиент | mod ID: jei | установленная версия: 19.39.0.372
+    Файл: jei-1.21.1-neoforge-19.39.0.372.jar
+    Назначение: Поиск предметов и просмотр рецептов; установленная версия ориентирована на NeoForge.
+    Описание из JAR: JEI is an item and recipe viewing mod for Minecraft, built from the ground up for stability and performance.
+    Объявленные зависимости: В JAR не указаны обязательные зависимости (это не гарантирует независимость: см. страницу проекта).
+    Карточка/поиск проекта: https://modrinth.com/mod/jei
+
+090. Kotlin for Forge
+    Тип: Игровой контент | mod ID: (ID не прочитан из обычного metadata; см. страницу проекта) | установленная версия: kotlinforforge-5.11.0-all
+    Файл: kotlinforforge-5.11.0-all.jar
+    Назначение: Контентный мод; точное назначение требует проверки страницы автора, так как встроенные метаданные не дают надёжного описания.
+    Объявленные зависимости: В JAR не указаны обязательные зависимости (это не гарантирует независимость: см. страницу проекта).
+    Карточка/поиск проекта: https://modrinth.com/mod/kotlin-for-forge
+
+091. KubeJS
+    Тип: Игровой контент | mod ID: kubejs | установленная версия: 2101.7.2-build.368
+    Файл: kubejs-neoforge-2101.7.2-build.368.jar
+    Назначение: Позволяет настраивать модпак и сервер скриптами JavaScript.
+    Описание из JAR: Customize your modpack or server with JavaScript!
+    Объявленные зависимости: rhino (required, [2101.2.7-build.81,)); jei (optional, [19.25.0.322,)); roughlyenoughitems (optional, [16.0.799,)); emi (optional, [1.1.22,)); betteradvancedtooltips (optional, [2101.1.0-build.1,))
+    Карточка/поиск проекта: https://modrinth.com/mod/kubejs
+
+092. L_Ender's Cataclysm 1.21.1
+    Тип: Мир / существа / приключения | mod ID: cataclysm | установленная версия: 3.32
+    Файл: L_Ender's Cataclysm 1.21.1-3.32.jar
+    Назначение: Добавляет подземелья, боссов, снаряжение и сложные испытания.
+    Описание из JAR: https://www.curseforge.com/minecraft/texture-packs/cataclysmic-tunes
+    Объявленные зависимости: curios (required, [9.2.2+1.21.1,)); lionfishapi (required, 3.1)
+    Карточка/поиск проекта: https://www.curseforge.com/minecraft/search?class=mc-mods&search=L_Ender's%20Cataclysm%201.21.1
+
+093. libIPN
+    Тип: Библиотека / API | mod ID: libipn | установленная версия: 6.6.3
+    Файл: libIPN-neoforge-1.21.1-6.6.3.jar
+    Назначение: Библиотека интерфейса и настроек для Inventory Profiles Next.
+    Описание из JAR: "Inventory Profiles Next Settings and GUI Library"
+    Объявленные зависимости: В JAR не указаны обязательные зависимости (это не гарантирует независимость: см. страницу проекта).
+    Карточка/поиск проекта: https://modrinth.com/mod/libipn
+
+094. lionfishapi
+    Тип: Библиотека / API | mod ID: lionfishapi | установленная версия: 3.1
+    Файл: lionfishapi-3.1.jar
+    Назначение: Вспомогательная библиотека, необходимая L_Ender’s Cataclysm.
+    Объявленные зависимости: В JAR не указаны обязательные зависимости (это не гарантирует независимость: см. страницу проекта).
+    Карточка/поиск проекта: https://www.curseforge.com/minecraft/search?class=mc-mods&search=lionfishapi
+
+095. Lithium
+    Тип: Оптимизация / графика | mod ID: lithium | установленная версия: 0.15.4+mc1.21.1
+    Файл: lithium-neoforge-0.15.4+mc1.21.1.jar
+    Назначение: Оптимизирует внутреннюю логику Minecraft для повышения производительности.
+    Описание из JAR: Lithium is a free and open-source optimization mod for Minecraft which makes a wide range of performance improvements to the game.
+    Объявленные зависимости: В JAR не указаны обязательные зависимости (это не гарантирует независимость: см. страницу проекта).
+    Карточка/поиск проекта: https://modrinth.com/mod/lithium
+
+096. MaFgLib
+    Тип: Библиотека / API | mod ID: mafglib, malilib | установленная версия: 0.4.3+mc1.21.1
+    Файл: mafglib-0.4.3+mc1.21.1.jar
+    Назначение: Неофициальный NeoForge-порт MaLiLib и библиотечная основа для связанных модов.
+    Описание из JAR: MaLiLib unofficial NeoForge port. Library mod for the NeoForge port of masa's mods.
+    Объявленные зависимости: В JAR не указаны обязательные зависимости (это не гарантирует независимость: см. страницу проекта).
+    Карточка/поиск проекта: https://modrinth.com/mod/mafglib
+
+097. ModernFix
+    Тип: Оптимизация / графика | mod ID: modernfix | установленная версия: 5.27.15+mc1.21.1
+    Файл: modernfix-neoforge-5.27.15+mc1.21.1.jar
+    Назначение: Набор исправлений и оптимизаций производительности/памяти/загрузки.
+    Описание из JAR: Egregious, yet effective performance improvements for modern Minecraft
+    Объявленные зависимости: jei (optional, [15.8.0.11,))
+    Карточка/поиск проекта: https://modrinth.com/mod/modernfix
+
+098. Moonlight Lib
+    Тип: Игровой контент | mod ID: moonlight | установленная версия: 1.21.1-3.6.1
+    Файл: moonlight-1.21.1-3.6.1-neoforge.jar
+    Назначение: Библиотека общих функций и динамических ресурсов для зависимых модов.
+    Описание из JAR: A small library with many cool unique features, from dynamic asset generation to dynamic villager schedules, data driven trades and Map Markers, simple multi loader utilities and more
+    Объявленные зависимости: В JAR не указаны обязательные зависимости (это не гарантирует независимость: см. страницу проекта).
+    Карточка/поиск проекта: https://modrinth.com/mod/moonlight
+
+099. More Overlays Updated
+    Тип: Интерфейс / удобство / клиент | mod ID: moreoverlays | установленная версия: 1.24.2
+    Файл: moreoverlays-1.24.2-mc1.21.1-neoforge.jar
+    Назначение: Добавляет информационные наложения: например, границы чанков и регионов.
+    Описание из JAR: Adds some of the overlays from the old (MC 1.7.x) NotEnoughItems Mod: * Chunk and Region borders * Mob spawn / Light overlay * Item search when JEI (JustEnoughItems by Mezz) is installed Built for MC 1.21.1 (NeoForge)
+    Объявленные зависимости: jei (optional, [6.0.0.25,))
+    Карточка/поиск проекта: https://modrinth.com/mod/more-overlays-updated
+
+100. NexusLib
+    Тип: Библиотека / API | mod ID: nexuslib | установленная версия: 1.1.5
+    Файл: nexuslib-neoforge-1.21.1-1.1.5.jar
+    Назначение: Общая библиотека вспомогательных систем для зависимых модов.
+    Описание из JAR: A library mod featuring some useful helpers and systems
+    Объявленные зависимости: В JAR не указаны обязательные зависимости (это не гарантирует независимость: см. страницу проекта).
+    Карточка/поиск проекта: https://modrinth.com/mod/nexuslib
+
+101. Oh The Biomes We've Gone
+    Тип: Мир / существа / приключения | mod ID: biomeswevegone | установленная версия: 2.6.0
+    Файл: Oh-The-Biomes-Weve-Gone-NeoForge-2.6.0.jar
+    Назначение: Добавляет новые биомы, растения и связанные природные блоки.
+    Описание из JAR: Sequel to Oh The Biomes You'll Go, this mod adds a variety of new biomes to the game.
+    Объявленные зависимости: terrablender (required, [4.1.0.0,)); corgilib (required, [5.0.0.2,)); ohthetreesyoullgrow (required, [5.0.10,)); geckolib (required, [4.6,))
+    Карточка/поиск проекта: https://modrinth.com/mod/oh-the-biomes-weve-gone
+
+102. Oh The Trees You'll Grow
+    Тип: Игровой контент | mod ID: ohthetreesyoullgrow | установленная версия: 5.3.2
+    Файл: Oh-The-Trees-Youll-Grow-neoforge-1.21.1-5.3.2.jar
+    Назначение: Библиотека/система настройки генерации деревьев и природных объектов.
+    Описание из JAR: A Minecraft library that aims to give users incredible configurability by allowing the creation of trees with Minecraft's structure template `.nbt` files.
+    Объявленные зависимости: В JAR не указаны обязательные зависимости (это не гарантирует независимость: см. страницу проекта).
+    Карточка/поиск проекта: https://modrinth.com/mod/oh-the-trees-youll-grow
+
+103. Open Parties and Claims
+    Тип: Игровой контент | mod ID: openpartiesandclaims | установленная версия: 0.29.3
+    Файл: open-parties-and-claims-neoforge-1.21.1-0.29.3.jar
+    Назначение: Команды, группы, приват территорий и загрузка чанков.
+    Описание из JAR: This mod adds the ability to claim and to forceload world chunks, as well as create and manage player parties. It also gives server owners powerful controls over their players' usage of the mod's features. The mod's API allows other mods or plugins to easily interact with the parties and the chunk claims, both on the server and the client side. Xaero's Minimap mod and World Map mods are recommended in order to fully experience everything that this mod has to offer.
+    Объявленные зависимости: create (optional, [6.0.0,))
+    Карточка/поиск проекта: https://modrinth.com/mod/open-parties-and-claims
+
+104. Particle Core
+    Тип: Оптимизация / графика | mod ID: particle_core | установленная версия: 0.3.3+1.21+neoforge
+    Файл: particle_core-0.3.3+1.21+neoforge.jar
+    Назначение: Оптимизирует частицы: отсечение, отрисовку и настройку их отображения.
+    Описание из JAR: Particle optimizations. Particle culling, rendering optimization, and configurable disabling of particles.
+    Объявленные зависимости: kotlinforforge (REQUIRED, [5.3.0,)); fzzy_config (REQUIRED, [0.7.5,))
+    Карточка/поиск проекта: https://modrinth.com/mod/particle-core
+
+105. Patchouli
+    Тип: Игровой контент | mod ID: patchouli | установленная версия: 1.21.1-93-NEOFORGE
+    Файл: Patchouli-1.21.1-93-NEOFORGE.jar
+    Назначение: Система внутриигровых справочников/книг для модов и сборок.
+    Описание из JAR: Accessible, Data-Driven, Dependency-Free Documentation for Minecraft Modders and Pack Makers
+    Объявленные зависимости: В JAR не указаны обязательные зависимости (это не гарантирует независимость: см. страницу проекта).
+    Карточка/поиск проекта: https://modrinth.com/mod/patchouli
+
+106. Create: Sound of Steam
+    Тип: Create / техника / аддоны | mod ID: pipeorgans | установленная версия: 0.8.2+1.21.1
+    Файл: pipeorgans-0.8.2+1.21.1.jar
+    Назначение: Добавляет органы и музыкальные блоки в стиле Create.
+    Описание из JAR: Adds pipe organs to Create.
+    Объявленные зависимости: create (required, [6.0.8,6.1.0))
+    Карточка/поиск проекта: https://modrinth.com/mod/create-sound-of-steam
+
+107. Placebo
+    Тип: Библиотека / API | mod ID: placebo | установленная версия: 9.9.1
+    Файл: Placebo-1.21.1-9.9.1.jar
+    Назначение: Техническая библиотека, необходимая части модов Apotheosis.
+    Описание из JAR: 1 (one) library boi
+    Объявленные зависимости: В JAR не указаны обязательные зависимости (это не гарантирует независимость: см. страницу проекта).
+    Карточка/поиск проекта: https://modrinth.com/mod/placebo
+
+108. Plasmo Voice
+    Тип: Интерфейс / удобство / клиент | mod ID: plasmovoice | установленная версия: 2.1.16
+    Файл: plasmovoice-neoforge-1.21.1-2.1.16.jar
+    Назначение: Голосовой чат с позиционным звуком и настройками общения рядом.
+    Описание из JAR: A proximity voice chat mod with audio positioning and lots of features
+    Объявленные зависимости: В JAR не указаны обязательные зависимости (это не гарантирует независимость: см. страницу проекта).
+    Карточка/поиск проекта: https://modrinth.com/mod/plasmo-voice
+
+109. Player Animator
+    Тип: Библиотека / API | mod ID: playeranimator | установленная версия: 2.0.4+1.21.1
+    Файл: player-animation-lib-forge-2.0.4+1.21.1.jar
+    Назначение: Библиотека анимации модели игрока.
+    Описание из JAR: A lightweight library to easily animate the player
+    Объявленные зависимости: В JAR не указаны обязательные зависимости (это не гарантирует независимость: см. страницу проекта).
+    Карточка/поиск проекта: https://modrinth.com/mod/mob-player-animator
+
+110. Polymorph
+    Тип: Игровой контент | mod ID: polymorph | установленная версия: 1.1.0+1.21.1
+    Файл: polymorph-neoforge-1.1.0+1.21.1.jar
+    Назначение: Позволяет выбрать результат, когда один рецепт конфликтует с другим.
+    Описание из JAR: No more recipe conflicts! Adds an option to choose the crafting result if more than one is available.
+    Объявленные зависимости: В JAR не указаны обязательные зависимости (это не гарантирует независимость: см. страницу проекта).
+    Карточка/поиск проекта: https://modrinth.com/mod/polymorph
+
+111. PonderJS
+    Тип: Библиотека / API | mod ID: ponderjs | установленная версия: 1.21.1-2.4.0
+    Файл: ponderjs-neoforge-1.21.1-2.4.0.jar
+    Назначение: Позволяет создавать сцены-инструкции Ponder и теги для Create через KubeJS.
+    Описание из JAR: Allows creating ponder scenes and tags with KubeJS.
+    Объявленные зависимости: kubejs (required, [2101.7.2-build.264,))
+    Карточка/поиск проекта: https://www.curseforge.com/minecraft/search?class=mc-mods&search=PonderJS
+
+112. Create: Power Grid
+    Тип: Create / техника / аддоны | mod ID: powergrid | установленная версия: 0.6.1
+    Файл: powergrid-mc1.21.1-0.6.1.jar
+    Назначение: Добавляет энергосеть/электрическую систему в связке с Create.
+    Описание из JAR: Providing electricity to a world near you.
+    Объявленные зависимости: architectury (required, [13.0.8,)); create (required, [6.0.9,6.1.0)); tfmg (optional, [1.2.3,1.3.0)); sable (optional, [2.0.3,))
+    Карточка/поиск проекта: https://modrinth.com/mod/power-grid
+
+113. Pufferfish's Skills
+    Тип: Игровой контент | mod ID: puffish_skills | установленная версия: 0.18.1
+    Файл: puffish_skills-0.18.1-1.21-neoforge.jar
+    Назначение: Настраиваемая система навыков и развития персонажа.
+    Описание из JAR: Adds a fully configurable skill system to the game.
+    Объявленные зависимости: В JAR не указаны обязательные зависимости (это не гарантирует независимость: см. страницу проекта).
+    Карточка/поиск проекта: https://modrinth.com/mod/skills
+
+114. QuickSkin
+    Тип: Интерфейс / удобство / клиент | mod ID: quickskin | установленная версия: 2.6.2.4
+    Файл: Quick Skin - NeoForge - 1.21.1-2.6.2.4.jar
+    Назначение: Изменение скина и плаща игрока из игры.
+    Описание из JAR: QuickSkin - Customize your Minecraft player skin and cape in-game! Supports Fabric and NeoForge through Architectury.
+    Объявленные зависимости: architectury (required, [13.0,))
+    Карточка/поиск проекта: https://modrinth.com/mod/quickskin
+
+115. RangedWeaponAPI
+    Тип: Библиотека / API | mod ID: ranged_weapon_api | установленная версия: 2.3.3+1.21.1
+    Файл: ranged_weapon_api-neoforge-2.3.3+1.21.1.jar
+    Назначение: API для добавления луков и арбалетов в модах.
+    Описание из JAR: Allows creating bows and crossbows, with just a few line of code
+    Объявленные зависимости: В JAR не указаны обязательные зависимости (это не гарантирует независимость: см. страницу проекта).
+    Карточка/поиск проекта: https://www.curseforge.com/minecraft/search?class=mc-mods&search=RangedWeaponAPI
+
+116. Resourcefulconfig
+    Тип: Библиотека / API | mod ID: resourcefulconfig | установленная версия: 3.0.11
+    Файл: resourcefulconfig-neoforge-1.21-3.0.11.jar
+    Назначение: Библиотека конфигураций для модов Team Resourceful.
+    Описание из JAR: A library for creating config files for your mod across multiple platforms.
+    Объявленные зависимости: В JAR не указаны обязательные зависимости (это не гарантирует независимость: см. страницу проекта).
+    Карточка/поиск проекта: https://www.curseforge.com/minecraft/search?class=mc-mods&search=Resourcefulconfig
+
+117. Resourceful Lib
+    Тип: Библиотека / API | mod ID: resourcefullib | установленная версия: 3.0.12
+    Файл: resourcefullib-neoforge-1.21-3.0.12.jar
+    Назначение: Базовая библиотека Team Resourceful для зависимых модов.
+    Описание из JAR: Team Resourceful Library
+    Объявленные зависимости: В JAR не указаны обязательные зависимости (это не гарантирует независимость: см. страницу проекта).
+    Карточка/поиск проекта: https://modrinth.com/mod/resourceful-lib
+
+118. Respawnable Pets
+    Тип: Игровой контент | mod ID: respawnablepets | установленная версия: 1.21-r2
+    Файл: respawnablepets-1.21-r2.jar
+    Назначение: Позволяет питомцам возродиться после смерти игрока при последующем сне.
+    Описание из JAR: A simple Minecraft mod that allows your pets to respawn after death when you next sleep using a new item, the Etheric Gem
+    Объявленные зависимости: fabric-api (required, *)
+    Карточка/поиск проекта: https://modrinth.com/mod/respawnable-pets
+
+119. Rhino
+    Тип: Библиотека / API | mod ID: rhino | установленная версия: 2101.2.8-build.91
+    Файл: rhino-2101.2.8-build.91.jar
+    Назначение: Встроенная библиотека JavaScript Rhino, используемая скриптовыми модами.
+    Описание из JAR: A fork of Mozilla's Rhino library, modified for use in mods
+    Объявленные зависимости: В JAR не указаны обязательные зависимости (это не гарантирует независимость: см. страницу проекта).
+    Карточка/поиск проекта: https://modrinth.com/mod/rhino
+
+120. Ritchie's Projectile Library
+    Тип: Библиотека / API | mod ID: ritchiesprojectilelib | установленная версия: 2.1.2
+    Файл: ritchiesprojectilelib-2.1.2+mc.1.21.1-neoforge.jar
+    Назначение: Библиотека снарядов для модов, которым нужна расширенная физика/логика полёта.
+    Описание из JAR: A Minecraft modding library for better projectiles.
+    Объявленные зависимости: В JAR не указаны обязательные зависимости (это не гарантирует независимость: см. страницу проекта).
+    Карточка/поиск проекта: https://modrinth.com/mod/rpl
+
+121. RocknRoller
+    Тип: Игровой контент | mod ID: rocknroller, itemscroller | установленная версия: 0.4.0+mc1.21.1
+    Файл: rocknroller-0.4.0+mc1.21.1.jar
+    Назначение: NeoForge-порт ItemScroller: перемещение предметов в интерфейсах прокруткой мыши.
+    Описание из JAR: ItemScroller unofficial NeoForge port. Move items in inventory GUIs by scrolling the mouse wheel or dragging over slots.
+    Объявленные зависимости: mafglib (required, [0.4,))
+    Карточка/поиск проекта: https://modrinth.com/mod/rocknroller
+
+122. Sable
+    Тип: Игровой контент | mod ID: sable | установленная версия: 2.0.3
+    Файл: sable-neoforge-1.21.1-2.0.3.jar
+    Назначение: Физическая система подвижных конструкций из блоков.
+    Описание из JAR: Interactive moving block structures with physics.
+    Объявленные зависимости: flywheel (optional, [1.0.6,)); create (optional, [6.0.10,6.1.0)); sablecompanion (incompatible, (1.6.0,)); sodium (incompatible, (,0.8.12-alpha.2+mc1.21.1)); scalablelux (incompatible, ); littletiles (incompatible, )
+    Карточка/поиск проекта: https://modrinth.com/mod/sable
+
+123. Searchables
+    Тип: Библиотека / API | mod ID: searchables | установленная версия: 1.0.2
+    Файл: Searchables-neoforge-1.21.1-1.0.2.jar
+    Назначение: Библиотека поисковых полей и автодополнения для интерфейсов модов.
+    Описание из JAR: A library mod to facilitate adding search bars with auto complete and search types.
+    Объявленные зависимости: В JAR не указаны обязательные зависимости (это не гарантирует независимость: см. страницу проекта).
+    Карточка/поиск проекта: https://modrinth.com/mod/searchables
+
+124. Sodium Extra
+    Тип: Оптимизация / графика | mod ID: sodium_extra | установленная версия: 0.9.1+mc1.21.1
+    Файл: sodium-extra-neoforge-0.9.1+mc1.21.1.jar
+    Назначение: Дополнительные графические и пользовательские настройки для Sodium.
+    Описание из JAR: Features that shouldn't be in Sodium.
+    Объявленные зависимости: sodium (required, [0.8.12-alpha.3+mc1.21.1,))
+    Карточка/поиск проекта: https://modrinth.com/mod/sodium-extra
+
+125. Sodium
+    Тип: Оптимизация / графика | mod ID: sodium | установленная версия: 0.8.12+mc1.21.1
+    Файл: sodium-neoforge-0.8.12+mc1.21.1.jar
+    Назначение: Клиентский рендерер, оптимизирующий FPS и задержки кадров.
+    Описание из JAR: Sodium is a powerful rendering engine for Minecraft which improves frame rates and reduces lag spikes.
+    Объявленные зависимости: embeddium (incompatible, [0.0.1,))
+    Карточка/поиск проекта: https://modrinth.com/mod/sodium
+
+126. Sodium Dynamic Lights
+    Тип: Оптимизация / графика | mod ID: sodiumdynamiclights | установленная версия: 1.0.9
+    Файл: sodiumdynamiclights-neoforge-1.0.10-1.21.1.jar
+    Назначение: Динамическое освещение предметов и сущностей для стека Sodium/NeoForge.
+    Описание из JAR: Fork of LambDynLights to work with Sodium on Neoforge 1.21+
+    Объявленные зависимости: В JAR не указаны обязательные зависимости (это не гарантирует независимость: см. страницу проекта).
+    Карточка/поиск проекта: https://modrinth.com/mod/sodium-dynamic-lights
+
+127. Sophisticated Backpacks
+    Тип: Игровой контент | mod ID: sophisticatedbackpacks | установленная версия: 3.25.71
+    Файл: sophisticatedbackpacks-1.21.1-3.25.71.1997.jar
+    Назначение: Функциональные переносные рюкзаки с улучшениями и дополнительным хранилищем.
+    Описание из JAR: Fancy and functional backpacks.
+    Объявленные зависимости: sophisticatedcore (required, [1.4.74,))
+    Карточка/поиск проекта: https://modrinth.com/mod/sophisticated-backpacks
+
+128. Sophisticated Core
+    Тип: Библиотека / API | mod ID: sophisticatedcore | установленная версия: 1.4.75
+    Файл: sophisticatedcore-1.21.1-1.4.75.2161.jar
+    Назначение: Общая библиотека и базовые системы Sophisticated Backpacks/Storage.
+    Описание из JAR: A library / shared functionality mod for Sophisticated Storage and Backpacks
+    Объявленные зависимости: jei (optional, [19.32.0.359,))
+    Карточка/поиск проекта: https://modrinth.com/mod/sophisticated-core
+
+129. Structure Layout Optimizer
+    Тип: Оптимизация / графика | mod ID: structure_layout_optimizer | установленная версия: 1.0.12
+    Файл: structure_layout_optimizer-neoforge-1.0.12.jar
+    Назначение: Оптимизирует генерацию структур через jigsaw.
+    Описание из JAR: An attempt at optimizing jigsaw generation
+    Объявленные зависимости: resourcefulconfig (required, *)
+    Карточка/поиск проекта: https://modrinth.com/mod/structure-layout-optimizer
+
+130. Structure Pool API
+    Тип: Библиотека / API | mod ID: structure_pool_api | установленная версия: 1.2.1+1.21.1
+    Файл: structure_pool_api-neoforge-1.2.1+1.21.1.jar
+    Назначение: API для добавления структур в пулы генерации мира.
+    Описание из JAR: Allows injecting structures into structure pools.
+    Объявленные зависимости: В JAR не указаны обязательные зависимости (это не гарантирует независимость: см. страницу проекта).
+    Карточка/поиск проекта: https://modrinth.com/mod/structure-pool-api
+
+131. Supplementaries
+    Тип: Игровой контент | mod ID: supplementaries | установленная версия: 1.21.1-3.8.9
+    Файл: supplementaries-1.21.1-3.8.9-neoforge.jar
+    Назначение: Vanilla+ набор функциональных и декоративных блоков.
+    Описание из JAR: Many functional and useful Vanilla+ blocks
+    Объявленные зависимости: moonlight (required, [1.21-3.1.3,]); create (optional, [6.0.0,]); amendments (optional, [1.21-2.0.0,]); farmersdelight (incompatible, [0,1.3.0)); sodium (incompatible, [0,0.8.12-beta.1))
+    Карточка/поиск проекта: https://modrinth.com/mod/supplementaries
+
+132. Timeless & Classics Guns: Zero
+    Тип: Игровой контент | mod ID: tacz | установленная версия: 1.1.8-hotfix-r3
+    Файл: tacz-neoforge-1.21.1-1.1.8-hotfix-r3.jar
+    Назначение: Огнестрельное оружие и стрельба; установленный NeoForge-порт TaCZ для Minecraft 1.21.1.
+    Объявленные зависимости: В JAR не указаны обязательные зависимости (это не гарантирует независимость: см. страницу проекта).
+    Карточка/поиск проекта: https://www.curseforge.com/minecraft/search?class=mc-mods&search=Timeless%20%26%20Classics%20Guns%3A%20Zero
+
+133. TaCZ Pack Upgrader
+    Тип: Игровой контент | mod ID: taczpackupgrader | установленная версия: 2.1.1
+    Файл: tacz-pack-upgrader-2.1.1.jar
+    Назначение: Инструмент конвертации/обновления паков оружия для TaCZ.
+    Объявленные зависимости: В JAR не указаны обязательные зависимости (это не гарантирует независимость: см. страницу проекта).
+    Карточка/поиск проекта: https://modrinth.com/mod/tacz-pack-upgrader
+
+134. TACZ Aero Compat
+    Тип: Игровой контент | mod ID: tacz_aero_compat | установленная версия: 1.7.0
+    Файл: tacz_aero_compat-1.7.0.jar
+    Назначение: Совместимость: снаряды TaCZ сталкиваются с подуровнями конструкций Create Aeronautics/Sable.
+    Описание из JAR: Makes TACZ kinetic bullets collide with Create Aeronautics (Sable) sub-level blocks.
+    Объявленные зависимости: sable (optional, [1.0.0,)); tacz (optional, [1.0.0,))
+    Карточка/поиск проекта: https://www.curseforge.com/minecraft/search?class=mc-mods&search=TACZ%20Aero%20Compat
+
+135. TerraBlender
+    Тип: Библиотека / API | mod ID: terrablender | установленная версия: 4.1.0.8
+    Файл: TerraBlender-neoforge-1.21.1-4.1.0.8.jar
+    Назначение: Библиотека для совместимой генерации биомов и ландшафта.
+    Описание из JAR: A library mod for adding biomes in a simple and compatible manner with Minecraft's new biome/terrain system.
+    Объявленные зависимости: В JAR не указаны обязательные зависимости (это не гарантирует независимость: см. страницу проекта).
+    Карточка/поиск проекта: https://modrinth.com/mod/terrablender
+
+136. Create: The Factory Must Grow
+    Тип: Игровой контент | mod ID: tfmg | установленная версия: 1.2.4b-community
+    Файл: tfmg-1.21.1-1.2.4b-community.jar
+    Назначение: Большое индустриальное дополнение Create: сталь, нефть, электричество и производственные цепочки.
+    Описание из JAR: Create: The Factory Must Grow brings the age of steel, oil and electricity to the Create mod
+    Объявленные зависимости: create (required, [6.0.6,)); tfmgtweaks (incompatible, )
+    Карточка/поиск проекта: https://modrinth.com/mod/create-tfmg
+
+137. The Undergarden
+    Тип: Мир / существа / приключения | mod ID: undergarden | установленная версия: 0.9.6
+    Файл: The_Undergarden-1.21.1-0.9.6.jar
+    Назначение: Отдельное подземное измерение с существами, рудами и собственной атмосферой.
+    Описание из JAR: Deep underground, a forgotten land awaits.
+    Объявленные зависимости: В JAR не указаны обязательные зависимости (это не гарантирует независимость: см. страницу проекта).
+    Карточка/поиск проекта: https://modrinth.com/mod/the-undergarden
+
+138. Create Tracks+
+    Тип: Create / техника / аддоны | mod ID: tracks | установленная версия: 1.0.5
+    Файл: tracks_plus-1.0.5.jar
+    Назначение: Дополнение к Sable/Simulated: рельсовые/ходовые элементы и управление подвеской.
+    Описание из JAR: Fork of Addon for Create: Simulated Offroad that adds adjustable suspension keys and Sable-powered track blocks. More Create: Trackwork like features added.
+    Объявленные зависимости: create (required, [6.0.9,)); sable (required, [1.0.3,)); simulated (required, [1.0.1,)); offroad (required, [1.0.1,))
+    Карточка/поиск проекта: https://modrinth.com/mod/create-tracks+
+
+139. Valarian Conquest
+    Тип: Мир / существа / приключения | mod ID: valarian_conquest | установленная версия: 4.2.1.1
+    Файл: valarian_conquest-4.2.1.1-neoforge-1.21.1.jar
+    Назначение: Добавляет контент/снаряжение для приключенческого прохождения; описание карточки проекта неполное.
+    Описание из JAR: -
+    Объявленные зависимости: В JAR не указаны обязательные зависимости (это не гарантирует независимость: см. страницу проекта).
+    Карточка/поиск проекта: https://modrinth.com/mod/valarian-conquest
+
+140. Visible Traders
+    Тип: Игровой контент | mod ID: visibletraders | установленная версия: 0.0.7.1
+    Файл: visibletraders-0.0.7.1.jar
+    Назначение: Позволяет видеть закрытые сделки жителей.
+    Описание из JAR: A mod that allows the player to view locked villager trades
+    Объявленные зависимости: В JAR не указаны обязательные зависимости (это не гарантирует независимость: см. страницу проекта).
+    Карточка/поиск проекта: https://modrinth.com/mod/visible-traders
+
+141. What Are They Up To
+    Тип: Интерфейс / удобство / клиент | mod ID: watut | установленная версия: 1.21.0-1.2.7
+    Файл: watut-neoforge-1.21.0-1.2.7.jar
+    Назначение: Показывает состояние других игроков: набор текста, открытое меню, бездействие.
+    Описание из JAR: Lets you see if players are typing, in a GUI, idle, with cool ingame visuals
+    Объявленные зависимости: coroutil (required, [1.21.0-1.3.7,))
+    Карточка/поиск проекта: https://modrinth.com/mod/what-are-they-up-to
+
+142. Webcam
+    Тип: Интерфейс / удобство / клиент | mod ID: webcam | установленная версия: 4.4.0-1.21.1
+    Файл: webcam-neoforge-4.4.0-1.21.1.jar
+    Назначение: Веб-камера внутри Minecraft, в зависимости от настроек использует изображения/поток.
+    Описание из JAR: Webcams in Minecraft
+    Объявленные зависимости: cloth_config (optional, )
+    Карточка/поиск проекта: https://modrinth.com/mod/webcam-mod
+
+143. WI Zoom
+    Тип: Интерфейс / удобство / клиент | mod ID: wi_zoom | установленная версия: 1.6-MC1.21.1-NeoForge
+    Файл: WI-Zoom-1.6-MC1.21.1-NeoForge.jar
+    Назначение: Отдельный мод масштабирования камеры, аналог функции Wurst Zoom.
+    Описание из JAR: The zoom from the Wurst Client as a standalone mod.
+    Объявленные зависимости: В JAR не указаны обязательные зависимости (это не гарантирует независимость: см. страницу проекта).
+    Карточка/поиск проекта: https://www.curseforge.com/minecraft/search?class=mc-mods&search=WI%20Zoom
+
+144. Xaero's Minimap
+    Тип: Интерфейс / удобство / клиент | mod ID: xaerominimap | установленная версия: 26.4.2
+    Файл: xaerominimap-neoforge-1.21.1-26.4.2.jar
+    Назначение: Мини-карта с маркерами/ориентирами.
+    Описание из JAR: The most vanilla-looking minimap for Minecraft.
+    Объявленные зависимости: openpartiesandclaims (optional, [0.27.0,)); xaeroworldmap (optional, [1.44.0,))
+    Карточка/поиск проекта: https://modrinth.com/mod/xaeros-minimap
+
+145. Xaero's World Map
+    Тип: Интерфейс / удобство / клиент | mod ID: xaeroworldmap | установленная версия: 1.44.2
+    Файл: xaeroworldmap-neoforge-1.21.1-1.44.2.jar
+    Назначение: Полноэкранная карта мира, совместимая с Xaero’s Minimap.
+    Описание из JAR: A self-writing fullscreen map which also works as an add-on to Xaero's Minimap.
+    Объявленные зависимости: openpartiesandclaims (optional, [0.27.0,)); xaerominimap (optional, [26.4.0,)); xaerobetterpvp (optional, [26.4.0,)); xaerolib (required, [1.0,))
+    Карточка/поиск проекта: https://modrinth.com/mod/xaeros-world-map
+
+146. YetAnotherConfigLib
+    Тип: Библиотека / API | mod ID: yet_another_config_lib_v3 | установленная версия: 3.8.2+1.21.1-neoforge
+    Файл: yet_another_config_lib_v3-3.8.2+1.21.1-neoforge.jar
+    Назначение: Библиотека построения экранов настроек модов.
+    Описание из JAR: YetAnotherConfigLib (yacl) is just that. A builder-based configuration library for Minecraft.
+    Объявленные зависимости: В JAR не указаны обязательные зависимости (это не гарантирует независимость: см. страницу проекта).
+    Карточка/поиск проекта: https://modrinth.com/mod/yacl
+
+147. YUNG's API
+    Тип: Библиотека / API | mod ID: yungsapi | установленная версия: 1.21.1-NeoForge-5.1.6
+    Файл: YungsApi-1.21.1-NeoForge-5.1.6.jar
+    Назначение: Библиотека/API для модов YUNG’s.
+    Описание из JAR: API Library for YUNG's minecraft mods.
+    Объявленные зависимости: В JAR не указаны обязательные зависимости (это не гарантирует независимость: см. страницу проекта).
+    Карточка/поиск проекта: https://modrinth.com/mod/yungs-api
+
+148. YUNG's Better Dungeons
+    Тип: Мир / существа / приключения | mod ID: betterdungeons | установленная версия: 1.21.1-NeoForge-5.1.4
+    Файл: YungsBetterDungeons-1.21.1-NeoForge-5.1.4.jar
+    Назначение: Перерабатывает подземелья Minecraft, добавляя новые варианты структуры.
+    Описание из JAR: A complete redesign of Minecraft's dungeons!
+    Объявленные зависимости: yungsapi (required, [1.21.1-NeoForge-5.1.3,))
+    Карточка/поиск проекта: https://modrinth.com/mod/yungs-better-dungeons
+
+149. YUNG's Better Jungle Temples
+    Тип: Мир / существа / приключения | mod ID: betterjungletemples | установленная версия: 1.21.1-NeoForge-3.1.2
+    Файл: YungsBetterJungleTemples-1.21.1-NeoForge-3.1.2.jar
+    Назначение: Перерабатывает храмы в джунглях.
+    Описание из JAR: A complete redesign of Minecraft's Jungle Temples!
+    Объявленные зависимости: yungsapi (required, [1.21.1-NeoForge-5.1.3,))
+    Карточка/поиск проекта: https://modrinth.com/mod/yungs-better-jungle-temples
+
+150. YUNG's Better Mineshafts
+    Тип: Мир / существа / приключения | mod ID: bettermineshafts | установленная версия: 1.21.1-NeoForge-5.1.1
+    Файл: YungsBetterMineshafts-1.21.1-NeoForge-5.1.1.jar
+    Назначение: Перерабатывает заброшенные шахты и их генерацию.
+    Описание из JAR: The long-awaited and much-needed abandoned mineshaft overhaul!
+    Объявленные зависимости: yungsapi (required, [1.21.1-NeoForge-5.1.2,))
+    Карточка/поиск проекта: https://modrinth.com/mod/yungs-better-mineshafts
+
+151. YUNG's Bridges
+    Тип: Мир / существа / приключения | mod ID: yungsbridges | установленная версия: 1.21.1-NeoForge-5.1.1
+    Файл: YungsBridges-1.21.1-NeoForge-5.1.1.jar
+    Назначение: Добавляет мосты в генерацию мира.
+    Описание из JAR: Adds naturally occurring bridges throughout the world!
+    Объявленные зависимости: yungsapi (required, [1.21.1-NeoForge-5.1.2,))
+    Карточка/поиск проекта: https://modrinth.com/mod/yungs-bridges
+
+152. YUNG's Cave Biomes
+    Тип: Мир / существа / приключения | mod ID: yungscavebiomes | установленная версия: 1.21.1-NeoForge-3.1.1
+    Файл: YungsCaveBiomes-1.21.1-NeoForge-3.1.1.jar
+    Назначение: Добавляет варианты пещерных биомов и подземный контент.
+    Описание из JAR: Adds new vanilla+ cave biomes and underground content!
+    Объявленные зависимости: yungsapi (required, [1.21.1-NeoForge-5.1.6,)); terrablender (required, [4.1.0.8,)); geckolib (required, [4.7.6,))
+    Карточка/поиск проекта: https://modrinth.com/mod/yungs-cave-biomes
+
+153. YUNG's Extras
+    Тип: Мир / существа / приключения | mod ID: yungsextras | установленная версия: 1.21.1-NeoForge-5.1.1
+    Файл: YungsExtras-1.21.1-NeoForge-5.1.1.jar
+    Назначение: Добавляет дополнительные структуры и Vanilla+ контент.
+    Описание из JAR: Extra structures and vanilla+ content added throughout the game!
+    Объявленные зависимости: yungsapi (required, [1.21.1-NeoForge-5.1.2,))
+    Карточка/поиск проекта: https://modrinth.com/mod/yungs-extras
+
+ВЛОЖЕННЫЕ МОДУЛИ (НЕ ОТДЕЛЬНЫЕ ФАЙЛЫ В mods)
+Forgified Fabric API — один установленный JAR: forgified-fabric-api-0.116.14+2.3.0+1.21.1.jar. Внутри META-INF/jars находятся API-модули с версиями из имён архивов. Они не являются 44 отдельными модами профиля и не должны отображаться как недостающие зависимости с версией ${file.jarVersion}.
+Внутренние модули: fabric-api-base 0.4.42+d1308ded19; fabric-api-lookup-api-v1 1.6.72+6244b11119; fabric-biome-api-v1 13.0.31+1e62d33c19; fabric-block-api-v1 1.1.0+b0c22bb819; fabric-block-view-api-v2 1.0.11+e9036fd419; fabric-blockrenderlayer-v1 1.1.52+c290471319; fabric-client-tags-api-v1 1.2.0+5adff2d719; fabric-command-api-v2 2.2.28+36d727be19; fabric-content-registries-v0 8.0.19+5e0d320019; fabric-convention-tags-v1 2.1.7+7f945d5b19; fabric-convention-tags-v2 2.12.0+75d3639619; fabric-data-attachment-api-v1 1.4.7+26d408aa19; fabric-data-generation-api-v1 20.3.0+3e2bcb4b19; fabric-entity-events-v1 1.8.0+e46a02ca19; fabric-events-interaction-v0 0.7.14+86e0887119; fabric-game-rule-api-v1 1.0.53+36d727be19; fabric-gametest-api-v1 2.0.5+29f188ce19; fabric-item-api-v1 11.2.0+0c57911319; fabric-item-group-api-v1 4.1.7+e324903319; fabric-key-binding-api-v1 1.0.47+62cc7ce119; fabric-lifecycle-events-v1 2.6.0+e40d8add19; fabric-loot-api-v2 3.0.15+a3ee712d19; fabric-loot-api-v3 1.0.3+333dfad919; fabric-message-api-v1 6.0.14+6a754fce19; fabric-model-loading-api-v1 2.1.0+6e8f52c719; fabric-networking-api-v1 4.3.1+30a980d919; fabric-object-builder-api-v1 15.2.1+cc242efd19; fabric-particles-v1 4.0.2+824f924c19; fabric-recipe-api-v1 5.0.16+59440bcc19; fabric-registry-sync-v0 5.3.2+f9aace1619; fabric-renderer-api-v1 3.4.1+9125b6dc19; fabric-renderer-indigo 1.7.1+9125b6dc19; fabric-rendering-data-attachment-v1 0.3.49+73761d2e19; fabric-rendering-fluids-v1 3.1.6+a51883b219; fabric-rendering-v1 5.1.0+1a09bd5a19; fabric-resource-conditions-api-v1 4.3.0+5bdd099819; fabric-resource-loader-v0 1.3.1+4ea8954419; fabric-screen-api-v1 2.0.26+b4953c7419; fabric-screen-handler-api-v1 1.3.91+8dbc56dd19; fabric-sound-api-v1 1.0.23+10b84f8419; fabric-tag-api-v1 1.3.0+3e2bcb4b19; fabric-transfer-api-v1 5.4.4+6244b11119; fabric-transitive-access-wideners-v1 6.2.0+6c854b6f19; forgified-fabric-loader 2.5.68+0.18.4+1.21.1-full.
+Create Aeronautics — один установленный файл create-aeronautics-bundled-1.21.1-1.3.0.jar. Это объединённый пакет; компоненты Sable/Simulated/Aeronautics внутри не следует считать отдельными JAR в каталоге профиля.
+
+ОТКЛЮЧЁННЫЕ JAR (НЕ ЗАГРУЖАЮТСЯ В ТЕКУЩЕМ ПРОФИЛЕ)
+Папка: mods.disabled-2026-09-28. Наличие файла здесь означает, что он не входит в активный набор из 153 модов. Причины отключения по одним именам файлов достоверно определить нельзя; версии сохранены как есть.
+01. [1.21.1] SecurityCraft v1.10.2.1.jar
+02. alexsmobs-1.22.17.jar
+03. AoA3-1.21.1-3.7.16.1.jar
+04. Apotheosis-1.21.1-8.5.4.jar
+05. ApothicAttributes-1.21.1-2.9.1.jar
+06. ApothicEnchanting-1.21.1-1.6.0.jar
+07. born_in_chaos_[Neoforge]_1.21.1_1.7.6.jar
+08. BuildingWands-neoforge-MC1.21.1-3.0.5.jar
+09. citadel-1.21.1-2.7.6.jar
+10. createimmersivearmorerintegration-1.1-1.21.1-neoforge.jar
+11. cultofazazelneoforge-1.1.4.12.jar
+12. droneworks-0.1.1.jar
+13. easy-villagers-neoforge-1.21.1-1.1.42.jar
+14. fdbosses-3.1.0.3-1.21.1.jar
+15. ImmediatelyFast-NeoForge-1.6.11+1.21.1.jar
+16. ImmersiveEngineering-1.21.1-12.4.2-194.jar
+17. runes-neoforge-1.2.2+1.21.1.jar
+18. samurai_dynasty-0.1.6-1.21.1.jar
+19. ToughAsNails-neoforge-1.21.1-10.1.0.13.jar
+
+ПРОВЕРКА СООТВЕТСТВИЯ
+Каталог формируется по реально присутствующим JAR и сохранённым метаданным. Не найденные на Modrinth проекты снабжены поисковой ссылкой CurseForge, а не выдуманной карточкой. Для таких модов назначение помечено как требующее дополнительной проверки. Этот файл не проверяет запуск игры и не гарантирует сетевую совместимость.

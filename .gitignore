@@ -67,6 +67,8 @@ config/
 dynamic-resource-pack-cache/
 dynamic-data-pack-cache/
 
+Карта-зависимостей-модов.md/
+
 # ===== Личные папки и вейпоинты =====
 saves/
 screenshots/
