@@ -87,5 +87,7 @@ itemscroller/
 local/
 .pg-native/
 
+_codex_backups/
 quickskin/
 mods/AoA3-1.21.1-3.7.16.1.jar
+_translation_backups/

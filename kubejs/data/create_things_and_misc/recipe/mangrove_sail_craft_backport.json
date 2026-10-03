@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "A": {
+      "item": "create:andesite_alloy"
+    },
+    "S": {
+      "tag": "c:rods/wooden"
+    },
+    "W": {
+      "item": "minecraft:mangrove_planks"
+    }
+  },
+  "pattern": [
+    "WS",
+    "SA"
+  ],
+  "result": {
+    "count": 2,
+    "id": "create_things_and_misc:mangrove_sail"
+  }
+}

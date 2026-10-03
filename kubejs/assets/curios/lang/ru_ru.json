@@ -1,5 +1,5 @@
 {
-  "curios.name": "Curios",
+  "curios.name": "Любопытство",
   "curios.slot": "Слот",
   "curios.tooltip.slot": "Слот:",
   "curios.cosmetic": "Косметический",
@@ -42,7 +42,11 @@
   "curios.modifiers.slots.take.0": "-%s к слотам %s",
   "curios.modifiers.slots.take.1": "-%s%% к слотам %s",
   "curios.modifiers.slots.take.2": "-%s%% к слотам %s",
-  "key.curios.category": "Curios",
+  "key.curios.category": "Любопытство",
   "key.curios.open.desc": "Открыть/Закрыть инвентарь Curios",
-  "gui.curios.toggle": "Переключить видимость"
+  "gui.curios.toggle": "Переключить видимость",
+  "curios.tooltip.inactive": "Неактивный слот",
+  "gui.curios.toggle.cosmetics": "Переключить косметику",
+  "gui.curios.page": "Страница %d / %d",
+  "curios.networking.failed": "Сбой сети Curios"
 }

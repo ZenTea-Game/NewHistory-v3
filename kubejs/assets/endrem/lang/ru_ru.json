@@ -37,7 +37,7 @@
   "block.endrem.ender_eye.warning": "Это око не хочет использоваться",
   "block.endrem.custom_eye.place": "Это око уже установлено",
   "block.endrem.custom_eye.frame_has_eye": "В этой рамке уже установлено око",
-  "itemGroup.endrem.endrem_tab": "End Remastered",
+  "itemGroup.endrem.endrem_tab": "Завершение ремастеринга",
   "block.portal_open_sound": "Открытие портала",
   "block.portal_open_sound.sub": "Открытие портала",
   "advancements.main.root.title": "Начало пути",
@@ -73,5 +73,6 @@
   "advancements.main.undead_eye.title": "Общий ритм",
   "advancements.main.undead_eye.description": "Получите первое Синхронное Око",
   "advancements.main.cryptic_eye.title": "Кварцевый прицел",
-  "advancements.main.cryptic_eye.description": "Получите первое Кварцевое Око"
+  "advancements.main.cryptic_eye.description": "Получите первое Кварцевое Око",
+  "%%%%%%Comment%%%%%%": "Золотой дождь подходит лучше, но неважно..."
 }

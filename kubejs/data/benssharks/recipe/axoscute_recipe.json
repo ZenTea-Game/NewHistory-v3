@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    { "item": "benssharks:axoleather" },
+    { "item": "minecraft:turtle_scute" }
+  ],
+  "result": { "id": "benssharks:axoscute", "count": 1 }
+}

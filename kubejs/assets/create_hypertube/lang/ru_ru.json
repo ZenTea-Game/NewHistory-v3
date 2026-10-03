@@ -1,5 +1,5 @@
 {
-  "itemGroup.create_hypertube": "Create: Hypertube",
+  "itemGroup.create_hypertube": "Создать: Hypertube",
   "block.create_hypertube.hypertube_accelerator": "Блок ускорителя гипертрубы",
   "block.create_hypertube.hypertube_entrance": "Блок входа гипертрубы",
   "block.create_hypertube.hypertube": "Блок гипертрубы",
@@ -48,5 +48,6 @@
   "create_hypertube.ponder.attachments.text_2": "Улучшения можно ставить и на ускорители с любой стороны.",
   "create_hypertube.ponder.attachments.text_3": "Детектор редстоуна меняет режим ускорителя или входа через сигнал редстоуна.",
   "create_hypertube.ponder.tag.hypertube_systems": "Системы гипертруб",
-  "create_hypertube.ponder.tag.hypertube_systems.description": "Блоки и предметы для систем перемещения через гипертрубы."
+  "create_hypertube.ponder.tag.hypertube_systems.description": "Блоки и предметы для систем перемещения через гипертрубы.",
+  "key.categories.hypertube": "Создать: Hypertube"
 }

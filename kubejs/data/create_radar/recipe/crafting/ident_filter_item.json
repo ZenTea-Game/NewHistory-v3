@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "E": { "item": "create:electron_tube" },
+    "P": { "item": "minecraft:paper" },
+    "R": { "item": "minecraft:redstone" }
+  },
+  "pattern": [
+    " E ",
+    "RPR",
+    " P "
+  ],
+  "result": { "id": "create_radar:ident_filter_item" },
+  "show_notification": true
+}

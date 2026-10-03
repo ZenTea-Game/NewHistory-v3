@@ -689,8 +689,8 @@
   "item.createbigcannons.worm.tooltip.reach": "Дальность",
   "item.createbigcannons.worm.tooltip.reach.value": "До _%s блоков_ внутри пушки",
   "item.createbigcannons.worm.tooltip.summary": "Служит для _извлечения боеприпасов из пушки вручную_ вместо механизма Cannon Loader Contraption. _Тратит единицы сытости и голода_.",
-  "itemGroup.createbigcannons": "Create Big Cannons",
-  "key.createbigcannons.category": "Create Big Cannons",
+  "itemGroup.createbigcannons": "Создание больших пушек",
+  "key.createbigcannons.category": "Создание больших пушек",
   "key.createbigcannons.fire_controlled_cannon": "Выстрел из подконтрольной пушки",
   "key.createbigcannons.pitch_mode": "Смена режима лафета",
   "recipe.createbigcannons.built_up_heating": "Сборка пушки",
@@ -734,5 +734,7 @@
   "tag.createbigcannons.stone": "Камень",
   "tooltip.createbigcannons.jei_info.added_fuze": "+ Взрыватель",
   "tooltip.createbigcannons.jei_info.added_power": "+ Мощность",
-  "tooltip.createbigcannons.tracer": "+ Трассер"
+  "tooltip.createbigcannons.tracer": "+ Трассер",
+  "force_group.createbigcannons.recoil_force": "Отдача",
+  "force_group.createbigcannons.impact_force": "Воздействие"
 }

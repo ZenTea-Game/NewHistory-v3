@@ -129,8 +129,8 @@
   "gui.xaero_pac_config_sub_list": "Профили с позиции %1$d/%2$d:\n",
   "gui.xaero_pac_config_sub_list_separator": ", ",
   "gui.xaero_pac_config_sub_list_there_is_more": "...",
-  "option.openpartiesandclaims.permissions/v1": "Open Parties and Claims",
-  "gui.xaero_pac_permissions_title": "Open Parties and Claims",
+  "option.openpartiesandclaims.permissions/v1": "Открытые стороны и претензии",
+  "gui.xaero_pac_permissions_title": "Открытые стороны и претензии",
   "gui.xaero_pac_permission_max_claims": "Лимит участков",
   "gui.xaero_pac_permission_max_forceloads": "Лимит прогрузки",
   "gui.xaero_pac_permission_server_claims": "Серверные участки",
@@ -174,7 +174,7 @@
   "gui.xaero_pac_ui_handshake_not_received": "Сервер не отправил ответ! Мод не установлен?",
   "gui.xaero_pac_ui_parties_disabled": "Сервер отключил функцию групп!",
   "gui.xaero_pac_ui_claims_disabled": "Сервер отключил функцию участков!",
-  "gui.xaero_pac_ui_parties_and_claims": "Open Parties and Claims",
+  "gui.xaero_pac_ui_parties_and_claims": "Открытые стороны и претензии",
   "gui.xaero_pac_ui_main_menu": "Главное меню",
   "gui.xaero_pac_ui_config_menu": "Меню настроек игрока",
   "gui.xaero_pac_ui_about_party": "Инфо",
@@ -475,5 +475,6 @@
   "gui.xaero_pac_config_delete_group_confirmation_fail": "Убедитесь в верном написании « confirm» в конце команды.",
   "gui.xaero_pac_config_group_too_many_targets": "Разрешён только один игрок!",
   "gui.xaero_pac_config_group_invalid_target": "Неверный игрок!",
-  "gui.xaero_pac_config_deprecated_api_option": "Устаревший параметр"
+  "gui.xaero_pac_config_deprecated_api_option": "Устаревший параметр",
+  "gui.xaero_pac_title_party_claim": "%1$s%2$s"
 }

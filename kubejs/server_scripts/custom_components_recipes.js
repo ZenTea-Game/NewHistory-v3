@@ -1,17 +1,8 @@
 // kubejs/server_scripts/custom_components_recipes.js
+// Совместимо с серверами, где опциональные аддоны отсутствуют.
 
 ServerEvents.recipes(event => {
-
-  // 1. Превращаем Железную пластину (IE) в Железный лист (Create)
-  // Используем бесформенный крафт: просто положите пластину в верстак
-  event.shapeless('create:iron_sheet', ['immersiveengineering:plate_iron']).id('kubejs:ie_plate_to_create_sheet');
-
-  // 2. Превращаем Железный лист (Create) в Железную пластину (IE)
-  // Возвращаем 1 пластину за 2 листа (баланс, так как листы обычно дешевле/проще)
-  // Или 1 к 1, если хотите прямой обмен. Ниже вариант 2 листа -> 1 пластина.
-  event.shapeless('immersiveengineering:plate_iron', ['create:iron_sheet' ]).id('kubejs:create_sheet_to_ie_plate');
-
-  // ===== 2. ГЛОБАЛЬНЫЕ ЗАМЕНЫ =====
+  // Замены для Create: Immersive TaCZ применяются только к его рецептам.
   event.replaceInput(
     { mod: 'createimmersivetacz' },
     'minecraft:iron_ingot',
@@ -22,27 +13,35 @@ ServerEvents.recipes(event => {
     'create:brass_block',
     'kubejs:brass_frame'
   );
-  
-  // ===== 3. СПУСКОВОЙ КРЮЧОК =====
-  event.shaped('createimmersivetacz:gun_trigger', [
-    ' N ',
-    'SRS',
-    ' P '
-  ], {
-    N: 'minecraft:iron_nugget',
-    S: 'create:iron_sheet',
-    R: 'minecraft:redstone',
-    P: 'kubejs:resine_sheet'
-  });
 
-  event.shaped('kubejs:zero_food', [
-    'SSS',
-    'SSS',
-    ' N '
-  ], {
-    N: 'minecraft:bowl',
-    S: 'immersiveengineering:dust_wood',
-  });
+  // Спусковой механизм добавляем только если предмет и все компоненты
+  // зарегистрированы в текущей сборке сервера.
+  const trigger = 'createimmersivetacz:gun_trigger';
+  const triggerParts = [
+    'minecraft:iron_nugget',
+    'create:iron_sheet',
+    'minecraft:redstone',
+    'kubejs:resine_sheet'
+  ];
+  if (Item.exists(trigger) && triggerParts.every(id => Item.exists(id))) {
+    event.shaped(trigger, [
+      ' N ',
+      'SRS',
+      ' P '
+    ], {
+      N: 'minecraft:iron_nugget',
+      S: 'create:iron_sheet',
+      R: 'minecraft:redstone',
+      P: 'kubejs:resine_sheet'
+    }).id('newhistory:createimmersivetacz_gun_trigger');
+  }
 
-
+  // Рецепт каши больше не зависит от отсутствующего Immersive Engineering.
+  if (Item.exists('kubejs:zero_food')) {
+    event.remove({ output: 'kubejs:zero_food' });
+    event.shapeless('kubejs:zero_food', [
+      'minecraft:bowl',
+      '#minecraft:planks'
+    ]).id('newhistory:zero_food_from_bowl_and_plank');
+  }
 });

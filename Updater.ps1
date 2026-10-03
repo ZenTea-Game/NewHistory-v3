@@ -29,7 +29,7 @@ $driveMods = @(
 )
 
 # ===== ВЕРСИИ САМИХ ФАЙЛОВ АПДЕЙТЕРА =====
-$updaterVersion = 'v6.0'
+$updaterVersion = 'v6.1'
 $batVersion     = 'v1.2'
 $checkVersion   = 'v1.2'
 # =========================================
@@ -271,7 +271,7 @@ function Show-ParrotAnimation {
     Clear-Host
 }
 
-# ===== ИГРА ПИНГ-ПОНГ ПРОТИВ БОТА (оптимизированная) =====
+# ===== ИГРА ПИНГ-ПОНГ ПРОТИВ БОТА (ИСПРАВЛЕНА) =====
 function Start-PingPong {
     $playW = 40
     $playH = 14
@@ -375,16 +375,23 @@ function Start-PingPong {
         for ($y = 0; $y -lt $playH; $y++) {
             for ($x = 0; $x -lt $playW; $x++) { $newField[$x, $y] = " " }
         }
+
+        # Ракетка игрока (индекс 0)
         for ($y = $playerY; $y -lt $playerY + $paddleH; $y++) {
             if ($y -ge 0 -and $y -lt $playH) { $newField[0, $y] = "[" }
         }
+
+        # Ракетка бота (ИСПРАВЛЕНО: скобки вокруг ($playW - 1))
         for ($y = $botY; $y -lt $botY + $paddleH; $y++) {
-            if ($y -ge 0 -and $y -lt $playH) { $newField[$playW - 1, $y] = "]" }
+            if ($y -ge 0 -and $y -lt $playH) { $newField[($playW - 1), $y] = "]" }
         }
+
+        # Мяч
         if ($ballX -ge 0 -and $ballX -lt $playW -and $ballY -ge 0 -and $ballY -lt $playH) {
             $newField[$ballX, $ballY] = "O"
         }
 
+        # Отрисовка только изменившихся клеток
         for ($y = 0; $y -lt $playH; $y++) {
             for ($x = 0; $x -lt $playW; $x++) {
                 if ($newField[$x, $y] -ne $prevField[$x, $y]) {
