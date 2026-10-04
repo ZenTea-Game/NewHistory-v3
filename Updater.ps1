@@ -1,4 +1,4 @@
-param([switch]$Quiet)
+﻿param([switch]$Quiet)
 
 # НАСТРОЙКИ
 $ErrorActionPreference = 'Stop'
@@ -29,9 +29,9 @@ $driveMods = @(
 )
 
 # ===== ВЕРСИИ САМИХ ФАЙЛОВ АПДЕЙТЕРА =====
-$updaterVersion = 'v6.1'
-$batVersion     = 'v1.2'
-$checkVersion   = 'v1.2'
+$updaterVersion = 'v13.0'
+$batVersion     = 'v13.0'
+$checkVersion   = 'v13.0'
 # =========================================
 
 $RainbowColors = @('Red', 'Yellow', 'Green', 'Cyan', 'Blue', 'Magenta')
@@ -515,8 +515,6 @@ if ($null -eq $remoteVer) {
 }
 
 if ($Quiet) {
-    $w = [Console]::WindowWidth
-    Write-Host (" " * [math]::Max(0, [math]::Floor(($w - 30) / 2))) -NoNewline
     Write-Host ("Локально: v{0}   GitHub: v{1}  ->  " -f $localVer, $remoteVer) -NoNewline -ForegroundColor Cyan
     if ([version]$remoteVer -gt [version]$localVer) { Write-Host 'ДОСТУПНО ОБНОВЛЕНИЕ, запусти Updater.bat' -ForegroundColor Yellow }
     elseif ([version]$remoteVer -eq [version]$localVer) { Write-Host 'актуально =)' -ForegroundColor Green }
@@ -543,38 +541,59 @@ else {
     $desc   = "Откуда у тебя сборка выше версии (o_0)"
 }
 
+function Invoke-RobocopyChecked([string[]]$Arguments, [string]$Stage) {
+    & robocopy @Arguments | Out-Null
+    $code = $LASTEXITCODE
+    if ($code -ge 8) { throw "Robocopy завершился с ошибкой $code на этапе: $Stage" }
+}
+
 function Update-Pack {
     try {
         Invoke-Download $url $zip
 
         Write-Center 'Распаковываю архив...' 'Yellow'
         if (Test-Path -LiteralPath $tmp) { Remove-Item -LiteralPath $tmp -Recurse -Force }
-
         Add-Type -AssemblyName System.IO.Compression.FileSystem
         [System.IO.Compression.ZipFile]::ExtractToDirectory($zip, $tmp)
 
         $src = (Get-ChildItem -Path $tmp -Directory | Select-Object -First 1).FullName
+        if (-not $src -or -not (Test-Path -LiteralPath (Join-Path $src 'version.txt')) -or
+            -not (Test-Path -LiteralPath (Join-Path $src 'Updater.ps1'))) {
+            throw 'Архив GitHub не прошёл проверку: не найдены version.txt или Updater.ps1.'
+        }
 
-        Write-Center 'Очищаю старые файлы (mods, tacz, kubejs)...' 'Yellow'
+        # Не зеркалим корень: /MIR удалял всё, чего нет в GitHub, включая
+        # миры, сохранённые точки/тайлы Xaero и данные QuickSkin.
+        $preserveDirs = @(
+            'config', 'data', 'emotes', '.git', 'logs', 'crash-reports', 'screenshots',
+            'downloads', 'saves', 'server-resource-packs', 'xaero', 'XaeroWaypoints',
+            'XaeroWorldMap', 'XaeroMinimap', 'XaeroWaypoints_BACKUP*',
+            'Distant_Horizons_server_data', 'quickskin', 'QuickSkin', 'quick-skin',
+            'mods', 'tacz', 'kubejs', 'nh3_extract'
+        )
+        $rootArgs = @($src, $dir, '/E', '/R:1', '/W:1', '/NFL', '/NDL', '/NJH', '/NJS', '/XD') +
+            $preserveDirs + @('/XF', 'version.txt', 'token.txt', 'options.txt', 'optionsof.txt',
+                'servers.dat', 'servers.dat_old', 'usercache.json', 'usernamecache.json',
+                'command_history.txt', 'launcher_profiles.json', 'launcher_accounts.json',
+                'launcher_settings.json', 'nh3_update.zip')
+        Write-Center 'Обновляю файлы сборки, личные данные оставляю на месте...' 'Yellow'
+        Invoke-RobocopyChecked $rootArgs 'основные файлы'
+
+        # Удаление устаревших файлов разрешено только в каталогах состава сборки.
         foreach ($folder in @('mods', 'tacz', 'kubejs')) {
-            $folderPath = Join-Path $dir $folder
-            if (Test-Path -LiteralPath $folderPath) {
-                Remove-Item -LiteralPath $folderPath -Recurse -Force -ErrorAction SilentlyContinue
+            $sourceFolder = Join-Path $src $folder
+            $targetFolder = Join-Path $dir $folder
+            if (Test-Path -LiteralPath $sourceFolder) {
+                if (-not (Test-Path -LiteralPath $targetFolder)) {
+                    New-Item -ItemType Directory -Path $targetFolder -Force | Out-Null
+                }
+                $folderArgs = @($sourceFolder, $targetFolder, '/MIR', '/R:1', '/W:1', '/NFL', '/NDL', '/NJH', '/NJS')
+                Invoke-RobocopyChecked $folderArgs $folder
             }
         }
 
-        Write-Center 'Применяю полное обновление (заменяю все файлы сборки)...' 'Yellow'
-        robocopy $src $dir /MIR /R:1 /W:1 /NFL /NDL /NJH /NJS /XD config data emotes .git logs screenshots downloads nh3_extract /XF token.txt options.txt servers.dat usercache.json usernamecache.json command_history.txt nh3_update.zip | Out-Null
-
-        # Обновление версии
-        $lines = @()
-        if (Test-Path -LiteralPath $vFile) { $lines = @(Get-Content -LiteralPath $vFile -Encoding UTF8) }
-        $done = $false
-        for ($i = 0; $i -lt $lines.Count; $i++) {
-            if ($lines[$i] -match '^\s*version\s*=') { $lines[$i] = "version=$remoteVer"; $done = $true; break }
-        }
-        if (-not $done) { $lines = @("version=$remoteVer") + $lines }
-        Set-Content -LiteralPath $vFile -Value $lines -Encoding UTF8
+        # Журнал изменений и номер версии обновляются после копирования сборки.
+        Copy-Item -LiteralPath (Join-Path $src 'version.txt') -Destination $vFile -Force
 
         # Скачиваем тяжёлые моды с Google Drive (AoA3), если их нет
         if (-not (Test-Path -LiteralPath $modsDir)) { New-Item -ItemType Directory -Path $modsDir -Force | Out-Null }
@@ -595,7 +614,7 @@ function Update-Pack {
             }
         }
 
-        Write-Center ("Готово! Сборка обновлена до v{0}" -f $remoteVer) 'Green'
+        Write-Center ("Готово! Сборка обновлена до v{0}. Миры, Xaero и QuickSkin сохранены." -f $remoteVer) 'Green'
     }
     catch {
         Write-Center ('Ошибка: ' + $_.Exception.Message) 'Red'
@@ -605,7 +624,6 @@ function Update-Pack {
         try { if (Test-Path -LiteralPath $tmp) { Remove-Item -LiteralPath $tmp -Recurse -Force } } catch {}
     }
 }
-
 # Главный цикл меню
 while ($true) {
     Clear-Host

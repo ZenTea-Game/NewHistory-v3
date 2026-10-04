@@ -76,6 +76,9 @@ schematics/
 server-resource-packs/
 stats/
 xaero/
+XaeroWaypoints/
+XaeroWorldMap/
+XaeroMinimap/
 XaeroWaypoints_BACKUP*/
 Distant_Horizons_server_data/
 itemsroller/
