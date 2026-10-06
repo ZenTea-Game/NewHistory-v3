@@ -26,9 +26,9 @@ $imageUrl       = "https://i.pinimg.com/originals/f9/2c/e8/f92ce82f251033f30b860
 $videoUrl       = "https://www.youtube.com/watch?v=wOMFFPjGr4U"
 
 # ===== ВЕРСИИ САМИХ ФАЙЛОВ АПДЕЙТЕРА =====
-$updaterVersion = 'v14.0'
-$batVersion     = 'v14.0'
-$checkVersion   = 'v14.0'
+$updaterVersion = 'v14.1'
+$batVersion     = 'v14.1'
+$checkVersion   = 'v14.1'
 # =========================================
 
 $RainbowColors = @('Red', 'Yellow', 'Green', 'Cyan', 'Blue', 'Magenta')
@@ -151,6 +151,15 @@ function Invoke-UpdaterSelfUpdate {
         Write-Host 'Скачивание сборки остановлено. Проверь интернет и запусти Updater.bat ещё раз.' -ForegroundColor Yellow
         if (-not $Quiet) { Read-Host 'Нажми Enter для выхода' }
         exit 1
+    }
+}
+
+function Remove-LegacyUpdaterFiles {
+    foreach ($legacyName in @('Updater.ps1.before-v13', 'Updater-v13-bootstrap.bat')) {
+        $legacyPath = Join-Path $dir $legacyName
+        if (Test-Path -LiteralPath $legacyPath) {
+            Remove-Item -LiteralPath $legacyPath -Force
+        }
     }
 }
 
@@ -554,6 +563,9 @@ function Start-NoPress {
 }
 
 # ================= ОСНОВНАЯ ЧАСТЬ =================
+if (-not $Quiet) {
+    Remove-LegacyUpdaterFiles
+}
 if (-not $Quiet -and -not $SkipUpdaterCheck) {
     Invoke-UpdaterSelfUpdate
 }

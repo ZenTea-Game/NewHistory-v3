@@ -1,4 +1,4 @@
-КАТАЛОГ МОДОВ — NEWHISTORY V3
+﻿КАТАЛОГ МОДОВ — NEWHISTORY V3
 Обновлено: 28.09.2026
 Профиль: Minecraft 1.21.1 | NeoForge 21.1.236
 Сверено с файлами в папке mods профиля: 153 активных JAR. Этот документ описывает фактически установленный набор, а не список последних релизов.
@@ -1230,23 +1230,22 @@ Create Aeronautics — один установленный файл create-aeron
 Папка: mods.disabled-2026-09-28. Наличие файла здесь означает, что он не входит в активный набор из 153 модов. Причины отключения по одним именам файлов достоверно определить нельзя; версии сохранены как есть.
 01. [1.21.1] SecurityCraft v1.10.2.1.jar
 02. alexsmobs-1.22.17.jar
-03. AoA3-1.21.1-3.7.16.1.jar
-04. Apotheosis-1.21.1-8.5.4.jar
-05. ApothicAttributes-1.21.1-2.9.1.jar
-06. ApothicEnchanting-1.21.1-1.6.0.jar
-07. born_in_chaos_[Neoforge]_1.21.1_1.7.6.jar
-08. BuildingWands-neoforge-MC1.21.1-3.0.5.jar
-09. citadel-1.21.1-2.7.6.jar
-10. createimmersivearmorerintegration-1.1-1.21.1-neoforge.jar
-11. cultofazazelneoforge-1.1.4.12.jar
-12. droneworks-0.1.1.jar
-13. easy-villagers-neoforge-1.21.1-1.1.42.jar
-14. fdbosses-3.1.0.3-1.21.1.jar
-15. ImmediatelyFast-NeoForge-1.6.11+1.21.1.jar
-16. ImmersiveEngineering-1.21.1-12.4.2-194.jar
-17. runes-neoforge-1.2.2+1.21.1.jar
-18. samurai_dynasty-0.1.6-1.21.1.jar
-19. ToughAsNails-neoforge-1.21.1-10.1.0.13.jar
+03. Apotheosis-1.21.1-8.5.4.jar
+04. ApothicAttributes-1.21.1-2.9.1.jar
+05. ApothicEnchanting-1.21.1-1.6.0.jar
+06. born_in_chaos_[Neoforge]_1.21.1_1.7.6.jar
+07. BuildingWands-neoforge-MC1.21.1-3.0.5.jar
+08. citadel-1.21.1-2.7.6.jar
+09. createimmersivearmorerintegration-1.1-1.21.1-neoforge.jar
+10. cultofazazelneoforge-1.1.4.12.jar
+11. droneworks-0.1.1.jar
+12. easy-villagers-neoforge-1.21.1-1.1.42.jar
+13. fdbosses-3.1.0.3-1.21.1.jar
+14. ImmediatelyFast-NeoForge-1.6.11+1.21.1.jar
+15. ImmersiveEngineering-1.21.1-12.4.2-194.jar
+16. runes-neoforge-1.2.2+1.21.1.jar
+17. samurai_dynasty-0.1.6-1.21.1.jar
+18. ToughAsNails-neoforge-1.21.1-10.1.0.13.jar
 
 ПРОВЕРКА СООТВЕТСТВИЯ
 Каталог формируется по реально присутствующим JAR и сохранённым метаданным. Не найденные на Modrinth проекты снабжены поисковой ссылкой CurseForge, а не выдуманной карточкой. Для таких модов назначение помечено как требующее дополнительной проверки. Этот файл не проверяет запуск игры и не гарантирует сетевую совместимость.
