@@ -1,4 +1,4 @@
-﻿param([switch]$Quiet)
+﻿param([switch]$Quiet, [switch]$SkipUpdaterCheck)
 
 # НАСТРОЙКИ
 $ErrorActionPreference = 'Stop'
@@ -12,6 +12,8 @@ $repo    = 'ZenTea-Game/NewHistory-v3'
 $branch  = 'main'
 $dir     = if ($PSScriptRoot) { $PSScriptRoot } else { (Get-Location).Path }
 $vFile   = Join-Path $dir 'version.txt'
+$scriptFile = Join-Path $dir 'Updater.ps1'
+$updaterStage = Join-Path $dir 'Updater.ps1.update'
 $modsDir = Join-Path $dir 'mods'
 $zip     = Join-Path $dir 'nh3_update.zip'
 $tmp     = Join-Path $dir 'nh3_extract'
@@ -19,19 +21,14 @@ $url     = "https://github.com/$repo/archive/refs/heads/$branch.zip"
 
 # Ссылки
 $githubUrl      = "https://github.com/$repo"
-$googleDriveUrl = "https://drive.usercontent.google.com/download?id=1UixrKDtRj1VlEdMVgN2zu9vMiM64QtMN&export=download&confirm=t"
+$rawUpdaterUrl  = "https://raw.githubusercontent.com/$repo/$branch/Updater.ps1"
 $imageUrl       = "https://i.pinimg.com/originals/f9/2c/e8/f92ce82f251033f30b8606224b81de0b.jpg?nii=t"
 $videoUrl       = "https://www.youtube.com/watch?v=wOMFFPjGr4U"
 
-# Тяжёлые моды (нужны для полной установки)
-$driveMods = @(
-    @{ Name = 'AoA3-1.21.1-3.7.16.1.jar'; Url = 'https://drive.usercontent.google.com/download?id=1UixrKDtRj1VlEdMVgN2zu9vMiM64QtMN&export=download&confirm=t' }
-)
-
 # ===== ВЕРСИИ САМИХ ФАЙЛОВ АПДЕЙТЕРА =====
-$updaterVersion = 'v13.0'
-$batVersion     = 'v13.0'
-$checkVersion   = 'v13.0'
+$updaterVersion = 'v14.0'
+$batVersion     = 'v14.0'
+$checkVersion   = 'v14.0'
 # =========================================
 
 $RainbowColors = @('Red', 'Yellow', 'Green', 'Cyan', 'Blue', 'Magenta')
@@ -53,7 +50,7 @@ function Write-ProgressLine([string]$Text, [ConsoleColor]$Color = 'Cyan') {
 function Write-RainbowTitleBlock {
     $Width = 48
     $Inner = $Width - 2
-    $Text = " NewHistory-v3  ·  АПДЕЙТЕР СБОРКИ "
+    $Text = " NewHistory 6  ·  АПДЕЙТЕР СБОРКИ "
     $TextLen = $Text.Length
     $Pad = $Inner - $TextLen
     $LeftPad = [math]::Floor($Pad / 2)
@@ -102,6 +99,59 @@ function Get-RemoteVersion {
         if ($mv.Success) { return $mv.Groups[1].Value }
     } catch {}
     return $null
+}
+
+function Invoke-UpdaterSelfUpdate {
+    try {
+        Invoke-WebRequest -Uri $rawUpdaterUrl -OutFile $updaterStage -Headers @{ 'User-Agent' = 'NH6-Updater' } -UseBasicParsing
+        if ((Get-Item -LiteralPath $updaterStage).Length -lt 4096) {
+            throw 'GitHub вернул неполный файл апдейтера.'
+        }
+
+        $tokens = $null
+        $parseErrors = $null
+        [System.Management.Automation.Language.Parser]::ParseFile($updaterStage, [ref]$tokens, [ref]$parseErrors) | Out-Null
+        if ($parseErrors.Count -gt 0) {
+            throw ('Новая версия апдейтера не прошла проверку синтаксиса: ' + $parseErrors[0].Message)
+        }
+
+        $candidateText = Get-Content -LiteralPath $updaterStage -Raw -Encoding UTF8
+        $candidateMatch = [regex]::Match($candidateText, "(?m)^\s*\`$updaterVersion\s*=\s*'v?(\d+(?:\.\d+)+)'")
+        if (-not $candidateMatch.Success) { throw 'В загруженном файле не найдена версия апдейтера.' }
+
+        $candidateVersion = [version]$candidateMatch.Groups[1].Value
+        $installedVersion = [version]($updaterVersion.TrimStart('v'))
+        if ($candidateVersion -le $installedVersion) {
+            Remove-Item -LiteralPath $updaterStage -Force
+            return
+        }
+
+        $stamp = Get-Date -Format 'yyyyMMdd-HHmmss'
+        $backup = Join-Path $dir ("Updater.ps1.backup-{0}-{1}" -f $updaterVersion, $stamp)
+        Copy-Item -LiteralPath $scriptFile -Destination $backup -Force
+        Move-Item -LiteralPath $updaterStage -Destination $scriptFile -Force
+
+        Write-Host "Апдейтер обновлён: $updaterVersion -> v$($candidateVersion.ToString()). Открываю новую версию..." -ForegroundColor Green
+        $arguments = '-NoProfile -ExecutionPolicy Bypass -File "{0}" -SkipUpdaterCheck' -f $scriptFile
+        Start-Process -FilePath (Join-Path $PSHOME 'powershell.exe') -ArgumentList $arguments -WorkingDirectory $dir
+
+        # При запуске через старый Updater.bat закрываем только его консоль.
+        try {
+            $selfProcess = Get-CimInstance Win32_Process -Filter "ProcessId = $PID"
+            $parentProcess = Get-CimInstance Win32_Process -Filter "ProcessId = $($selfProcess.ParentProcessId)"
+            if ($parentProcess.Name -ieq 'cmd.exe' -and $parentProcess.CommandLine -match '(?i)Updater\.bat') {
+                Stop-Process -Id $parentProcess.ProcessId -Force
+            }
+        } catch {}
+        exit 0
+    }
+    catch {
+        try { if (Test-Path -LiteralPath $updaterStage) { Remove-Item -LiteralPath $updaterStage -Force } } catch {}
+        Write-Host ('Не удалось проверить или обновить апдейтер: ' + $_.Exception.Message) -ForegroundColor Red
+        Write-Host 'Скачивание сборки остановлено. Проверь интернет и запусти Updater.bat ещё раз.' -ForegroundColor Yellow
+        if (-not $Quiet) { Read-Host 'Нажми Enter для выхода' }
+        exit 1
+    }
 }
 
 function Invoke-Download($u, $out) {
@@ -504,6 +554,10 @@ function Start-NoPress {
 }
 
 # ================= ОСНОВНАЯ ЧАСТЬ =================
+if (-not $Quiet -and -not $SkipUpdaterCheck) {
+    Invoke-UpdaterSelfUpdate
+}
+
 $remoteVer = Get-RemoteVersion
 $localVer  = Get-LocalVersion
 
@@ -595,25 +649,6 @@ function Update-Pack {
         # Журнал изменений и номер версии обновляются после копирования сборки.
         Copy-Item -LiteralPath (Join-Path $src 'version.txt') -Destination $vFile -Force
 
-        # Скачиваем тяжёлые моды с Google Drive (AoA3), если их нет
-        if (-not (Test-Path -LiteralPath $modsDir)) { New-Item -ItemType Directory -Path $modsDir -Force | Out-Null }
-        foreach ($m in $driveMods) {
-            $dest = Join-Path $modsDir $m.Name
-            if (-not (Test-Path -LiteralPath $dest)) {
-                Write-Host ""
-                Write-Center ("Мод {0} не найден — качаю с Google Drive..." -f $m.Name) 'Yellow'
-                try {
-                    Invoke-Download $m.Url $dest
-                    $len = (Get-Item -LiteralPath $dest).Length
-                    if ($len -lt 102400) {
-                        Remove-Item -LiteralPath $dest -Force -ErrorAction SilentlyContinue
-                        Write-Center 'Google Drive отдал страницу ошибки, попробуй позже.' 'Red'
-                    }
-                }
-                catch { Write-Center ('Не удалось скачать ' + $m.Name + ': ' + $_.Exception.Message) 'Red' }
-            }
-        }
-
         Write-Center ("Готово! Сборка обновлена до v{0}. Миры, Xaero и QuickSkin сохранены." -f $remoteVer) 'Green'
     }
     catch {
@@ -642,7 +677,7 @@ while ($true) {
     Write-Host ""
 
     Write-Center "[1] Обновиться" 'Green'
-    Write-Center "[2] Открыть GitHub и файл" 'Cyan'
+    Write-Center "[2] Открыть GitHub сборки" 'Cyan'
     Write-Center "[3] Для тикета (фото + видео)" 'Magenta'
     Write-Center "[4] Прикол с попугаем" 'Yellow'
     Write-Center "[5] Посмотреть изменения" 'Gray'
@@ -663,8 +698,7 @@ while ($true) {
         '1' { Update-Pack }
         '2' {
             Open-WebPage $githubUrl
-            Open-WebPage $googleDriveUrl
-            Write-Center 'Открыл GitHub и файл в браузере.' 'Green'
+            Write-Center 'Открыл GitHub в браузере.' 'Green'
             Start-Sleep -Seconds 2
         }
         '3' {
