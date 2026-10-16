@@ -1,0 +1,45 @@
+{
+  "type": "create:mechanical_crafting",
+  "accept_mirrored": true,
+  "pattern": [
+    "NLLP",
+    "DMAF",
+    "  T "
+  ],
+  "key": {
+    "N": {
+      "item": "kubejs:induction_mechanism"
+    },
+    "L": {
+      "item": "createimmersivetacz:gun_barrel"
+    },
+    "P": {
+      "item": "create:precision_mechanism"
+    },
+    "D": {
+      "item": "kubejs:sealed_mechanism"
+    },
+    "M": {
+      "item": "kubejs:metal_alloy"
+    },
+    "A": {
+      "item": "kubejs:brass_frame"
+    },
+    "F": {
+      "item": "createimmersivetacz:firing_mechanism"
+    },
+    "T": {
+      "item": "createimmersivetacz:gun_trigger"
+    }
+  },
+  "result": {
+    "id": "tacz:modern_kinetic_gun",
+    "count": 1,
+    "components": {
+      "minecraft:custom_data": {
+        "GunId": "create_armorer:cannon_40mm_salamander"
+      }
+    }
+  },
+  "show_notification": false
+}

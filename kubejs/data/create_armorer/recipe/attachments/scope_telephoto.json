@@ -1,0 +1,36 @@
+{
+  "type": "create:mechanical_crafting",
+  "accept_mirrored": true,
+  "pattern": [
+    "QBQ",
+    "RPU",
+    "QBQ"
+  ],
+  "key": {
+    "Q": {
+      "item": "minecraft:quartz"
+    },
+    "B": {
+      "item": "create:brass_sheet"
+    },
+    "R": {
+      "item": "minecraft:redstone"
+    },
+    "P": {
+      "item": "create:precision_mechanism"
+    },
+    "U": {
+      "item": "create:electron_tube"
+    }
+  },
+  "result": {
+    "id": "tacz:attachment",
+    "count": 1,
+    "components": {
+      "minecraft:custom_data": {
+        "AttachmentId": "create_armorer:scope_telephoto"
+      }
+    }
+  },
+  "show_notification": false
+}

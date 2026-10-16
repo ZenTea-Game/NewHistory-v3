@@ -1,0 +1,42 @@
+{
+  "type": "create:mechanical_crafting",
+  "accept_mirrored": true,
+  "pattern": [
+    "ULLP",
+    "MEFT",
+    "    "
+  ],
+  "key": {
+    "U": {
+      "item": "create:electron_tube"
+    },
+    "L": {
+      "item": "createimmersivetacz:gun_barrel"
+    },
+    "P": {
+      "item": "create:precision_mechanism"
+    },
+    "M": {
+      "item": "kubejs:metal_alloy"
+    },
+    "E": {
+      "item": "kubejs:steel_mechanism"
+    },
+    "F": {
+      "item": "createimmersivetacz:firing_mechanism"
+    },
+    "T": {
+      "item": "createimmersivetacz:gun_trigger"
+    }
+  },
+  "result": {
+    "id": "tacz:modern_kinetic_gun",
+    "count": 1,
+    "components": {
+      "minecraft:custom_data": {
+        "GunId": "create_armorer:sniper_semi_clockwork"
+      }
+    }
+  },
+  "show_notification": false
+}

@@ -1,0 +1,32 @@
+{
+  "type": "create:mechanical_crafting",
+  "accept_mirrored": true,
+  "pattern": [
+    " R ",
+    "CGQ"
+  ],
+  "key": {
+    "R": {
+      "item": "minecraft:redstone"
+    },
+    "C": {
+      "item": "create:copper_sheet"
+    },
+    "G": {
+      "tag": "c:ingots/gold"
+    },
+    "Q": {
+      "item": "minecraft:quartz"
+    }
+  },
+  "result": {
+    "id": "tacz:attachment",
+    "count": 1,
+    "components": {
+      "minecraft:custom_data": {
+        "AttachmentId": "create_armorer:sight_standard"
+      }
+    }
+  },
+  "show_notification": false
+}

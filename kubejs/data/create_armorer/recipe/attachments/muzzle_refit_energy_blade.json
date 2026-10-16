@@ -1,0 +1,30 @@
+{
+  "type": "create:mechanical_crafting",
+  "accept_mirrored": true,
+  "pattern": [
+    " Q ",
+    "QME",
+    "   "
+  ],
+  "key": {
+    "Q": {
+      "item": "minecraft:quartz"
+    },
+    "M": {
+      "item": "kubejs:metal_alloy"
+    },
+    "E": {
+      "item": "kubejs:steel_mechanism"
+    }
+  },
+  "result": {
+    "id": "tacz:attachment",
+    "count": 1,
+    "components": {
+      "minecraft:custom_data": {
+        "AttachmentId": "create_armorer:muzzle_refit_energy_blade"
+      }
+    }
+  },
+  "show_notification": false
+}

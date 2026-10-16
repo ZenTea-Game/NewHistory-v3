@@ -1,0 +1,33 @@
+{
+  "type": "create:mechanical_crafting",
+  "accept_mirrored": true,
+  "pattern": [
+    "BB",
+    "MR",
+    "E "
+  ],
+  "key": {
+    "B": {
+      "item": "create:brass_sheet"
+    },
+    "M": {
+      "item": "kubejs:metal_alloy"
+    },
+    "R": {
+      "item": "kubejs:resine_sheet"
+    },
+    "E": {
+      "item": "kubejs:steel_mechanism"
+    }
+  },
+  "result": {
+    "id": "tacz:attachment",
+    "count": 1,
+    "components": {
+      "minecraft:custom_data": {
+        "AttachmentId": "create_armorer:extended_mag_ca_3"
+      }
+    }
+  },
+  "show_notification": false
+}

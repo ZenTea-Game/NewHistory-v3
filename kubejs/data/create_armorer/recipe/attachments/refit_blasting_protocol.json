@@ -1,0 +1,32 @@
+{
+  "type": "create:mechanical_crafting",
+  "accept_mirrored": true,
+  "pattern": [
+    "GPG",
+    "RCP"
+  ],
+  "key": {
+    "G": {
+      "item": "minecraft:gunpowder"
+    },
+    "P": {
+      "item": "minecraft:paper"
+    },
+    "R": {
+      "item": "minecraft:redstone"
+    },
+    "C": {
+      "item": "create:copper_sheet"
+    }
+  },
+  "result": {
+    "id": "tacz:attachment",
+    "count": 1,
+    "components": {
+      "minecraft:custom_data": {
+        "AttachmentId": "create_armorer:refit_blasting_protocol"
+      }
+    }
+  },
+  "show_notification": false
+}

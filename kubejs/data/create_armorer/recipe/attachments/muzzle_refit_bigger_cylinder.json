@@ -1,0 +1,30 @@
+{
+  "type": "create:mechanical_crafting",
+  "accept_mirrored": true,
+  "pattern": [
+    " B ",
+    "GAB",
+    " B "
+  ],
+  "key": {
+    "B": {
+      "item": "create:brass_sheet"
+    },
+    "G": {
+      "item": "create:large_cogwheel"
+    },
+    "A": {
+      "item": "kubejs:brass_frame"
+    }
+  },
+  "result": {
+    "id": "tacz:attachment",
+    "count": 1,
+    "components": {
+      "minecraft:custom_data": {
+        "AttachmentId": "create_armorer:muzzle_refit_bigger_cylinder"
+      }
+    }
+  },
+  "show_notification": false
+}

@@ -1,0 +1,29 @@
+{
+  "type": "create:mechanical_crafting",
+  "accept_mirrored": true,
+  "pattern": [
+    "SR",
+    " I"
+  ],
+  "key": {
+    "S": {
+      "item": "create:shaft"
+    },
+    "R": {
+      "item": "kubejs:resine_sheet"
+    },
+    "I": {
+      "item": "create:iron_sheet"
+    }
+  },
+  "result": {
+    "id": "tacz:attachment",
+    "count": 1,
+    "components": {
+      "minecraft:custom_data": {
+        "AttachmentId": "create_armorer:grip_shaft"
+      }
+    }
+  },
+  "show_notification": false
+}

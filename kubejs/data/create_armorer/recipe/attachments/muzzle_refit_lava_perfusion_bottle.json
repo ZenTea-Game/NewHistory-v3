@@ -1,0 +1,33 @@
+{
+  "type": "create:mechanical_crafting",
+  "accept_mirrored": true,
+  "pattern": [
+    " B ",
+    "GPC",
+    "   "
+  ],
+  "key": {
+    "B": {
+      "item": "minecraft:blaze_powder"
+    },
+    "G": {
+      "item": "minecraft:glass_bottle"
+    },
+    "P": {
+      "item": "minecraft:blaze_powder"
+    },
+    "C": {
+      "item": "create:copper_sheet"
+    }
+  },
+  "result": {
+    "id": "tacz:attachment",
+    "count": 1,
+    "components": {
+      "minecraft:custom_data": {
+        "AttachmentId": "create_armorer:muzzle_refit_lava_perfusion_bottle"
+      }
+    }
+  },
+  "show_notification": false
+}

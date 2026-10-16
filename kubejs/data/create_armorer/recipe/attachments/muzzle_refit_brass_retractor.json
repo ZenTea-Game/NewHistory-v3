@@ -1,0 +1,32 @@
+{
+  "type": "create:mechanical_crafting",
+  "accept_mirrored": true,
+  "pattern": [
+    " B ",
+    "CZA"
+  ],
+  "key": {
+    "B": {
+      "item": "create:brass_sheet"
+    },
+    "C": {
+      "item": "create:cogwheel"
+    },
+    "Z": {
+      "item": "kubejs:alloy_zink_brass"
+    },
+    "A": {
+      "item": "create:brass_sheet"
+    }
+  },
+  "result": {
+    "id": "tacz:attachment",
+    "count": 1,
+    "components": {
+      "minecraft:custom_data": {
+        "AttachmentId": "create_armorer:muzzle_refit_brass_retractor"
+      }
+    }
+  },
+  "show_notification": false
+}

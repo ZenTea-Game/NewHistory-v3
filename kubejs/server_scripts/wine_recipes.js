@@ -47,4 +47,11 @@ ServerEvents.recipes(event => {
     ],
     results: [{ id: 'create_alcoholic_beverages:finewinebottle' }]
   }).id('newhistory:fine_wine_bottle')
+
+  // Простой запасной рецепт бутылки вина: виден в обычной книге рецептов,
+  // даже если просмотрщик Create не показывает жидкостные рецепты.
+  event.shapeless('create_alcoholic_beverages:winebottle', [
+    'create_alcoholic_beverages:grapeitem',
+    'minecraft:glass_bottle'
+  ]).id('newhistory:wine_bottle_from_grape')
 })

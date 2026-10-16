@@ -2,15 +2,15 @@
   "materials": [
     {
       "item": {
-        "tag": "c:ingots/iron"
+        "tag": "c:gems/diamond"
       },
-      "count": 16
+      "count": 8
     },
     {
       "item": {
-        "tag": "c:ingots/gold"
+        "tag": "minecraft:planks"
       },
-      "count": 4
+      "count": 1
     }
   ],
   "result": {

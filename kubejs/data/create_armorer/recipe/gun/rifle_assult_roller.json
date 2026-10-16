@@ -1,0 +1,42 @@
+{
+  "type": "create:mechanical_crafting",
+  "accept_mirrored": true,
+  "pattern": [
+    "SLLP",
+    "SAFT",
+    "  Z "
+  ],
+  "key": {
+    "S": {
+      "item": "create:brass_sheet"
+    },
+    "L": {
+      "item": "createimmersivetacz:gun_barrel"
+    },
+    "P": {
+      "item": "create:precision_mechanism"
+    },
+    "A": {
+      "item": "kubejs:brass_frame"
+    },
+    "F": {
+      "item": "createimmersivetacz:firing_mechanism"
+    },
+    "T": {
+      "item": "createimmersivetacz:gun_trigger"
+    },
+    "Z": {
+      "item": "kubejs:alloy_zink_brass"
+    }
+  },
+  "result": {
+    "id": "tacz:modern_kinetic_gun",
+    "count": 1,
+    "components": {
+      "minecraft:custom_data": {
+        "GunId": "create_armorer:rifle_assult_roller"
+      }
+    }
+  },
+  "show_notification": false
+}

@@ -1,0 +1,29 @@
+{
+  "type": "create:mechanical_crafting",
+  "accept_mirrored": true,
+  "pattern": [
+    "SA",
+    " B"
+  ],
+  "key": {
+    "S": {
+      "item": "create:shaft"
+    },
+    "A": {
+      "item": "kubejs:brass_frame"
+    },
+    "B": {
+      "item": "create:brass_sheet"
+    }
+  },
+  "result": {
+    "id": "tacz:attachment",
+    "count": 1,
+    "components": {
+      "minecraft:custom_data": {
+        "AttachmentId": "create_armorer:grip_gantry_shaft"
+      }
+    }
+  },
+  "show_notification": false
+}
