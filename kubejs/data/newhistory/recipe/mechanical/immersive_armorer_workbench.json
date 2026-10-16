@@ -1,0 +1,32 @@
+{
+  "type": "create:mechanical_crafting",
+  "result": {
+    "components": {
+      "minecraft:custom_data": {
+        "BlockId": "immersive_armorer:workbench"
+      }
+    },
+    "id": "tacz:workbench_b",
+    "count": 1
+  },
+  "key": {
+    "P": {
+      "tag": "minecraft:planks"
+    },
+    "B": {
+      "item": "create:brass_sheet"
+    },
+    "C": {
+      "item": "create:precision_mechanism"
+    },
+    "L": {
+      "tag": "minecraft:logs"
+    }
+  },
+  "pattern": [
+    "PPP",
+    "BCB",
+    "L L"
+  ],
+  "show_notification": false
+}

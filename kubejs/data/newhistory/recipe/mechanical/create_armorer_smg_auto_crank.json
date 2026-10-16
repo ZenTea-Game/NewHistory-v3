@@ -1,0 +1,45 @@
+{
+  "type": "create:mechanical_crafting",
+  "accept_mirrored": true,
+  "pattern": [
+    "CLPS",
+    "AFTS",
+    "COSS"
+  ],
+  "key": {
+    "C": {
+      "item": "create:cogwheel"
+    },
+    "L": {
+      "item": "createimmersivetacz:gun_barrel"
+    },
+    "P": {
+      "item": "create:precision_mechanism"
+    },
+    "A": {
+      "item": "kubejs:brass_frame"
+    },
+    "F": {
+      "item": "createimmersivetacz:firing_mechanism"
+    },
+    "T": {
+      "item": "createimmersivetacz:gun_trigger"
+    },
+    "O": {
+      "item": "kubejs:copper_spool"
+    },
+    "S": {
+      "item": "create:cogwheel"
+    }
+  },
+  "result": {
+    "id": "tacz:modern_kinetic_gun",
+    "count": 1,
+    "components": {
+      "minecraft:custom_data": {
+        "GunId": "create_armorer:smg_auto_crank"
+      }
+    }
+  },
+  "show_notification": false
+}

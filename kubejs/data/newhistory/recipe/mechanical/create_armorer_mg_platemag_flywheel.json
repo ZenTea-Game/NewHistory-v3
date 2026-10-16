@@ -1,0 +1,45 @@
+{
+  "type": "create:mechanical_crafting",
+  "accept_mirrored": true,
+  "pattern": [
+    "GLLP",
+    "MEFT",
+    "  A "
+  ],
+  "key": {
+    "G": {
+      "item": "create:large_cogwheel"
+    },
+    "L": {
+      "item": "createimmersivetacz:gun_barrel"
+    },
+    "P": {
+      "item": "create:precision_mechanism"
+    },
+    "M": {
+      "item": "kubejs:metal_alloy"
+    },
+    "E": {
+      "item": "kubejs:steel_mechanism"
+    },
+    "F": {
+      "item": "createimmersivetacz:firing_mechanism"
+    },
+    "T": {
+      "item": "createimmersivetacz:gun_trigger"
+    },
+    "A": {
+      "item": "kubejs:brass_frame"
+    }
+  },
+  "result": {
+    "id": "tacz:modern_kinetic_gun",
+    "count": 1,
+    "components": {
+      "minecraft:custom_data": {
+        "GunId": "create_armorer:mg_platemag_flywheel"
+      }
+    }
+  },
+  "show_notification": false
+}

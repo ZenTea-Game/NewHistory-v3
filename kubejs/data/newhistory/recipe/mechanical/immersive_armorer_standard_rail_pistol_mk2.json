@@ -1,0 +1,41 @@
+{
+  "pattern": [
+    "  M  ",
+    "BPFTG",
+    "  E  "
+  ],
+  "key": {
+    "G": {
+      "item": "kubejs:brass_frame"
+    },
+    "F": {
+      "item": "createimmersivetacz:firing_mechanism"
+    },
+    "B": {
+      "item": "createimmersivetacz:gun_barrel"
+    },
+    "M": {
+      "item": "kubejs:metal_alloy"
+    },
+    "P": {
+      "item": "create:precision_mechanism"
+    },
+    "T": {
+      "item": "createimmersivetacz:gun_trigger"
+    },
+    "E": {
+      "item": "kubejs:steel_mechanism"
+    }
+  },
+  "type": "create:mechanical_crafting",
+  "result": {
+    "components": {
+      "minecraft:custom_data": {
+        "GunId": "immersive_armorer:standard_rail_pistol_mk2"
+      }
+    },
+    "count": 1,
+    "id": "tacz:modern_kinetic_gun"
+  },
+  "show_notification": false
+}

@@ -1,0 +1,29 @@
+{
+  "pattern": [
+    "PPP",
+    "BCB",
+    "B B"
+  ],
+  "key": {
+    "P": {
+      "tag": "minecraft:planks"
+    },
+    "B": {
+      "item": "create:brass_sheet"
+    },
+    "C": {
+      "item": "create:precision_mechanism"
+    }
+  },
+  "type": "create:mechanical_crafting",
+  "result": {
+    "components": {
+      "minecraft:custom_data": {
+        "BlockId": "create_armorer:create_workbench"
+      }
+    },
+    "count": 1,
+    "id": "tacz:workbench_b"
+  },
+  "show_notification": false
+}

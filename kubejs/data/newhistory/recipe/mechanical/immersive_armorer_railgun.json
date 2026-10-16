@@ -1,0 +1,53 @@
+{
+  "pattern": [
+    " U S ",
+    "BPIFT",
+    "MEG H"
+  ],
+  "key": {
+    "U": {
+      "item": "create:electron_tube"
+    },
+    "T": {
+      "item": "createimmersivetacz:gun_trigger"
+    },
+    "P": {
+      "item": "create:precision_mechanism"
+    },
+    "G": {
+      "item": "kubejs:brass_frame"
+    },
+    "B": {
+      "item": "createimmersivetacz:gun_barrel"
+    },
+    "I": {
+      "item": "kubejs:induction_mechanism"
+    },
+    "H": {
+      "item": "kubejs:sealed_mechanism"
+    },
+    "M": {
+      "item": "kubejs:metal_alloy"
+    },
+    "S": {
+      "item": "minecraft:redstone"
+    },
+    "F": {
+      "item": "createimmersivetacz:firing_mechanism"
+    },
+    "E": {
+      "item": "kubejs:steel_mechanism"
+    }
+  },
+  "type": "create:mechanical_crafting",
+  "result": {
+    "components": {
+      "minecraft:custom_data": {
+        "GunId": "immersive_armorer:railgun"
+      }
+    },
+    "count": 1,
+    "id": "tacz:modern_kinetic_gun"
+  },
+  "show_notification": false
+}
