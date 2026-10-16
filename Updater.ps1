@@ -14,6 +14,10 @@ $dir     = if ($PSScriptRoot) { $PSScriptRoot } else { (Get-Location).Path }
 $vFile   = Join-Path $dir 'version.txt'
 $scriptFile = Join-Path $dir 'Updater.ps1'
 $updaterStage = Join-Path $dir 'Updater.ps1.update'
+$updaterBatFile = Join-Path $dir 'Updater.bat'
+$updaterBatStage = Join-Path $dir 'Updater.bat.update'
+$checkBatFile = Join-Path $dir 'Check.bat'
+$checkBatStage = Join-Path $dir 'Check.bat.update'
 $modsDir = Join-Path $dir 'mods'
 $zip     = Join-Path $dir 'nh3_update.zip'
 $tmp     = Join-Path $dir 'nh3_extract'
@@ -22,13 +26,15 @@ $url     = "https://github.com/$repo/archive/refs/heads/$branch.zip"
 # Ссылки
 $githubUrl      = "https://github.com/$repo"
 $rawUpdaterUrl  = "https://raw.githubusercontent.com/$repo/$branch/Updater.ps1"
+$rawUpdaterBatUrl = "https://raw.githubusercontent.com/$repo/$branch/Updater.bat"
+$rawCheckBatUrl   = "https://raw.githubusercontent.com/$repo/$branch/Check.bat"
 $imageUrl       = "https://i.pinimg.com/originals/f9/2c/e8/f92ce82f251033f30b8606224b81de0b.jpg?nii=t"
 $videoUrl       = "https://www.youtube.com/watch?v=wOMFFPjGr4U"
 
 # ===== ВЕРСИИ САМИХ ФАЙЛОВ АПДЕЙТЕРА =====
-$updaterVersion = 'v14.1'
-$batVersion     = 'v14.1'
-$checkVersion   = 'v14.1'
+$updaterVersion = 'v14.2'
+$batVersion     = 'v14.2'
+$checkVersion   = 'v14.2'
 # =========================================
 
 $RainbowColors = @('Red', 'Yellow', 'Green', 'Cyan', 'Blue', 'Magenta')
@@ -121,19 +127,66 @@ function Invoke-UpdaterSelfUpdate {
 
         $candidateVersion = [version]$candidateMatch.Groups[1].Value
         $installedVersion = [version]($updaterVersion.TrimStart('v'))
-        if ($candidateVersion -le $installedVersion) {
+        if ($candidateVersion -lt $installedVersion) {
             Remove-Item -LiteralPath $updaterStage -Force
             return
         }
 
-        $stamp = Get-Date -Format 'yyyyMMdd-HHmmss'
-        $backup = Join-Path $dir ("Updater.ps1.backup-{0}-{1}" -f $updaterVersion, $stamp)
-        Copy-Item -LiteralPath $scriptFile -Destination $backup -Force
-        Move-Item -LiteralPath $updaterStage -Destination $scriptFile -Force
+        $needsScriptUpdate = $candidateVersion -gt $installedVersion
+        $needsLauncherUpdate = $false
+        foreach ($batchFile in @($updaterBatFile, $checkBatFile)) {
+            $localBatchVersion = [version]'0.0'
+            if (Test-Path -LiteralPath $batchFile) {
+                $localBatchText = Get-Content -LiteralPath $batchFile -Raw -Encoding UTF8
+                $localBatchMatch = [regex]::Match($localBatchText, '(?im)^\s*title\s+.*?v(\d+(?:\.\d+)+)\s*$')
+                if ($localBatchMatch.Success) { $localBatchVersion = [version]$localBatchMatch.Groups[1].Value }
+            }
+            if ($localBatchVersion -lt $candidateVersion) { $needsLauncherUpdate = $true }
+        }
+        if (-not $needsScriptUpdate -and -not $needsLauncherUpdate) {
+            Remove-Item -LiteralPath $updaterStage -Force
+            return
+        }
 
-        Write-Host "Апдейтер обновлён: $updaterVersion -> v$($candidateVersion.ToString()). Открываю новую версию..." -ForegroundColor Green
-        $arguments = '-NoProfile -ExecutionPolicy Bypass -File "{0}" -SkipUpdaterCheck' -f $scriptFile
-        Start-Process -FilePath (Join-Path $PSHOME 'powershell.exe') -ArgumentList $arguments -WorkingDirectory $dir
+        Invoke-WebRequest -Uri $rawUpdaterBatUrl -OutFile $updaterBatStage -Headers @{ 'User-Agent' = 'NH6-Updater' } -UseBasicParsing
+        Invoke-WebRequest -Uri $rawCheckBatUrl -OutFile $checkBatStage -Headers @{ 'User-Agent' = 'NH6-Updater' } -UseBasicParsing
+        $expectedTitle = [regex]::Escape("v$($candidateVersion.ToString())")
+        foreach ($batchStage in @($updaterBatStage, $checkBatStage)) {
+            if (-not (Test-Path -LiteralPath $batchStage) -or (Get-Item -LiteralPath $batchStage).Length -lt 32) {
+                throw 'GitHub вернул неполный BAT-файл апдейтера.'
+            }
+            $batchText = Get-Content -LiteralPath $batchStage -Raw -Encoding UTF8
+            if ($batchText -notmatch "(?im)^\s*title\s+.*$expectedTitle\s*$") {
+                throw "BAT-файл не соответствует версии v$($candidateVersion.ToString())."
+            }
+        }
+
+        $stamp = Get-Date -Format 'yyyyMMdd-HHmmss'
+        if ($needsScriptUpdate) {
+            $backup = Join-Path $dir ("Updater.ps1.backup-{0}-{1}" -f $updaterVersion, $stamp)
+            Copy-Item -LiteralPath $scriptFile -Destination $backup -Force
+        }
+        if (Test-Path -LiteralPath $updaterBatFile) {
+            if ($needsLauncherUpdate) { Copy-Item -LiteralPath $updaterBatFile -Destination (Join-Path $dir ("Updater.bat.backup-{0}-{1}" -f $updaterVersion, $stamp)) -Force }
+        }
+        if (Test-Path -LiteralPath $checkBatFile) {
+            if ($needsLauncherUpdate) { Copy-Item -LiteralPath $checkBatFile -Destination (Join-Path $dir ("Check.bat.backup-{0}-{1}" -f $updaterVersion, $stamp)) -Force }
+        }
+        if ($needsScriptUpdate) { Move-Item -LiteralPath $updaterStage -Destination $scriptFile -Force }
+        else { Remove-Item -LiteralPath $updaterStage -Force }
+        if ($needsLauncherUpdate) {
+            Move-Item -LiteralPath $updaterBatStage -Destination $updaterBatFile -Force
+            Move-Item -LiteralPath $checkBatStage -Destination $checkBatFile -Force
+        }
+
+        Write-Host "Комплект апдейтера обновлён до v$($candidateVersion.ToString()). Открываю актуальную версию..." -ForegroundColor Green
+        $arguments = '-NoProfile -ExecutionPolicy Bypass -File "{0}"' -f $scriptFile
+        $powershellExe = (Get-Process -Id $PID -ErrorAction Stop).Path
+        if (-not $powershellExe -or -not (Test-Path -LiteralPath $powershellExe)) {
+            $powershellExe = (Get-Command powershell.exe -ErrorAction SilentlyContinue).Source
+        }
+        if (-not $powershellExe) { throw 'Не найден исполняемый файл PowerShell для запуска новой версии.' }
+        Start-Process -FilePath $powershellExe -ArgumentList $arguments -WorkingDirectory $dir
 
         # При запуске через старый Updater.bat закрываем только его консоль.
         try {
@@ -146,7 +199,9 @@ function Invoke-UpdaterSelfUpdate {
         exit 0
     }
     catch {
-        try { if (Test-Path -LiteralPath $updaterStage) { Remove-Item -LiteralPath $updaterStage -Force } } catch {}
+        foreach ($stageFile in @($updaterStage, $updaterBatStage, $checkBatStage)) {
+            try { if (Test-Path -LiteralPath $stageFile) { Remove-Item -LiteralPath $stageFile -Force } } catch {}
+        }
         Write-Host ('Не удалось проверить или обновить апдейтер: ' + $_.Exception.Message) -ForegroundColor Red
         Write-Host 'Скачивание сборки остановлено. Проверь интернет и запусти Updater.bat ещё раз.' -ForegroundColor Yellow
         if (-not $Quiet) { Read-Host 'Нажми Enter для выхода' }
@@ -168,6 +223,12 @@ function Invoke-Download($u, $out) {
     $client.DefaultRequestHeaders.UserAgent.ParseAdd('NH3-Updater')
 
     $response = $client.GetAsync($u, [System.Net.Http.HttpCompletionOption]::ResponseHeadersRead).GetAwaiter().GetResult()
+    if (-not $response.IsSuccessStatusCode) {
+        $statusCode = [int]$response.StatusCode
+        $response.Dispose()
+        $client.Dispose()
+        throw "GitHub вернул HTTP $statusCode при скачивании архива."
+    }
     $totalBytes = $response.Content.Headers.ContentLength
 
     if ($null -ne $totalBytes -and $totalBytes -gt 0) {
@@ -244,6 +305,7 @@ function Invoke-Download($u, $out) {
         $fileStream.Flush()
         $fileStream.Close()
         $contentStream.Close()
+        $response.Dispose()
         $client.Dispose()
     }
 
@@ -261,13 +323,44 @@ function Update-OtherMods {
         Add-Type -AssemblyName System.IO.Compression.FileSystem
         [System.IO.Compression.ZipFile]::ExtractToDirectory($zip, $tmp)
         $src = (Get-ChildItem -Path $tmp -Directory | Select-Object -First 1).FullName
+        if (-not $src) { throw 'В архиве GitHub не найдена папка сборки.' }
         $srcMods = Join-Path $src 'mods'
+        if (-not (Test-Path -LiteralPath $srcMods) -or -not (Get-ChildItem -LiteralPath $srcMods -Filter '*.jar' -File)) {
+            throw 'В архиве GitHub нет JAR-файлов в папке mods; текущая папка не изменена.'
+        }
+
+        # AoA3 больше не входит в сборку. Удаляем его из временного источника,
+        # чтобы он не вернулся из старого архива или при повторном запуске.
+        Get-ChildItem -LiteralPath $srcMods -Recurse -File | Where-Object {
+            $_.Name -match '(?i)(aoa3|advent.?of.?ascension|nevermine)'
+        } | Remove-Item -Force
+        if (-not (Get-ChildItem -LiteralPath $srcMods -Filter '*.jar' -File)) {
+            throw 'После исключения AoA3 в архиве не осталось модов; текущая папка не изменена.'
+        }
+
+        # Сторонние моды сохраняем отдельно: они не остаются активными и не
+        # возвращают старые версии в папку, которую загружает Minecraft.
+        if (Test-Path -LiteralPath $modsDir) {
+            $sourceNames = @((Get-ChildItem -LiteralPath $srcMods -Filter '*.jar' -File).Name)
+            $extraMods = Get-ChildItem -LiteralPath $modsDir -Filter '*.jar' -File | Where-Object {
+                $_.Name -notin $sourceNames -and $_.Name -notmatch '(?i)(aoa3|advent.?of.?ascension|nevermine)'
+            }
+            if ($extraMods) {
+                $backupMods = Join-Path $dir ('mods-local-backup-' + (Get-Date -Format 'yyyyMMdd-HHmmss'))
+                New-Item -ItemType Directory -Path $backupMods -Force | Out-Null
+                foreach ($mod in $extraMods) { Copy-Item -LiteralPath $mod.FullName -Destination $backupMods -Force }
+            }
+        }
 
         if (-not (Test-Path -LiteralPath $modsDir)) { New-Item -ItemType Directory -Path $modsDir -Force | Out-Null }
-        Write-Center 'Обновляю папку модов (сохраняю локальные моды)...' 'Yellow'
-        robocopy $srcMods $modsDir /E /R:1 /W:1 /NFL /NDL /NJH /NJS | Out-Null
+        Write-Center 'Синхронизирую папку модов и убираю устаревшие JAR из активной сборки...' 'Yellow'
+        $modArgs = @($srcMods, $modsDir, '/MIR', '/R:1', '/W:1', '/NFL', '/NDL', '/NJH', '/NJS')
+        Invoke-RobocopyChecked $modArgs 'mods'
+        if (Get-ChildItem -LiteralPath $modsDir -Recurse -File | Where-Object {
+            $_.Name -match '(?i)(aoa3|advent.?of.?ascension|nevermine)'
+        }) { throw 'AoA3 остался в активной папке mods после синхронизации.' }
 
-        Write-Center 'Моды обновлены!' 'Green'
+        Write-Center 'Моды синхронизированы. AoA3 удалён из активной папки.' 'Green'
     }
     catch {
         Write-Center ('Ошибка: ' + $_.Exception.Message) 'Red'
@@ -566,7 +659,7 @@ function Start-NoPress {
 if (-not $Quiet) {
     Remove-LegacyUpdaterFiles
 }
-if (-not $Quiet -and -not $SkipUpdaterCheck) {
+if (-not $Quiet) {
     Invoke-UpdaterSelfUpdate
 }
 
@@ -627,6 +720,16 @@ function Update-Pack {
             -not (Test-Path -LiteralPath (Join-Path $src 'Updater.ps1'))) {
             throw 'Архив GitHub не прошёл проверку: не найдены version.txt или Updater.ps1.'
         }
+        $srcMods = Join-Path $src 'mods'
+        if (-not (Test-Path -LiteralPath $srcMods) -or -not (Get-ChildItem -LiteralPath $srcMods -Filter '*.jar' -File)) {
+            throw 'Архив GitHub не содержит JAR-файлы mods; обновление остановлено до изменения сборки.'
+        }
+        Get-ChildItem -LiteralPath $srcMods -Recurse -File | Where-Object {
+            $_.Name -match '(?i)(aoa3|advent.?of.?ascension|nevermine)'
+        } | Remove-Item -Force
+        if (-not (Get-ChildItem -LiteralPath $srcMods -Filter '*.jar' -File)) {
+            throw 'После исключения AoA3 в архиве не осталось модов; обновление остановлено.'
+        }
 
         # Не зеркалим корень: /MIR удалял всё, чего нет в GitHub, включая
         # миры, сохранённые точки/тайлы Xaero и данные QuickSkin.
@@ -635,7 +738,7 @@ function Update-Pack {
             'downloads', 'saves', 'server-resource-packs', 'xaero', 'XaeroWaypoints',
             'XaeroWorldMap', 'XaeroMinimap', 'XaeroWaypoints_BACKUP*',
             'Distant_Horizons_server_data', 'quickskin', 'QuickSkin', 'quick-skin',
-            'mods', 'tacz', 'kubejs', 'nh3_extract'
+            'mods', 'mods-local-backup*', 'tacz', 'kubejs', 'nh3_extract'
         )
         $rootArgs = @($src, $dir, '/E', '/R:1', '/W:1', '/NFL', '/NDL', '/NJH', '/NJS', '/XD') +
             $preserveDirs + @('/XF', 'version.txt', 'token.txt', 'options.txt', 'optionsof.txt',
@@ -650,6 +753,17 @@ function Update-Pack {
             $sourceFolder = Join-Path $src $folder
             $targetFolder = Join-Path $dir $folder
             if (Test-Path -LiteralPath $sourceFolder) {
+                if ($folder -eq 'mods' -and (Test-Path -LiteralPath $targetFolder)) {
+                    $sourceNames = @((Get-ChildItem -LiteralPath $sourceFolder -Filter '*.jar' -File).Name)
+                    $extraMods = Get-ChildItem -LiteralPath $targetFolder -Filter '*.jar' -File | Where-Object {
+                        $_.Name -notin $sourceNames -and $_.Name -notmatch '(?i)(aoa3|advent.?of.?ascension|nevermine)'
+                    }
+                    if ($extraMods) {
+                        $backupMods = Join-Path $dir ('mods-local-backup-' + (Get-Date -Format 'yyyyMMdd-HHmmss'))
+                        New-Item -ItemType Directory -Path $backupMods -Force | Out-Null
+                        foreach ($mod in $extraMods) { Copy-Item -LiteralPath $mod.FullName -Destination $backupMods -Force }
+                    }
+                }
                 if (-not (Test-Path -LiteralPath $targetFolder)) {
                     New-Item -ItemType Directory -Path $targetFolder -Force | Out-Null
                 }
