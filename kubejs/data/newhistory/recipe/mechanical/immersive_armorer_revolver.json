@@ -37,5 +37,6 @@
     "count": 1,
     "id": "tacz:modern_kinetic_gun"
   },
-  "show_notification": false
+  "show_notification": false,
+  "accept_mirrored": true
 }

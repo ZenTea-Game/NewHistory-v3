@@ -25,5 +25,6 @@
     "count": 1,
     "id": "tacz:workbench_b"
   },
-  "show_notification": false
+  "show_notification": false,
+  "accept_mirrored": true
 }

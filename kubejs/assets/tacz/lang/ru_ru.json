@@ -1,0 +1,7 @@
+{
+  "tacz.block.gun_smith_table.name": "Оружейный стол TaCZ",
+  "tacz.block.gun_smith_table.desc": "Собирайте оружие на механическом сборщике",
+  "tacz.block.ammo_workbench.name": "Стол сборки боеприпасов TaCZ",
+  "tacz.block.attachment_workbench.name": "Стол для обвесов TaCZ",
+  "block.tacz.gun_smith_table": "Оружейный стол TaCZ"
+}

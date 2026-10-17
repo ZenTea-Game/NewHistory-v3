@@ -28,5 +28,6 @@
     "BCB",
     "L L"
   ],
-  "show_notification": false
+  "show_notification": false,
+  "accept_mirrored": true
 }

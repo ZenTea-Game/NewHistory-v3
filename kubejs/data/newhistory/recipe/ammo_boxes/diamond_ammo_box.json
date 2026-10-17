@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SDS",
+    "BFB",
+    "SDS"
+  ],
+  "key": {
+    "S": {
+      "item": "create:sturdy_sheet"
+    },
+    "D": {
+      "tag": "c:gems/diamond"
+    },
+    "B": {
+      "item": "kubejs:brass_frame"
+    },
+    "F": {
+      "item": "sophisticatedbackpacks:upgrade_base"
+    }
+  },
+  "result": {
+    "id": "tacz:ammo_box",
+    "components": {
+      "minecraft:custom_data": "{Level: 2}"
+    }
+  }
+}

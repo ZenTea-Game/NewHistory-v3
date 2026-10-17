@@ -1,0 +1,22 @@
+{
+  "type": "create:mechanical_crafting",
+  "accept_mirrored": true,
+  "pattern": [
+    "AAAAAA   "
+  ],
+  "key": {
+    "A": {
+      "tag": "c:ingots/iron"
+    }
+  },
+  "result": {
+    "id": "tacz:attachment",
+    "count": 1,
+    "components": {
+      "minecraft:custom_data": {
+        "AttachmentId": "immersive_armorer:muzzle_extended_barrel"
+      }
+    }
+  },
+  "show_notification": false
+}

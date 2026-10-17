@@ -11,9 +11,6 @@
     "T": {
       "item": "createimmersivetacz:gun_trigger"
     },
-    "P": {
-      "item": "create:precision_mechanism"
-    },
     "G": {
       "item": "kubejs:brass_frame"
     },
@@ -49,5 +46,6 @@
     "count": 1,
     "id": "tacz:modern_kinetic_gun"
   },
-  "show_notification": false
+  "show_notification": false,
+  "accept_mirrored": true
 }

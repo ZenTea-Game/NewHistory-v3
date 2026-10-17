@@ -1,0 +1,25 @@
+{
+  "type": "create:mechanical_crafting",
+  "accept_mirrored": true,
+  "pattern": [
+    "ABBBBBB  "
+  ],
+  "key": {
+    "A": {
+      "item": "tacz:attachment"
+    },
+    "B": {
+      "tag": "c:strings"
+    }
+  },
+  "result": {
+    "id": "tacz:attachment",
+    "count": 1,
+    "components": {
+      "minecraft:custom_data": {
+        "AttachmentId": "immersive_armorer:grip_twined"
+      }
+    }
+  },
+  "show_notification": false
+}
